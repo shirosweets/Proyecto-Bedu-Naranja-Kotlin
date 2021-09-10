@@ -2,7 +2,6 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -10,34 +9,32 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
     private lateinit var txtEmail : EditText
     private lateinit var txtPassword : EditText
-    private lateinit var btnIniciarSesion : Button
-    private lateinit var btnRegistrarse : Button
+    private lateinit var btnLogIn : Button
+    private lateinit var btnCheckIn : Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         txtEmail = findViewById(R.id.txtEmail)
         txtPassword= findViewById(R.id.txtPassword)
-        btnIniciarSesion= findViewById(R.id.buttonIniciarSesion)
-        btnRegistrarse= findViewById(R.id.buttonRegistrarse)
-
-        txtEmail.nextFocusDownId
-        txtPassword.nextFocusDownId
+        btnLogIn= findViewById(R.id.buttonLogIn)
+        btnCheckIn= findViewById(R.id.buttonCheckIn)
 
 
-        btnIniciarSesion.setOnClickListener{
+        btnLogIn.setOnClickListener{
             if(!txtEmail.text.isEmpty() && !txtPassword.text.isEmpty()){
-                val aviso1 = Toast.makeText(applicationContext,"¡Bienvenido ${txtEmail.getText()}!",Toast.LENGTH_SHORT)
-                aviso1.show()}
+                val noticeWelcome = Toast.makeText(applicationContext,"¡Bienvenido ${txtEmail.getText()}!",Toast.LENGTH_SHORT)
+                noticeWelcome.show()}
             else{
-                val aviso2 = Toast.makeText(applicationContext,"Por favor, complete todos los campos",Toast.LENGTH_SHORT)
-                aviso2.show()}
+                val noticeIncompleteFields = Toast.makeText(applicationContext,getString(R.string.noticeIncompleteFields),Toast.LENGTH_SHORT)
+                noticeIncompleteFields.show()}
         }
 
-        btnRegistrarse.setOnClickListener{
-            val aviso=Toast.makeText(applicationContext,getString(R.string.registrarse),Toast.LENGTH_SHORT)
-            aviso.show()
+        btnCheckIn.setOnClickListener{
+            val noticeCheckIn=Toast.makeText(applicationContext,getString(R.string.noticeCheckIn),Toast.LENGTH_SHORT)
+            noticeCheckIn.show()
         }
 
     }
