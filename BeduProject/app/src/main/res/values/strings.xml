@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Bedu shop</string>
+
+    <!--Text hint-->
+    <string name="emailHint">Correo electrónico</string>
+    <string name="passwordHint">Contraseña</string>
+
+    <!--Buttons-->
+    <string name="logInButton">Iniciar sesión</string>
+    <string name="checkInButton">Registrate aquí</string>
+
+
+    <!--Notices-->
+    <string name="noticeCheckIn">Registrarse...</string>
+    <string name="noticeIncompleteFields">Por favor, complete todos los campos</string>
+
+
+</resources>
