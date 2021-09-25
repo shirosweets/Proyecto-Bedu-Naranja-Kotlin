@@ -11,9 +11,8 @@
         android:id="@+id/materialTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Regístrate"
-        android:textSize="24dp"
-        android:textStyle="bold"
+        android:text="@string/reg_fragment_title"
+        android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/google_sign_in_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="4dp"
+        android:textColor="@color/white"
         android:text="_____"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/separator3"
@@ -50,6 +50,7 @@
         android:layout_height="19dp"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="4dp"
+        android:textColor="@color/white"
         android:text="_____"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,6 +61,7 @@
         android:id="@+id/separator3"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
+        android:textColor="@color/white"
         android:text="o"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/separator2"
@@ -78,7 +80,7 @@
         android:id="@+id/user"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:hint="Usuario"
+        android:hint="@string/hint_name"
         app:layout_constraintBottom_toTopOf="@+id/formEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -88,6 +90,9 @@
         app:layout_constraintVertical_chainStyle="packed">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:drawableStart="@drawable/ic_person"
+            android:drawablePadding="10dp"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -101,7 +106,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="Correo Electrónico"
+        android:hint="@string/hint_email"
         app:layout_constraintBottom_toTopOf="@+id/formPhoneNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -109,6 +114,9 @@
         app:layout_constraintTop_toBottomOf="@+id/user">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -122,7 +130,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="Teléfono"
+        android:hint="@string/hint_phone"
         app:layout_constraintBottom_toTopOf="@+id/formPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -130,6 +138,9 @@
         app:layout_constraintTop_toBottomOf="@+id/formEmail">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:textColor="@color/white"
+            android:drawableStart="@drawable/ic_phone"
+            android:drawablePadding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
@@ -143,7 +154,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="Contraseña"
+        android:hint="@string/hint_password"
         app:passwordToggleEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -152,6 +163,9 @@
         app:layout_constraintTop_toBottomOf="@+id/formPhoneNumber">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="10dp"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -164,7 +178,7 @@
         android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrarse"
+        android:text="@string/register_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

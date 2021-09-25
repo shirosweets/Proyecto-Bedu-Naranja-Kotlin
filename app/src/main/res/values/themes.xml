@@ -24,6 +24,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:textViewStyle">@style/beduTextView</item>
         <item name="textInputStyle">@style/TextInputLayout</item>
 <!--        <item name="editTextStyle">@style/EditText</item>-->
         <item name="materialButtonStyle">@style/MaterialButtonStyle</item>
@@ -38,14 +39,18 @@
         <item name="android:textColorHint">@color/lightGray</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="boxStrokeColor">?attr/colorAccent</item>
-        <item name="passwordToggleTint">@color/gray</item>
+        <item name="passwordToggleTint">@color/lightGray</item>
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="MaterialButtonStyle" parent="Widget.MaterialComponents.Button">">
-        <item name="backgroundColor">@color/secondaryColor</item>
+        <item name="backgroundTint">@color/secondaryColor</item>
     </style>
-    <style name="EditText" parent="Widget.AppCompat.EditText">
+    <style name="beduEditText" parent="Widget.AppCompat.EditText">
         <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="beduTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>
