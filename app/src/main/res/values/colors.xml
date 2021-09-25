@@ -10,4 +10,13 @@
     <color name="orange">#F03C15</color>
     <color name="opaque">#172126</color>
     <color name="gray">#333333</color>
+    <color name="lightGray">#B3B3B3</color>
+    <color name="primaryColor">#172126</color>
+    <color name="primaryLightColor">#3e484e</color>
+    <color name="primaryDarkColor">#000000</color>
+    <color name="secondaryColor">#f03c15</color>
+    <color name="secondaryLightColor">#ff7244</color>
+    <color name="secondaryDarkColor">#b50000</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#000000</color>
 </resources>

@@ -11,18 +11,41 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.BeduShop" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="textInputStyle">@style/TextInputLayout</item>
+<!--        <item name="editTextStyle">@style/EditText</item>-->
+        <item name="materialButtonStyle">@style/MaterialButtonStyle</item>
+    </style>
+
     <style name="HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
     <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="hintTextAppearance">@style/HintText</item>
         <item name="hintTextColor">?attr/colorAccent</item>
-        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:textColorHint">@color/lightGray</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="boxStrokeColor">?attr/colorAccent</item>
         <item name="passwordToggleTint">@color/gray</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="MaterialButtonStyle" parent="Widget.MaterialComponents.Button">">
+        <item name="backgroundColor">@color/secondaryColor</item>
+    </style>
+    <style name="EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

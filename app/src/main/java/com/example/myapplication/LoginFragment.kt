@@ -6,13 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputLayout
 
 class LoginFragment : Fragment() {
-    private lateinit var txtEmail : EditText
-    private lateinit var txtPassword : EditText
-    private lateinit var btnLogIn : Button
+    private lateinit var txtEmail : TextInputLayout
+    private lateinit var txtPassword : TextInputLayout
+    private lateinit var btnLogIn : MaterialButton
     private lateinit var btnCheckIn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,15 +23,18 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        txtEmail = view.findViewById(R.id.txtEmail)
-        txtPassword= view.findViewById(R.id.txtPassword)
+        txtEmail = view.findViewById(R.id.loginFormEmail)
+        txtPassword= view.findViewById(R.id.loginFormPassword)
         btnLogIn= view.findViewById(R.id.buttonLogIn)
         btnCheckIn= view.findViewById(R.id.buttonCheckIn)
 
 
         btnLogIn.setOnClickListener{
-            if(!txtEmail.text.isEmpty() && txtPassword.text.isNotEmpty()){
-                val noticeWelcome = Toast.makeText(this.context,"¡Bienvenido ${txtEmail.getText()}!",
+            val emailNotEmpty: Boolean = txtEmail.editText?.text.isNullOrEmpty()
+            val passNotEmpty: Boolean = txtEmail.editText?.text.isNullOrEmpty()
+
+            if(emailNotEmpty && passNotEmpty){
+                val noticeWelcome = Toast.makeText(this.context,"¡Bienvenido!",
                     Toast.LENGTH_SHORT)
                 noticeWelcome.show()}
             else{
@@ -39,9 +44,7 @@ class LoginFragment : Fragment() {
         }
 
         btnCheckIn.setOnClickListener{
-            val noticeCheckIn=
-                Toast.makeText(this.context,getString(R.string.noticeCheckIn), Toast.LENGTH_SHORT)
-            noticeCheckIn.show()
+            findNavController().navigate(R.id.action_loginFragment2_to_registerFragment2, null)
         }
     }
 

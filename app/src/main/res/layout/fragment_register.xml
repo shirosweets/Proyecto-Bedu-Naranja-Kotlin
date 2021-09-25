@@ -6,29 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".RegisterFragment">
 
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/materialTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
         android:text="Regístrate"
         android:textSize="24dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/google_sign_in_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.671" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/google_sign_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
         app:colorScheme="dark"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.708" />
 
     <TextView
         android:id="@+id/separator1"
@@ -70,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.47" />
+        app:layout_constraintGuide_percent="0.32" />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -110,7 +111,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:maxLines="1"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="547dp" />
@@ -131,7 +132,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="phone"
             android:maxLines="1"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="547dp" />
@@ -143,6 +144,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="Contraseña"
+        app:passwordToggleEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -152,7 +154,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:maxLines="1"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="547dp" />
