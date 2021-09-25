@@ -13,4 +13,16 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="hintTextColor">?attr/colorAccent</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="boxStrokeColor">?attr/colorAccent</item>
+        <item name="passwordToggleTint">@color/gray</item>
+    </style>
+
 </resources>
