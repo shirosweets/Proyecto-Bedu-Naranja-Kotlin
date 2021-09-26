@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
@@ -16,6 +17,12 @@ import java.io.IOException
 
 class ShoppingCartFragment : Fragment() {
     private lateinit var recycler: RecyclerView
+    private val detailTransitionOption = navOptions {
+        anim {
+            enter = R.anim.slide_in_right
+            exit = R.anim.slide_out_left
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +38,7 @@ class ShoppingCartFragment : Fragment() {
 
         val clickListener: (Product) -> Unit = {
             val action = ShoppingCartFragmentDirections.actionShoppingCartFragmentToProductDetailFragment(it)
-            Navigation.findNavController(view).navigate(action)
+            Navigation.findNavController(view).navigate(action, detailTransitionOption)
         }
 
         recycler.adapter = ProductAdapter(view, clickListener, getProducts(requireContext()))

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 
@@ -16,6 +17,18 @@ class LoginFragment : Fragment() {
     private lateinit var loginFormPassword : TextInputLayout
     private lateinit var loginButton : MaterialButton
     private lateinit var registerRedirectBtn : Button
+    private val registerTransitionOpt = navOptions {
+        anim {
+            enter = R.anim.slide_in_right
+            exit = R.anim.slide_out_left
+        }
+    }
+    private val loginSuccessTransitionOpt = navOptions {
+        anim {
+            enter = R.anim.slide_in_down
+            exit = R.anim.slide_out_up
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +53,11 @@ class LoginFragment : Fragment() {
                     "¡Bienvenido!",
                     Toast.LENGTH_SHORT
                 ).show()
-                findNavController().navigate(R.id.action_loginFragment2_to_menuActivity)
+                findNavController().navigate(
+                    R.id.action_loginFragment2_to_menuActivity,
+                    null,
+                    loginSuccessTransitionOpt
+                )
             }
             else{
                 Toast.makeText(
@@ -51,7 +68,11 @@ class LoginFragment : Fragment() {
         }
 
         registerRedirectBtn.setOnClickListener{
-            findNavController().navigate(R.id.action_loginFragment2_to_registerFragment2, null)
+            findNavController().navigate(
+                R.id.action_loginFragment2_to_registerFragment2,
+                null,
+                registerTransitionOpt
+            )
         }
     }
 

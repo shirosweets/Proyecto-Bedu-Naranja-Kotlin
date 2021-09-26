@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 
@@ -16,6 +17,12 @@ class RegisterFragment : Fragment() {
     private lateinit var regFormEmail : TextInputLayout
     private lateinit var regFormPhone : TextInputLayout
     private lateinit var regFormPassword : TextInputLayout
+    private val transitionOptions = navOptions {
+        anim {
+            enter = R.anim.slide_in_left
+            exit = R.anim.slide_out_right
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +37,7 @@ class RegisterFragment : Fragment() {
     }
 
     private val isFormValid: () -> Boolean = {
+        true ||
         !(regFormUser.editText?.text.isNullOrEmpty() &&
         regFormEmail.editText?.text.isNullOrEmpty() &&
         regFormPhone.editText?.text.isNullOrEmpty() &&
@@ -47,7 +55,9 @@ class RegisterFragment : Fragment() {
         registerButton.setOnClickListener {
             if(isFormValid()) {
                 findNavController().navigate(
-                    R.id.action_registerFragment2_to_loginFragment2
+                    R.id.action_registerFragment2_to_loginFragment2,
+                    null,
+                    transitionOptions
                 )
             } else {
                 Toast.makeText(

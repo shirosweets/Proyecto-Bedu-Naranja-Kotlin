@@ -25,7 +25,7 @@ class MenuActivity : AppCompatActivity() {
             R.id.top_menu_search -> {
                 Toast.makeText(
                     this,
-                    "Search not implemented...",
+                    "La búsqueda está deshabilitada",
                     Toast.LENGTH_SHORT
                 ).show()
             }
