@@ -19,9 +19,10 @@
                 android:id="@+id/product_detail_new"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="16dp"
                 android:text="Nuevo"
+                android:textColor="@color/lightGray"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,6 +34,7 @@
                 android:text="Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED"
                 android:textSize="18dp"
                 android:textStyle="bold"
+                android:textColor="@color/gray"
                 app:layout_constraintEnd_toStartOf="@+id/guideline5"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_new" />
@@ -79,6 +81,7 @@
                 android:layout_marginTop="32dp"
                 android:text="$ 999.99"
                 android:textSize="30dp"
+                android:textColor="@color/green"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_image" />
@@ -89,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:text="En 6 meses sin intereses"
+                style="@style/textViewBlack"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_price" />
 
@@ -99,6 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:text="de $100"
+                android:textColor="@color/lightGray"
                 app:layout_constraintBottom_toBottomOf="@+id/product_detail_amout_payments"
                 app:layout_constraintStart_toEndOf="@+id/product_detail_amout_payments"
                 app:layout_constraintTop_toTopOf="@+id/product_detail_amout_payments" />
@@ -112,6 +117,7 @@
                 android:drawableStart="@drawable/ic_location"
                 android:drawablePadding="5dp"
                 android:text="Disponible en tu domicilio"
+                style="@style/textViewBlack"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_amout_payments" />
 
@@ -124,6 +130,7 @@
                 android:drawableStart="@drawable/ic_car"
                 android:drawablePadding="5dp"
                 android:text="Entrega Mañana"
+                style="@style/textViewBlack"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_shipping" />
 
@@ -144,6 +151,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:text="Description \nYour perfect pack for everyday use and walks in the forest.\nStash your laptop(up to 15 inches) in the padded sleeve. Ya everyday"
+                style="@style/textViewBlack"
                 app:layout_constraintEnd_toStartOf="@+id/guideline5"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"

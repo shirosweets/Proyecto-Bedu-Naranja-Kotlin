@@ -47,11 +47,6 @@ class LoginFragment : Fragment() {
             val passNotEmpty: Boolean = !loginFormUser.editText?.text.isNullOrEmpty()
 
             if(emailNotEmpty && passNotEmpty){
-                Toast.makeText(
-                    it.context,
-                    "¡Bienvenido!",
-                    Toast.LENGTH_SHORT
-                ).show()
                 findNavController().navigate(
                     R.id.action_loginFragment2_to_menuActivity,
                     null,
