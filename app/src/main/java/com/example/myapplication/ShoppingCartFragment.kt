@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
@@ -27,7 +29,10 @@ class ShoppingCartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recycler = view.findViewById(R.id.productRecyclerView)
 
-        val clickListener: (Product) -> Unit = {}
+        val clickListener: (Product) -> Unit = {
+            val action = ShoppingCartFragmentDirections.actionShoppingCartFragmentToProductDetailFragment(it)
+            Navigation.findNavController(view).navigate(action)
+        }
 
         recycler.adapter = ProductAdapter(view, clickListener, getProducts(requireContext()))
         recycler.layoutManager = LinearLayoutManager(activity)
