@@ -21,6 +21,9 @@
     <string name="hint_phone">Teléfono</string>
     <string name="hint_password">Contraseña</string>
     <string name="register_button">Registrarse</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_shopping_cart">Carrito</string>
+    <string name="menu_profile">Perfil</string>
 
 
 </resources>

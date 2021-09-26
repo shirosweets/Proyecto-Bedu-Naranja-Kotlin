@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_loginFragment2_to_registerFragment2"
             app:destination="@id/registerFragment2" />
+        <action
+            android:id="@+id/action_loginFragment2_to_menuActivity"
+            app:destination="@id/menuActivity" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment2"
@@ -22,4 +25,9 @@
             android:id="@+id/action_registerFragment2_to_loginFragment2"
             app:destination="@id/loginFragment2" />
     </fragment>
+    <activity
+        android:id="@+id/menuActivity"
+        android:name="com.example.myapplication.MenuActivity"
+        android:label="activity_menu"
+        tools:layout="@layout/activity_menu" />
 </navigation>
