@@ -12,10 +12,10 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 
 class LoginFragment : Fragment() {
-    private lateinit var txtEmail : TextInputLayout
-    private lateinit var txtPassword : TextInputLayout
-    private lateinit var btnLogIn : MaterialButton
-    private lateinit var btnCheckIn : Button
+    private lateinit var loginFormUser : TextInputLayout
+    private lateinit var loginFormPassword : TextInputLayout
+    private lateinit var loginButton : MaterialButton
+    private lateinit var registerRedirectBtn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,27 +23,33 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        txtEmail = view.findViewById(R.id.loginFormEmail)
-        txtPassword= view.findViewById(R.id.loginFormPassword)
-        btnLogIn= view.findViewById(R.id.buttonLogIn)
-        btnCheckIn= view.findViewById(R.id.buttonCheckIn)
+        loginFormUser = view.findViewById(R.id.loginFormEmail)
+        loginFormPassword= view.findViewById(R.id.loginFormPassword)
+        loginButton= view.findViewById(R.id.buttonLogIn)
+        registerRedirectBtn= view.findViewById(R.id.buttonCheckIn)
 
 
-        btnLogIn.setOnClickListener{
-            val emailNotEmpty: Boolean = txtEmail.editText?.text.isNullOrEmpty()
-            val passNotEmpty: Boolean = txtEmail.editText?.text.isNullOrEmpty()
+        loginButton.setOnClickListener{
+            val emailNotEmpty: Boolean = !loginFormUser.editText?.text.isNullOrEmpty()
+            val passNotEmpty: Boolean = !loginFormUser.editText?.text.isNullOrEmpty()
 
             if(emailNotEmpty && passNotEmpty){
-                val noticeWelcome = Toast.makeText(this.context,"¡Bienvenido!",
-                    Toast.LENGTH_SHORT)
-                noticeWelcome.show()}
+                Toast.makeText(
+                    it.context,
+                    "¡Bienvenido!",
+                    Toast.LENGTH_SHORT
+                ).show()
+                findNavController().navigate(R.id.action_loginFragment2_to_menuActivity)
+            }
             else{
-                val noticeIncompleteFields = Toast.makeText(this.context,getString(R.string.noticeIncompleteFields),
-                    Toast.LENGTH_SHORT)
-                noticeIncompleteFields.show()}
+                Toast.makeText(
+                    it.context,getString(R.string.noticeIncompleteFields),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
-        btnCheckIn.setOnClickListener{
+        registerRedirectBtn.setOnClickListener{
             findNavController().navigate(R.id.action_loginFragment2_to_registerFragment2, null)
         }
     }
