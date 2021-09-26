@@ -46,8 +46,7 @@ class LoginFragment : Fragment() {
             val emailNotEmpty: Boolean = !loginFormUser.editText?.text.isNullOrEmpty()
             val passNotEmpty: Boolean = !loginFormUser.editText?.text.isNullOrEmpty()
 
-            // FIX THIS
-            if(true){
+            if(emailNotEmpty && passNotEmpty){
                 Toast.makeText(
                     it.context,
                     "¡Bienvenido!",

@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
+import android.widget.*
 import androidx.navigation.fragment.navArgs
 import com.squareup.picasso.Picasso
 import org.w3c.dom.Text
@@ -42,6 +39,13 @@ class ProductDetailFragment : Fragment() {
         detSplitPayments = view.findViewById(R.id.product_detail_split_payment)
         detAddToCartBtn = view.findViewById(R.id.product_detail_add_to_cart_button)
         detDescription = view.findViewById(R.id.product_detail_description)
+        detAddToCartBtn.setOnClickListener {
+            Toast.makeText(
+                it.context,
+                "Se agregó al carrito:\n\n${args.product.title}",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
         showProduct(args.product)
     }
 

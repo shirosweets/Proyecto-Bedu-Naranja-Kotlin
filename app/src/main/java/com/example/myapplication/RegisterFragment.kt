@@ -37,10 +37,9 @@ class RegisterFragment : Fragment() {
     }
 
     private val isFormValid: () -> Boolean = {
-        true ||
-        !(regFormUser.editText?.text.isNullOrEmpty() &&
-        regFormEmail.editText?.text.isNullOrEmpty() &&
-        regFormPhone.editText?.text.isNullOrEmpty() &&
+        !(regFormUser.editText?.text.isNullOrEmpty() ||
+        regFormEmail.editText?.text.isNullOrEmpty() ||
+        regFormPhone.editText?.text.isNullOrEmpty() ||
         regFormPassword.editText?.text.isNullOrEmpty())
     }
 
