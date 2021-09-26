@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,9 @@ import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.IOException
 
 class MenuActivity : AppCompatActivity() {
     private val helpUrl = "https://www.bedu.org/"
@@ -52,5 +56,32 @@ class MenuActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         menuNavigationBottom.setupWithNavController(navController)
+        products = getProducts(this)
+    }
+
+    private fun getJsonDataFromAsset(context: Context, fileName: String = "products.json"): String? {
+        val jsonString: String
+        try {
+            jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
+        } catch (ioException: IOException) {
+            ioException.printStackTrace()
+            return null
+        }
+        return jsonString
+    }
+
+    private fun getProducts(context: Context): List<Product> {
+        val jsonString = getJsonDataFromAsset(context)
+        val listProductType = object : TypeToken<List<Product>>() {}.type
+        val ret: List<Product> =  Gson().fromJson(jsonString, listProductType)
+        ret.forEach {
+            it.rating = (3..5).random().toFloat()
+            it.votes = (10..999).random()
+        }
+        return ret
+    }
+
+    companion object {
+        var products: List<Product> = listOf()
     }
 }

@@ -41,24 +41,7 @@ class ShoppingCartFragment : Fragment() {
             Navigation.findNavController(view).navigate(action, detailTransitionOption)
         }
 
-        recycler.adapter = ProductAdapter(view, clickListener, getProducts(requireContext()))
+        recycler.adapter = ProductAdapter(view, clickListener, MenuActivity.products)
         recycler.layoutManager = LinearLayoutManager(activity)
-    }
-
-    private fun getJsonDataFromAsset(context: Context, fileName: String = "products.json"): String? {
-        val jsonString: String
-        try {
-            jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
-        } catch (ioException: IOException) {
-            ioException.printStackTrace()
-            return null
-        }
-        return jsonString
-    }
-
-    private fun getProducts(context: Context): List<Product> {
-        val jsonString = getJsonDataFromAsset(context)
-        val listProductType = object : TypeToken<List<Product>>() {}.type
-        return Gson().fromJson(jsonString, listProductType)
     }
 }

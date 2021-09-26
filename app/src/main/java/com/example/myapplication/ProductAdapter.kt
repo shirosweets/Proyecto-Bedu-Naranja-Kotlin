@@ -43,8 +43,8 @@ class ProductAdapter(
         private val productImage: ImageView = view.findViewById(R.id.product_contact_image)
         fun render(product: Product) {
             productTitle.text = product.title
-            productVotes.text = (10..999).random().toString()
-            productRating.rating = (3..5).random().toFloat()
+            productVotes.text = product.votes.toString()
+            productRating.rating = product.rating
             productPrice.text = "$ ${product.price}"
             Picasso.get().load(product.image).into(productImage)
         }

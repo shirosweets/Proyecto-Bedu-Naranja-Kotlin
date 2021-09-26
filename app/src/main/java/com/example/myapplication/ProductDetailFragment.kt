@@ -5,12 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.RatingBar
+import android.widget.TextView
 import androidx.navigation.fragment.navArgs
 import com.squareup.picasso.Picasso
+import org.w3c.dom.Text
 
 class ProductDetailFragment : Fragment() {
-    private lateinit var detailImage: ImageView
+    private lateinit var detTitle: TextView
+    private lateinit var detRating: RatingBar
+    private lateinit var detVotes: TextView
+    private lateinit var detImage: ImageView
+    private lateinit var detPrice: TextView
+    private lateinit var detSplitPayments: TextView
+    private lateinit var detAddToCartBtn: Button
+    private lateinit var detDescription: TextView
     private val args: ProductDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -23,11 +34,25 @@ class ProductDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        detailImage = view.findViewById(R.id.product_detail_image)
+        detTitle = view.findViewById(R.id.product_detail_title)
+        detRating = view.findViewById(R.id.product_detail_rating)
+        detVotes = view.findViewById(R.id.product_detail_votes)
+        detImage = view.findViewById(R.id.product_detail_image)
+        detPrice = view.findViewById(R.id.product_detail_price)
+        detSplitPayments = view.findViewById(R.id.product_detail_split_payment)
+        detAddToCartBtn = view.findViewById(R.id.product_detail_add_to_cart_button)
+        detDescription = view.findViewById(R.id.product_detail_description)
         showProduct(args.product)
     }
 
     private fun showProduct(product: Product) {
-        Picasso.get().load(product.image).into(detailImage)
+        val splitString = "%.2f".format(product.price / 6f)
+        detTitle.text = product.title
+        detRating.rating = product.rating
+        detVotes.text = product.votes.toString()
+        Picasso.get().load(product.image).into(detImage)
+        detPrice.text = "$ ${product.price}"
+        detSplitPayments.text = "$ $splitString"
+        detDescription.text = product.description
     }
 }

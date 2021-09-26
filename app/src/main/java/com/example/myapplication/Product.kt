@@ -11,14 +11,34 @@ class Product(
     val category: String,
     val image: String
 ): Parcelable {
+    var rating: Float = 0f
+    var votes: Int = 0
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString().toString(),
         parcel.readFloat(),
         parcel.readString().toString(),
         parcel.readString().toString(),
-        parcel.readString().toString()
+        parcel.readString().toString(),
+        parcel.readFloat(),
+        parcel.readInt()
     ) {
+    }
+
+    constructor(
+        id: Int,
+        title: String,
+        price: Float,
+        description: String,
+        category: String,
+        image: String,
+        rating: Float,
+        votes: Int
+    ) : this(
+        id, title, price, description, category, image
+    ) {
+        this.rating = rating
+        this.votes = votes
     }
 
     override fun describeContents(): Int {
@@ -32,6 +52,8 @@ class Product(
         parcel.writeString(description)
         parcel.writeString(category)
         parcel.writeString(image)
+        parcel.writeFloat(rating)
+        parcel.writeInt(votes)
     }
 
     companion object CREATOR : Parcelable.Creator<Product> {
