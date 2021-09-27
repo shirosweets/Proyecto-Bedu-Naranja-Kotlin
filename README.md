@@ -130,7 +130,7 @@ Color del background: ![c_172126](assets/c_172126.png) #172126
 
 * [Vídeo: Cómo crear un menú con Android Studio + Kotlin.](https://youtu.be/nbrUaXikYxI)
 
-* [](https://play.google.com/console/about/)
+* [(https://play.google.com/console/about/)]
 * [Google Play Console](https://developer.android.com/distribute/console?hl=en)
 * [Vídeo: Download and Instal Gradle for Android Studio.](https://youtu.be/54mtkVh7yXs)
 * [Vídeo: How to launch your app on Google Play Store.](https://youtu.be/WITa4N4SVfc)
