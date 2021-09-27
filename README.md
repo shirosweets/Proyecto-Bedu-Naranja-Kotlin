@@ -51,4 +51,5 @@ Como el IDE de Android Studio no permite tener una herramienta similar a Live Sh
 ---
 
 **[Documentación](documents/root.md)** | **[Recursos de BEDU y Referencias](documents/resources.md)**
+
 *[Decisiones de implementación](documents/implementation.md)* | *[Decisiones de diseño](documents/design.md)* | *[Extras](documents/extras.md)*
