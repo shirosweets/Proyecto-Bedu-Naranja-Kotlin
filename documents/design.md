@@ -2,7 +2,7 @@
 
 ---
 
-**[Documentación](documents/root.md)** | **[Recursos de BEDU y Referencias](documents/resources.md)**
+**[Documentación](root.md)** | **[Recursos de BEDU y Referencias](resources.md)**
 
 ---
 
@@ -22,4 +22,4 @@
 
 ---
 
-**[Documentación](documents/root.md)** | **[Recursos de BEDU y Referencias](documents/resources.md)**
+**[Documentación](root.md)** | **[Recursos de BEDU y Referencias](resources.md)**

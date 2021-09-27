@@ -2,7 +2,7 @@
 
 ---
 
-**[README](README.md)** | **[Documentación](documents/root.md)** | **[Recursos de BEDU y Referencias](documents/resources.md)**
+**[README](../README.md)** | **[Documentación](root.md)** | **[Recursos de BEDU y Referencias](resources.md)**
 
 ---
 
@@ -20,4 +20,4 @@
 
 ---
 
-**[README](README.md)** | **[Documentación](documents/root.md)** | **[Recursos de BEDU y Referencias](documents/resources.md)**
+**[README](../README.md)** | **[Documentación](root.md)** | **[Recursos de BEDU y Referencias](resources.md)**
