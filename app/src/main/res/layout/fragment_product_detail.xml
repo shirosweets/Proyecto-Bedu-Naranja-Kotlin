@@ -10,11 +10,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/product_detail_new"
                 android:layout_width="wrap_content"
@@ -32,9 +34,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED"
+                android:textColor="@color/gray"
                 android:textSize="18dp"
                 android:textStyle="bold"
-                android:textColor="@color/gray"
                 app:layout_constraintEnd_toStartOf="@+id/guideline5"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_new" />
@@ -80,19 +82,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="$ 999.99"
-                android:textSize="30dp"
                 android:textColor="@color/green"
+                android:textSize="30dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_image" />
 
             <TextView
                 android:id="@+id/product_detail_amout_payments"
+                style="@style/textViewBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:text="En 6 meses sin intereses"
-                style="@style/textViewBlack"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_price" />
 
@@ -110,6 +112,7 @@
 
             <TextView
                 android:id="@+id/product_detail_shipping"
+                style="@style/textViewBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -117,12 +120,12 @@
                 android:drawableStart="@drawable/ic_location"
                 android:drawablePadding="5dp"
                 android:text="Disponible en tu domicilio"
-                style="@style/textViewBlack"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_amout_payments" />
 
             <TextView
                 android:id="@+id/product_detail_delivery_date"
+                style="@style/textViewBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -130,7 +133,6 @@
                 android:drawableStart="@drawable/ic_car"
                 android:drawablePadding="5dp"
                 android:text="Entrega Mañana"
-                style="@style/textViewBlack"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_shipping" />
 
@@ -147,15 +149,18 @@
 
             <TextView
                 android:id="@+id/product_detail_description"
+                style="@style/textViewBlack"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="16dp"
                 android:text="Description \nYour perfect pack for everyday use and walks in the forest.\nStash your laptop(up to 15 inches) in the padded sleeve. Ya everyday"
-                style="@style/textViewBlack"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline5"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
-                app:layout_constraintTop_toBottomOf="@+id/product_detail_add_to_cart_button" />
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_add_to_cart_button"
+                app:layout_constraintVertical_bias="0.0" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline4"
@@ -171,12 +176,6 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.95" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline6"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="635dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </FrameLayout>

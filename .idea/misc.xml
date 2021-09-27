@@ -6,7 +6,6 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/MyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.10555555555555556" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.10555555555555556" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/Usuario/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/fragment_product_contact.xml" value="0.27291666666666664" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/drawable/ic_bedu_shop.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/drawable/ic_email.xml" value="0.20416666666666666" />
@@ -21,7 +20,7 @@
         <entry key="app/src/main/res/layout/fragment_home_frament.xml" value="0.1453804347826087" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_product_contact.xml" value="0.7294776119402985" />
-        <entry key="app/src/main/res/layout/fragment_product_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_product_detail.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.18802083333333333" />
         <entry key="app/src/main/res/layout/fragment_shopping_cart.xml" value="0.2807153965785381" />
