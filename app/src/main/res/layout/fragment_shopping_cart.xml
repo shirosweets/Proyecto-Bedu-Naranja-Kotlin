@@ -3,14 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShoppingCartFragment"
-    android:background="@color/lightGray">
+    tools:context=".ShoppingCartFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/productRecyclerView"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/fragment_product_contact"
-        />
+        android:gravity="center"
+        android:textSize="80dp"
+        android:text="Shopping cart" />
 
 </FrameLayout>

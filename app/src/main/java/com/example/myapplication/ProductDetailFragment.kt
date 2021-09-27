@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.fragment.findNavController
 import com.squareup.picasso.Picasso
 import org.w3c.dom.Text
+import androidx.navigation.navOptions
 
 class ProductDetailFragment : Fragment() {
     private lateinit var detTitle: TextView
@@ -19,7 +21,15 @@ class ProductDetailFragment : Fragment() {
     private lateinit var detSplitPayments: TextView
     private lateinit var detAddToCartBtn: Button
     private lateinit var detDescription: TextView
+
     private val args: ProductDetailFragmentArgs by navArgs()
+
+    private val addToCartTransitionOpt = navOptions {
+        anim {
+            enter = R.anim.slide_in_right
+            exit = R.anim.slide_out_left
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +50,12 @@ class ProductDetailFragment : Fragment() {
         detAddToCartBtn = view.findViewById(R.id.product_detail_add_to_cart_button)
         detDescription = view.findViewById(R.id.product_detail_description)
         detAddToCartBtn.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_productDetailFragment_to_shoppingCartFragment,
+                null,
+                addToCartTransitionOpt
+            )
+
             Toast.makeText(
                 it.context,
                 "Se agregó al carrito:\n\n${args.product.title}",

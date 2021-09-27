@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_shoppingCartFragment"
             app:destination="@id/shoppingCartFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -40,9 +43,6 @@
         <action
             android:id="@+id/action_shoppingCartFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
-        <action
-            android:id="@+id/action_shoppingCartFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/productDetailFragment"
@@ -52,5 +52,8 @@
         <argument
             android:name="product"
             app:argType="com.example.myapplication.Product" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_shoppingCartFragment"
+            app:destination="@id/shoppingCartFragment" />
     </fragment>
 </navigation>
