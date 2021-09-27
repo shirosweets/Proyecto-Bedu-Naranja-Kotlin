@@ -19,8 +19,31 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            applicationIdSuffix ".debug"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions 'theme'
+    productFlavors{
+        light {
+            applicationId "org.bedu.buildvariant.light"
+            dimension "theme"
+            applicationIdSuffix ".light"
+            versionNameSuffix "-light"
+        }
+        dark {
+            applicationId "org.bedu.buildvariant.dark"
+            dimension "theme"
+            applicationIdSuffix ".dark"
+            versionNameSuffix "-dark"
         }
     }
     compileOptions {

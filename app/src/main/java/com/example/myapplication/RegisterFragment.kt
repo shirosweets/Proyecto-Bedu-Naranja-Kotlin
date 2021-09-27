@@ -17,12 +17,6 @@ class RegisterFragment : Fragment() {
     private lateinit var regFormEmail : TextInputLayout
     private lateinit var regFormPhone : TextInputLayout
     private lateinit var regFormPassword : TextInputLayout
-    private val transitionOptions = navOptions {
-        anim {
-            enter = R.anim.slide_in_left
-            exit = R.anim.slide_out_right
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +50,6 @@ class RegisterFragment : Fragment() {
                 findNavController().navigate(
                     R.id.action_registerFragment2_to_loginFragment2,
                     null,
-                    transitionOptions
                 )
             } else {
                 Toast.makeText(

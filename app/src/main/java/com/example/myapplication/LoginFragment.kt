@@ -17,18 +17,6 @@ class LoginFragment : Fragment() {
     private lateinit var loginFormPassword : TextInputLayout
     private lateinit var loginButton : MaterialButton
     private lateinit var registerRedirectBtn : Button
-    private val registerTransitionOpt = navOptions {
-        anim {
-            enter = R.anim.slide_in_right
-            exit = R.anim.slide_out_left
-        }
-    }
-    private val loginSuccessTransitionOpt = navOptions {
-        anim {
-            enter = R.anim.slide_in_down
-            exit = R.anim.slide_out_up
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,8 +37,7 @@ class LoginFragment : Fragment() {
             if(emailNotEmpty && passNotEmpty){
                 findNavController().navigate(
                     R.id.action_loginFragment2_to_menuActivity,
-                    null,
-                    loginSuccessTransitionOpt
+                    null
                 )
             }
             else{
@@ -64,8 +51,7 @@ class LoginFragment : Fragment() {
         registerRedirectBtn.setOnClickListener{
             findNavController().navigate(
                 R.id.action_loginFragment2_to_registerFragment2,
-                null,
-                registerTransitionOpt
+                null
             )
         }
     }

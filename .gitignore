@@ -13,3 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
+secret_release_key.jks

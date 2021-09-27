@@ -17,14 +17,7 @@ import java.io.IOException
 
 
 class HomeFragment : Fragment() {
-
     private lateinit var recycler: RecyclerView
-    private val detailTransitionOption = navOptions {
-        anim {
-            enter = R.anim.slide_in_right
-            exit = R.anim.slide_out_left
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +38,7 @@ class HomeFragment : Fragment() {
 
         val clickListener: (Product) -> Unit = {
             val action = HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(it)
-            Navigation.findNavController(view).navigate(action, detailTransitionOption)
+            Navigation.findNavController(view).navigate(action)
         }
 
         recycler.adapter = ProductAdapter(view, clickListener, MenuActivity.products)
