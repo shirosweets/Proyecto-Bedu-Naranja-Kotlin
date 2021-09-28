@@ -36,6 +36,8 @@ Proyecto del curso de Kotlin de Naranja X proporcionado por BEDU. El desarrollo 
 - [Proyecto Bedu Naranja Kotlin](#proyecto-bedu-naranja-kotlin)
 - [Integrantes](#integrantes)
 - [Forma de trabajo](#forma-de-trabajo)
+- [Videos](#videos)
+ - [Demo N0](#demo-n0)
 
 # Integrantes
 
@@ -47,6 +49,12 @@ Proyecto del curso de Kotlin de Naranja X proporcionado por BEDU. El desarrollo 
 Principalmente el método de trabajo que se utilizó fue por medio del pair-programming a través de la plataforma de Discord para la comunicación y compartir código en pantalla.
 
 Como el IDE de Android Studio no permite tener una herramienta similar a Live Share de Visual Studio Code los commits no tienen como co-autor ya que nos olvidamos de realizarlo en todos los commits.
+
+# Videos
+
+## Demo N0
+
+[![Bedu Project - Team Primer Demo #0](https://img.youtube.com/vi/HByUtwHdyWo/0.jpg)](https://www.youtube.com/watch?v=HByUtwHdyWo)
 
 ---
 
