@@ -14,8 +14,8 @@
 
 | Color                            | Code          | Usado en          |
 |----------------------------------|:-------------:|------------------:|
-| ![c_172126](assets/c_f03c15.png) | `#f03c15`     | botón y el título |
-| ![c_172126](assets/c_172126.png) | `#172126`     | background        |
+| ![c_172126](https://github.com/shirosweets/Proyecto-Bedu-Naranja-Kotlin/blob/main/assets/c_f03c15.png) | `#f03c15`     | botón y el título |
+| ![c_172126](https://github.com/shirosweets/Proyecto-Bedu-Naranja-Kotlin/blob/main/assets/c_172126.png) | `#172126`     | background        |
 
 
 # Logearse
