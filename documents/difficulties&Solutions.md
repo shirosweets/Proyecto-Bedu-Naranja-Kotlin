@@ -1,6 +1,7 @@
 # DIFICULTADES Y SOLUCIONES
 
 
+<img src="assets/solution-1.png" width="90">
 
 - Contexto:
 
@@ -15,6 +16,8 @@
   Colocamos la creación de la lista de productos dentro de nuestro “MenuActivity”, así como también la creación de sus valores aleatorios (específicamente en la función sobrescrita “onCreate”, que se ejecuta una sola vez), esta información ya creada se almacena dentro del “companion object” para que pueda ser recolectada luego en el “HomeFragment” cuando sea necesario. 
 
 ---
+
+<img src="assets/solution-2.png" height="90">
 
 - Contexto:
 
@@ -31,6 +34,7 @@
 
 ---
 
+<img src="assets/solution-3.png" height="90">
 
 - Contexto:
 
@@ -57,6 +61,7 @@
 
 ---
 
+<img src="assets/solution-4.png" width="90">
 
 - Contexto:
 
