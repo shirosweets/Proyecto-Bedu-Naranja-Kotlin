@@ -1,7 +1,6 @@
 # DIFICULTADES Y SOLUCIONES
 
-
-<img src="assets/solution-1.png" width="90">
+<img src="https://github.com/shirosweets/Proyecto-Bedu-Naranja-Kotlin/blob/main/assets/solution-1.png" width="500">
 
 - Contexto:
 
@@ -17,7 +16,7 @@
 
 ---
 
-<img src="assets/solution-2.png" height="90">
+<img src="https://github.com/shirosweets/Proyecto-Bedu-Naranja-Kotlin/blob/main/assets/solution-2.png" width="300">
 
 - Contexto:
 
@@ -34,7 +33,7 @@
 
 ---
 
-<img src="assets/solution-3.png" height="90">
+<img src="https://github.com/shirosweets/Proyecto-Bedu-Naranja-Kotlin/blob/main/assets/solution-3.png" width="500">
 
 - Contexto:
 
@@ -61,7 +60,7 @@
 
 ---
 
-<img src="assets/solution-4.png" width="90">
+<img src="https://github.com/shirosweets/Proyecto-Bedu-Naranja-Kotlin/blob/main/assets/solution-4.png" width="500">
 
 - Contexto:
 
