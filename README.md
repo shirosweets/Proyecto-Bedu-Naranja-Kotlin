@@ -33,11 +33,13 @@ Proyecto del curso de Kotlin de Naranja X proporcionado por BEDU. El desarrollo 
 
 # Tabla de contenidos
 
-- [Proyecto Bedu Naranja Kotlin](#proyecto-bedu-naranja-kotlin)
+- [Proyecto Bedu Naranja X - Kotlin 2021](#proyecto-bedu-naranja-x---kotlin-2021)
+- [Tabla de contenidos](#tabla-de-contenidos)
 - [Integrantes](#integrantes)
 - [Forma de trabajo](#forma-de-trabajo)
 - [Videos](#videos)
- - [Demo N0](#demo-n0)
+  - [Demo N°0](#demo-n0)
+  - [Puntos desarrollados en la demo N°0](#puntos-desarrollados-en-la-demo-n0)
 
 # Integrantes
 
@@ -52,9 +54,37 @@ Como el IDE de Android Studio no permite tener una herramienta similar a Live Sh
 
 # Videos
 
-## Demo N0
+## Demo N°0
+
+> `Hacer click en el video para reproducirlo`
 
 [![Bedu Project - Team Primer Demo #0](https://img.youtube.com/vi/HByUtwHdyWo/0.jpg)](https://www.youtube.com/watch?v=HByUtwHdyWo)
+
+
+## Puntos desarrollados en la demo N°0
+
+* Uso de Material Design para los componentes
+* Nombre de las variables autodocumentadas
+* Librerías externas usadas:
+  * Picasso
+    > para el fetcheo de imágenes a través de url
+  * SafeArgs
+    > del recyclerView al Detail
+* Transiciones entre los fragmentos y views
+  * Transiciones de pop
+  * Implementadas en el Navigation
+* Toggle Password
+* Types para los inputs de usuario
+  > password | email | phone | text
+* ScrollView en Register y Login para hacerlo responsivo en modo Portrait
+* RecyclerView para los Productos
+    > presentados como CardView
+* Build Variants
+  * Por tema (dark/light)
+  * Por release/debug}
+* Modularización de código
+* Implementación de tipos segura (no "!!")
+* Implementación de estilos por categoría
 
 ---
 
