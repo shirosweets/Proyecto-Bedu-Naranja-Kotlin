@@ -7,10 +7,12 @@
 ---
 
 # Tabla de contenidos
-- [Title 1](#title-1)
+- [Dificultades y soluciones](#dificultades-y-soluciones)
 - [Inconvenientes](#inconvenientes)
 
-# Title 1
+# Dificultades y soluciones
+
+ [Dificultades y soluciones](difficulties_&_solutions.md)
 
 # Inconvenientes
 - SafeArgs (cuando navegas a otro fragmento desde tu menú)
