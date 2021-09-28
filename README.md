@@ -38,8 +38,8 @@ Proyecto del curso de Kotlin de Naranja X proporcionado por BEDU. El desarrollo 
 - [Integrantes](#integrantes)
 - [Forma de trabajo](#forma-de-trabajo)
 - [Videos](#videos)
-  - [Demo N°0](#demo-n0)
-  - [Puntos desarrollados en la demo N°0](#puntos-desarrollados-en-la-demo-n0)
+    - [Demo N°0](#demo-n0)
+    - [Puntos desarrollados en la demo N°0](#puntos-desarrollados-en-la-demo-n0)
 
 # Integrantes
 
@@ -56,10 +56,9 @@ Como el IDE de Android Studio no permite tener una herramienta similar a Live Sh
 
 ## Demo N°0
 
-> `Hacer click en el video para reproducirlo`
+> `Hacer click en la imagen para reproducirlo`
 
 [![Bedu Project - Team Primer Demo #0](https://img.youtube.com/vi/HByUtwHdyWo/0.jpg)](https://www.youtube.com/watch?v=HByUtwHdyWo)
-
 
 ## Puntos desarrollados en la demo N°0
 

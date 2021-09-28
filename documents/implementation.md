@@ -6,11 +6,36 @@
 
 ---
 
+# Tabla de contenidos
+
+- [Flujo](#flujo)
+    - [Main navigation](#main-navigation)
+    - [Menu navigation](#menu-navigation)
+- [Dificultades y soluciones](#dificultades-y-soluciones)
+    - [Rating y votos random](#rating-y-votos-random)
+    - [Menú de navegación](#menú-de-navegación)
+
+# Flujo
+
+## Main navigation
+![main_navigation](../assets/screen/activities/main_navigation.png)
+
+## Menu navigation
+![menu_navigation](../assets/screen/activities/menu_navigation.png)
+
+---
+![activiy_main](../assets/screen/activities/activiy_main.png)
+
+![fragment_register](../assets/screen/activities/fragment_register.png)
+
+
+![activity_menu](../assets/screen/activities/activity_menu.png)
+![fragment_product_contact](../assets/screen/activities/fragment_product_contact.png)
+![fragment_product_detail](../assets/screen/activities/fragment_product_detail.png)
+
 # Dificultades y soluciones
 
 ## Rating y votos random
-
-
 
 <div align="center">
 
@@ -41,7 +66,7 @@
 
 - Contexto:
 
-  Al seleccionar un producto que se encuentre en el listado (RecyclerView), se debe enviar la información de este mismo a otro Fragment llamado `ProductDetailFragment`, para que el cliente lo pueda visualizar completamente junto con su descripción.
+  Al seleccionar un producto que se encuentre en el listado (`RecyclerView`), se debe enviar la información de este mismo a otro Fragment llamado `ProductDetailFragment`, para que el cliente lo pueda visualizar completamente junto con su descripción.
 
 - Dificultad:
 
@@ -49,7 +74,7 @@
 
 - Solución:
 
-  Logramos incluir el uso de “SafeArgs” para manejar la navegación considerada “safe” debido al hecho de indicar en el Fragment receptor (En nuestro caso: `ProductDetailFragment`) el tipo de dato Parcelable que queremos recibir (En nuestro caso: “Product”).
+  Logramos incluir el uso de `SafeArgs` para manejar la navegación considerada **safe** debido al hecho de indicar en el Fragment receptor (En nuestro caso: `ProductDetailFragment`) el tipo de dato Parcelable que queremos recibir (En nuestro caso: `Product`).
 
 
 ---
@@ -66,11 +91,11 @@
 
 - Contexto:
 
-  Queremos mostrar en cada producto del listado (RecyclerView) las imágenes que se encuentran al visitar las URLs recibidas en nuestro “products.json”.
+  Queremos mostrar en cada producto del listado (`RecyclerView`) las imágenes que se encuentran al visitar las URLs recibidas en nuestro “products.json”.
 
 - Dificultad:
 
-  El hecho de insertar la imagen directamente, como se realizaba hasta el momento, en cada vista del RecyclerView no funcionaba, ya que se trataban de Strings y no direcciones id de imágenes que podríamos recolectar de nuestra carpeta “Res”.
+  El hecho de insertar la imagen directamente, como se realizaba hasta el momento, en cada vista del `RecyclerView` no funcionaba, ya que se trataban de Strings y no direcciones id de imágenes que podríamos recolectar de nuestra carpeta “Res”.
 
 - Solución:
 
