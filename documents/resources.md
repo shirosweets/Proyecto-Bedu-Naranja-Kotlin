@@ -104,8 +104,8 @@
 * [FrameLayout](https://developer.android.com/reference/android/widget/FrameLayout)
 * [android.animation](https://developer.android.com/reference/kotlin/android/animation/package-summary)
 
-* (https://play.google.com/console/about/)
-* [Google Play Console](https://developer.android.com/distribute/console?hl=en)
+* [Google Play Console](https://play.google.com/console/about/)
+* [Google Play Console in Android](https://developer.android.com/distribute/console?hl=en)
 * [Vídeo: Download and Instal Gradle for Android Studio.](https://youtu.be/54mtkVh7yXs)
 * [Vídeo: How to launch your app on Google Play Store.](https://youtu.be/WITa4N4SVfc)
 
