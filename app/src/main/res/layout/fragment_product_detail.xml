@@ -29,7 +29,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/product_detail_title"
+                android:id="@+id/product_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -42,17 +42,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_new" />
 
             <RatingBar
-                android:id="@+id/product_detail_rating"
+                android:id="@+id/product_rating"
                 style="@style/Widget.AppCompat.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:numStars="5"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
-                app:layout_constraintTop_toBottomOf="@+id/product_detail_title" />
+                app:layout_constraintTop_toBottomOf="@+id/product_title" />
 
             <TextView
-                android:id="@+id/product_detail_votes"
+                android:id="@+id/product_votes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -60,24 +60,24 @@
                 android:textColor="@color/black"
                 android:textSize="12dp"
                 android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="@+id/product_detail_rating"
-                app:layout_constraintStart_toEndOf="@+id/product_detail_rating"
-                app:layout_constraintTop_toTopOf="@+id/product_detail_rating"
+                app:layout_constraintBottom_toBottomOf="@+id/product_rating"
+                app:layout_constraintStart_toEndOf="@+id/product_rating"
+                app:layout_constraintTop_toTopOf="@+id/product_rating"
                 app:layout_constraintVertical_bias="1.0" />
 
             <ImageView
-                android:id="@+id/product_detail_image"
+                android:id="@+id/product_image"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline5"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
-                app:layout_constraintTop_toBottomOf="@+id/product_detail_rating"
+                app:layout_constraintTop_toBottomOf="@+id/product_rating"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/product_detail_price"
+                android:id="@+id/product_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -86,7 +86,7 @@
                 android:textSize="30dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
-                app:layout_constraintTop_toBottomOf="@+id/product_detail_image" />
+                app:layout_constraintTop_toBottomOf="@+id/product_image" />
 
             <TextView
                 android:id="@+id/product_detail_amout_payments"
@@ -96,7 +96,7 @@
                 android:layout_marginTop="14dp"
                 android:text="En 6 meses sin intereses"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
-                app:layout_constraintTop_toBottomOf="@+id/product_detail_price" />
+                app:layout_constraintTop_toBottomOf="@+id/product_price" />
 
 
             <TextView

@@ -9,19 +9,12 @@ import android.widget.*
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.fragment.findNavController
 import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
 import androidx.navigation.navOptions
+import com.example.myapplication.databinding.FragmentProductDetailBinding
 
 class ProductDetailFragment : Fragment() {
-    private lateinit var detTitle: TextView
-    private lateinit var detRating: RatingBar
-    private lateinit var detVotes: TextView
-    private lateinit var detImage: ImageView
-    private lateinit var detPrice: TextView
-    private lateinit var detSplitPayments: TextView
-    private lateinit var detAddToCartBtn: Button
-    private lateinit var detDescription: TextView
-
+    private var _binding: FragmentProductDetailBinding? = null
+    private val binding get() = _binding!!
     private val args: ProductDetailFragmentArgs by navArgs()
 
     private val addToCartTransitionOpt = navOptions {
@@ -36,20 +29,8 @@ class ProductDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_product_detail, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        detTitle = view.findViewById(R.id.product_detail_title)
-        detRating = view.findViewById(R.id.product_detail_rating)
-        detVotes = view.findViewById(R.id.product_detail_votes)
-        detImage = view.findViewById(R.id.product_detail_image)
-        detPrice = view.findViewById(R.id.product_detail_price)
-        detSplitPayments = view.findViewById(R.id.product_detail_split_payment)
-        detAddToCartBtn = view.findViewById(R.id.product_detail_add_to_cart_button)
-        detDescription = view.findViewById(R.id.product_detail_description)
-        detAddToCartBtn.setOnClickListener {
+        _binding = FragmentProductDetailBinding.inflate(inflater, container, false)
+        binding.productDetailAddToCartButton.setOnClickListener {
             findNavController().navigate(
                 R.id.action_productDetailFragment_to_shoppingCartFragment,
                 null,
@@ -63,16 +44,17 @@ class ProductDetailFragment : Fragment() {
             ).show()
         }
         showProduct(args.product)
+        return binding.root
     }
 
     private fun showProduct(product: Product) {
         val splitString = "%.2f".format(product.price / 6f)
-        detTitle.text = product.title
-        detRating.rating = product.rating
-        detVotes.text = product.votes.toString()
-        Picasso.get().load(product.image).into(detImage)
-        detPrice.text = "$ ${product.price}"
-        detSplitPayments.text = "$ $splitString"
-        detDescription.text = product.description
+        binding.productTitle.text = product.title
+        binding.productRating.rating = product.rating
+        binding.productVotes.text = product.votes.toString()
+        Picasso.get().load(product.image).into(binding.productImage)
+        binding.productPrice.text = "$ ${product.price}"
+        binding.productDetailSplitPayment.text = "$ $splitString"
+        binding.productDetailDescription.text = product.description
     }
 }

@@ -34,7 +34,7 @@ Proyecto del curso de Kotlin de Naranja X proporcionado por BEDU. El desarrollo 
 # Tabla de contenidos
 
 - [Proyecto Bedu Naranja X - Kotlin 2021](#proyecto-bedu-naranja-x---kotlin-2021)
-- [Tabla de contenidos](#tabla-de-contenidos)
+- [Tabla de contenidos](#tabla-de-cobntenidos)
 - [Integrantes](#integrantes)
 - [Forma de trabajo](#forma-de-trabajo)
 - [Videos](#videos)

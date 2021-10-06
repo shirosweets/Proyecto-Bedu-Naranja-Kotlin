@@ -36,10 +36,10 @@ class ProductAdapter(
     override fun getItemCount(): Int = product_list.size
 
     inner class ProductHolder(view: View): RecyclerView.ViewHolder(view) {
-        private val productTitle: TextView = view.findViewById(R.id.product_contact_title)
-        private val productVotes: TextView = view.findViewById(R.id.product_contact_voters)
-        private val productPrice: TextView = view.findViewById(R.id.product_contact_price)
-        private val productRating: RatingBar = view.findViewById(R.id.product_contact_rating)
+        private val productTitle: TextView = view.findViewById(R.id.product_title)
+        private val productVotes: TextView = view.findViewById(R.id.product_votes)
+        private val productPrice: TextView = view.findViewById(R.id.product_price)
+        private val productRating: RatingBar = view.findViewById(R.id.product_rating)
         private val productImage: ImageView = view.findViewById(R.id.product_contact_image)
         fun render(product: Product) {
             productTitle.text = product.title
