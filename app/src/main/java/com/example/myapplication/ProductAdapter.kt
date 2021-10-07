@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
@@ -26,11 +27,13 @@ class ProductAdapter(
     }
 
     override fun onBindViewHolder(holder: ProductHolder, position: Int) {
+        val animation = AnimationUtils.loadAnimation(holder.itemView.context,R.anim.slide_in_left_slow)
         val currentProduct: Product = product_list[position]
         holder.render(currentProduct)
         holder.itemView.setOnClickListener{
             click_listener(currentProduct)
         }
+        holder.itemView.startAnimation(animation)
     }
 
     override fun getItemCount(): Int = product_list.size
