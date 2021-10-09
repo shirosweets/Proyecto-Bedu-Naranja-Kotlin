@@ -18,11 +18,7 @@
             app:destination="@id/shoppingCartFragment" />
         <action
             android:id="@+id/action_homeFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:destination="@id/productDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -61,5 +57,14 @@
         <action
             android:id="@+id/action_productDetailFragment_to_shoppingCartFragment"
             app:destination="@id/shoppingCartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productContactFragment"
+        android:name="com.example.myapplication.ProductContactFragment"
+        android:label="fragment_product_contact"
+        tools:layout="@layout/fragment_product_contact" >
+        <action
+            android:id="@+id/action_productContactFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
     </fragment>
 </navigation>

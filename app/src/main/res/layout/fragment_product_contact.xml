@@ -10,6 +10,7 @@
 
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/product_card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="14dp"

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,11 +18,8 @@ import java.io.IOException
 
 
 class HomeFragment : Fragment() {
-    private lateinit var recycler: RecyclerView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var recycler: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,12 +34,13 @@ class HomeFragment : Fragment() {
 
         recycler = view.findViewById(R.id.productRecyclerView)
 
-        val clickListener: (Product) -> Unit = {
-            val action = HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(it)
-            Navigation.findNavController(view).navigate(action)
+        val clickListener: (Product, FragmentNavigator.Extras) -> Unit = {
+            product,extras ->
+            val action = HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(product)
+            Navigation.findNavController(view).navigate(action,extras)
         }
 
-        recycler.adapter = ProductAdapter(view, clickListener, MenuActivity.products)
+        recycler.adapter = ProductAdapter( clickListener, MenuActivity.products)
         recycler.layoutManager = LinearLayoutManager(activity)
     }
 

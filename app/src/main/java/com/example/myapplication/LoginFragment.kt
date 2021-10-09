@@ -18,9 +18,6 @@ class LoginFragment : Fragment() {
     private lateinit var loginButton : MaterialButton
     private lateinit var registerRedirectBtn : Button
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

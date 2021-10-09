@@ -1,6 +1,9 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.transition.ChangeBounds
+import android.transition.Fade
+import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -24,11 +27,18 @@ class ProductDetailFragment : Fragment() {
         }
     }
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
+        // Inflate the transition for this fragment
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+
+       // Inflate the layout for this fragment
+
         _binding = FragmentProductDetailBinding.inflate(inflater, container, false)
         binding.productDetailAddToCartButton.setOnClickListener {
             findNavController().navigate(
@@ -48,6 +58,8 @@ class ProductDetailFragment : Fragment() {
     }
 
     private fun showProduct(product: Product) {
+        binding.productCardView.transitionName  = "product_${product.title}"
+
         val splitString = "%.2f".format(product.price / 6f)
         binding.productTitle.text = product.title
         binding.productRating.rating = product.rating
