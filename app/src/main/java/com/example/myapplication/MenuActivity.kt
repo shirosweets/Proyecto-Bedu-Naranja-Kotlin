@@ -51,9 +51,12 @@ class MenuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.setTheme(UserConfig.getThemeResourceId(this))
         setContentView(R.layout.activity_menu)
         menuNavigationBottom =  findViewById(R.id.bottomNavigationView)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(
+            R.id.my_nav_host_fragment
+        ) as NavHostFragment
         val navController = navHostFragment.navController
         menuNavigationBottom.setupWithNavController(navController)
         products = getProducts(this)

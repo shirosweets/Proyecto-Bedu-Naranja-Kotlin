@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Bedu shop</string>
 
-    <!--Text hint-->
+    <!--Preferences-->
+    <string name="user_preferences_file">org.bedu.app.USER_PREFERENCES</string>
+    <string name="pref_key_DARK_THEME">org.bedu.app.preferences.IS_DARK_THEME</string>
+pref_key_DARK_THEME
     <string name="emailHint">Correo electrónico</string>
     <string name="passwordHint">Contraseña</string>
 
@@ -24,6 +27,7 @@
     <string name="menu_home">Inicio</string>
     <string name="menu_shopping_cart">Carrito</string>
     <string name="menu_profile">Perfil</string>
+    <string name="B_DEBUG">BEDU_DEBUG</string>
 
 
 </resources>
