@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Switch
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
@@ -17,7 +16,6 @@ class LoginFragment : Fragment() {
     private lateinit var loginFormPassword : TextInputLayout
     private lateinit var loginButton : MaterialButton
     private lateinit var registerRedirectBtn : Button
-    private lateinit var themeSwitch: Switch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,9 +27,6 @@ class LoginFragment : Fragment() {
         loginFormPassword = view.findViewById(R.id.loginFormPassword)
         loginButton = view.findViewById(R.id.buttonLogIn)
         registerRedirectBtn = view.findViewById(R.id.buttonCheckIn)
-        themeSwitch = view.findViewById(R.id.theme_switch)
-
-        themeSwitch.isChecked = UserConfig.isDarkTheme(requireContext())
 
         loginButton.setOnClickListener{
             val emailNotEmpty: Boolean = !loginFormUser.editText?.text.isNullOrEmpty()
@@ -56,11 +51,6 @@ class LoginFragment : Fragment() {
                 R.id.action_loginFragment2_to_registerFragment2,
                 null
             )
-        }
-
-        themeSwitch.setOnCheckedChangeListener { _, _ ->
-            activity?.applicationContext?.let { UserConfig.switchTheme(it) }
-            activity?.recreate()
         }
     }
 
