@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Switch
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 
@@ -17,6 +17,7 @@ class LoginFragment : Fragment() {
     private lateinit var loginFormPassword : TextInputLayout
     private lateinit var loginButton : MaterialButton
     private lateinit var registerRedirectBtn : Button
+    private lateinit var themeSwitch: Switch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,10 +26,12 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loginFormUser = view.findViewById(R.id.loginFormEmail)
-        loginFormPassword= view.findViewById(R.id.loginFormPassword)
-        loginButton= view.findViewById(R.id.buttonLogIn)
-        registerRedirectBtn= view.findViewById(R.id.buttonCheckIn)
+        loginFormPassword = view.findViewById(R.id.loginFormPassword)
+        loginButton = view.findViewById(R.id.buttonLogIn)
+        registerRedirectBtn = view.findViewById(R.id.buttonCheckIn)
+        themeSwitch = view.findViewById(R.id.theme_switch)
 
+        themeSwitch.isChecked = UserConfig.isDarkTheme(requireContext())
 
         loginButton.setOnClickListener{
             val emailNotEmpty: Boolean = !loginFormUser.editText?.text.isNullOrEmpty()
@@ -54,13 +57,17 @@ class LoginFragment : Fragment() {
                 null
             )
         }
+
+        themeSwitch.setOnCheckedChangeListener { _, _ ->
+            activity?.applicationContext?.let { UserConfig.switchTheme(it) }
+            activity?.recreate()
+        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 }
