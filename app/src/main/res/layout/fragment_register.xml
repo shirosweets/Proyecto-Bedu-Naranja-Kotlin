@@ -177,7 +177,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_lock"
+                    android:drawableStart="@drawable/ic_lock_white"
                     android:drawablePadding="10dp"
                     android:inputType="textPassword"
                     android:maxLines="1"

@@ -72,7 +72,7 @@
                 android:id="@+id/optionRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -80,10 +80,12 @@
                 tools:listitem="@layout/fragment_profile_option_contact" />
 
             <Button
-                android:id="@+id/buttonCheckIn"
+                android:id="@+id/buttonCloseSession"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
                 android:drawableLeft="@drawable/ic_power"
                 android:drawablePadding="10dp"
                 android:singleLine="true"
@@ -91,8 +93,7 @@
                 android:textAlignment="center"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"

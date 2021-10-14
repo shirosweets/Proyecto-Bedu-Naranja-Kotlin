@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 
 class LoginFragment : Fragment() {
@@ -38,10 +40,12 @@ class LoginFragment : Fragment() {
                 )
             }
             else{
-                Toast.makeText(
-                    it.context,getString(R.string.noticeIncompleteFields),
-                    Toast.LENGTH_SHORT
-                ).show()
+                Snackbar.make(view, getString(R.string.noticeIncompleteFields), Snackbar.LENGTH_SHORT)
+                    .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
+                    .setAction("Entendido"){
+
+                    }.show()
+
             }
         }
 
