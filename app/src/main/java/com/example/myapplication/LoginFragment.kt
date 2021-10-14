@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class LoginFragment : Fragment() {
@@ -19,7 +19,8 @@ class LoginFragment : Fragment() {
     private lateinit var loginFormPassword : TextInputLayout
     private lateinit var loginButton : MaterialButton
     private lateinit var registerRedirectBtn : Button
-
+    private lateinit var userInputText : TextInputEditText
+    private lateinit var passwordInputText : TextInputEditText
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,26 +28,47 @@ class LoginFragment : Fragment() {
         loginFormPassword= view.findViewById(R.id.loginFormPassword)
         loginButton= view.findViewById(R.id.buttonLogIn)
         registerRedirectBtn= view.findViewById(R.id.buttonCheckIn)
+        userInputText = view.findViewById(R.id.userInputText)
+        passwordInputText = view.findViewById(R.id.passwordInputText)
+
+        setTextChangeActions()
+        setClickListeners(view)
+
+    }
 
 
+    private fun setTextChangeActions(){
+        userInputText.doOnTextChanged { text,_,_,_ ->
+            if(text!!.isNotEmpty()){
+                loginFormUser.error = null
+            }
+        }
+
+        passwordInputText.doOnTextChanged { text,_,_,_ ->
+            if(text!!.isNotEmpty()){
+                loginFormPassword.error = null
+            }
+        }
+    }
+
+    private fun setClickListeners(view: View){
         loginButton.setOnClickListener{
             val emailNotEmpty: Boolean = !loginFormUser.editText?.text.isNullOrEmpty()
-            val passNotEmpty: Boolean = !loginFormUser.editText?.text.isNullOrEmpty()
+            val passNotEmpty: Boolean = !loginFormPassword.editText?.text.isNullOrEmpty()
 
             if(emailNotEmpty && passNotEmpty){
                 findNavController().navigate(
                     R.id.action_loginFragment2_to_menuActivity,
-                    null
-                )
+                    null)
             }
             else{
+                if(!emailNotEmpty) { loginFormUser.error = getString(R.string.noticeIncompleteField)}
+                if(!passNotEmpty) { loginFormPassword.error = getString(R.string.noticeIncompleteField)}
+
                 Snackbar.make(view, getString(R.string.noticeIncompleteFields), Snackbar.LENGTH_SHORT)
                     .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                    .setAction("Entendido"){
-
-                    }.show()
-
-            }
+                    .setAction(getString(R.string.snackbarButton)){}.show()
+                }
         }
 
         registerRedirectBtn.setOnClickListener{
@@ -56,6 +78,10 @@ class LoginFragment : Fragment() {
             )
         }
     }
+
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

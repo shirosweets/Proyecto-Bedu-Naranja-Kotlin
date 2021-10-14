@@ -99,9 +99,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/separator3"
                 app:layout_constraintVertical_bias="0.15"
-                app:layout_constraintVertical_chainStyle="packed">
+                app:layout_constraintVertical_chainStyle="packed"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_error">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameInputText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_person"
@@ -123,9 +126,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/regFormUser">
+                app:layout_constraintTop_toBottomOf="@+id/regFormUser"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_error">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailInputText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_email"
@@ -147,9 +153,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/regFormEmail">
+                app:layout_constraintTop_toBottomOf="@+id/regFormEmail"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_error">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phoneInputText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_phone"
@@ -172,9 +181,12 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/regformPhoneNumber"
-                app:passwordToggleEnabled="true">
+                app:passwordToggleEnabled="true"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_error">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordInputText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_lock_white"

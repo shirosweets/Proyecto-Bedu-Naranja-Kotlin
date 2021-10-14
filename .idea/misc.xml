@@ -9,6 +9,7 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/drawable/ic_arrow_right.xml" value="0.1703125" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/drawable/ic_credit_card.xml" value="0.1703125" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/drawable/ic_email.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/drawable/ic_error.xml" value="0.2890625" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/drawable/ic_help.xml" value="0.23489583333333333" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/drawable/ic_location.xml" value="0.23489583333333333" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/drawable/ic_lock.xml" value="0.23489583333333333" />
@@ -19,6 +20,7 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/drawable/ic_power.xml" value="0.1703125" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/drawable/ic_restore.xml" value="0.1703125" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/drawable/menu_round_corners.xml" value="0.2890625" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/activity_main.xml" value="0.21875" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/activity_menu.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/fragment_home.xml" value="0.16893115942028986" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/fragment_login.xml" value="0.27291666666666664" />
@@ -26,7 +28,7 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/fragment_product_detail.xml" value="0.16893115942028986" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/fragment_profile.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/fragment_profile_option_contact.xml" value="0.33" />
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/fragment_register.xml" value="0.16354166666666667" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/fragment_register.xml" value="0.10852713178294573" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.15416666666666667" />
         <entry key="..\:/Users/Usuario/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/fragment_home.xml" value="0.18125" />
         <entry key="..\:/Users/Usuario/Proyecto-Bedu-Naranja-Kotlin/app/src/main/res/layout/fragment_login.xml" value="0.25364583333333335" />

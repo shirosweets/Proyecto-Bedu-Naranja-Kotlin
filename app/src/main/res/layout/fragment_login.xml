@@ -38,9 +38,12 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
-                android:hint="@string/hint_email">
+                android:hint="@string/hint_email"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_error">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/userInputText"
                     android:drawableStart="@drawable/ic_email"
                     android:drawablePadding="10dp"
                     android:textColor="@color/white"
@@ -57,9 +60,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 app:passwordToggleEnabled="true"
-                android:hint="@string/hint_password">
+                android:hint="@string/hint_password"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_error">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordInputText"
                     android:drawableStart="@drawable/ic_lock_white"
                     android:drawablePadding="10dp"
                     android:textColor="@color/white"
