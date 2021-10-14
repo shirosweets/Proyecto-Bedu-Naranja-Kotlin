@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.google.android.material.button.MaterialButton
@@ -25,6 +29,8 @@ class RegisterFragment : Fragment() {
     private lateinit var emailInputText : TextInputEditText
     private lateinit var phoneInputText : TextInputEditText
     private lateinit var passwordInputText : TextInputEditText
+    private var sharedPreferences : SharedPreferences? = null
+
 
     private val isFormValid: () -> Boolean = {
         !(regFormUser.editText?.text.isNullOrEmpty() ||
@@ -53,6 +59,8 @@ class RegisterFragment : Fragment() {
         emailInputText = view.findViewById(R.id.emailInputText)
         phoneInputText = view.findViewById(R.id.phoneInputText)
         passwordInputText = view.findViewById(R.id.passwordInputText)
+
+        sharedPreferences = this.activity?.getSharedPreferences("org.bedu.sharedpreferences", Context.MODE_PRIVATE)
 
         setTextChangeActions()
         setClickListeners(view)
@@ -86,9 +94,16 @@ class RegisterFragment : Fragment() {
     private fun setClickListeners(view: View){
         registerButton.setOnClickListener {
             if(isFormValid()) {
-                findNavController().navigate(
-                    R.id.action_registerFragment2_to_loginFragment2,
-                    null)
+
+                sharedPreferences?.edit()
+                    ?.putString("USER_EMAIL", emailInputText.text.toString())
+                    ?.putString("USER_PASSWORD", passwordInputText.text.toString())
+                    ?.apply()
+
+
+                val action = RegisterFragmentDirections.actionRegisterFragment2ToLoginFragment2()
+                Navigation.findNavController(view).navigate(action)
+
             } else {
                 if(nameInputText.text.isNullOrEmpty()){regFormUser.error=getString(R.string.noticeIncompleteField)}
                 if(emailInputText.text.isNullOrEmpty()){regFormEmail.error=getString(R.string.noticeIncompleteField)}

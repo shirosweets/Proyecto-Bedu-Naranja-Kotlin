@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,12 +17,14 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class LoginFragment : Fragment() {
+
     private lateinit var loginFormUser : TextInputLayout
     private lateinit var loginFormPassword : TextInputLayout
     private lateinit var loginButton : MaterialButton
     private lateinit var registerRedirectBtn : Button
     private lateinit var userInputText : TextInputEditText
     private lateinit var passwordInputText : TextInputEditText
+    private var sharedPreferences : SharedPreferences? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,11 +35,18 @@ class LoginFragment : Fragment() {
         userInputText = view.findViewById(R.id.userInputText)
         passwordInputText = view.findViewById(R.id.passwordInputText)
 
+        sharedPreferences = this.activity?.getSharedPreferences("org.bedu.sharedpreferences", Context.MODE_PRIVATE)
+
+        setSharedInputText()
         setTextChangeActions()
         setClickListeners(view)
 
     }
 
+    private fun setSharedInputText(){
+        userInputText.setText(sharedPreferences?.getString("USER_EMAIL",""))
+        passwordInputText.setText(sharedPreferences?.getString("USER_PASSWORD",""))
+    }
 
     private fun setTextChangeActions(){
         userInputText.doOnTextChanged { text,_,_,_ ->
@@ -57,6 +68,11 @@ class LoginFragment : Fragment() {
             val passNotEmpty: Boolean = !loginFormPassword.editText?.text.isNullOrEmpty()
 
             if(emailNotEmpty && passNotEmpty){
+                sharedPreferences?.edit()
+                    ?.putString("USER_EMAIL", userInputText.text.toString())
+                    ?.putString("USER_PASSWORD", passwordInputText.text.toString())
+                    ?.apply()
+
                 findNavController().navigate(
                     R.id.action_loginFragment2_to_menuActivity,
                     null)
