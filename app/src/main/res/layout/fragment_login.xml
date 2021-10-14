@@ -60,7 +60,7 @@
                 android:hint="@string/hint_password">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:drawableStart="@drawable/ic_lock"
+                    android:drawableStart="@drawable/ic_lock_white"
                     android:drawablePadding="10dp"
                     android:textColor="@color/white"
                     android:layout_width="match_parent"

@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.fragment.findNavController
 import com.squareup.picasso.Picasso
@@ -59,6 +60,12 @@ class ProductDetailFragment : Fragment() {
 
     private fun showProduct(product: Product) {
         binding.productCardView.transitionName  = "product_${product.title}"
+        binding.productTitle.transitionName = "product_title_${product.title}"
+        binding.productVotes.transitionName = "product_votes_${product.title}"
+        binding.productPrice.transitionName = "product_price_${product.title}"
+        binding.productRating.transitionName = "product_rating_${product.title}"
+        binding.productImage.transitionName = "product_image_${product.title}"
+
 
         val splitString = "%.2f".format(product.price / 6f)
         binding.productTitle.text = product.title

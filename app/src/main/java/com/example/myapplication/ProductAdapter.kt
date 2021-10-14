@@ -7,7 +7,6 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
@@ -68,9 +67,19 @@ class ProductAdapter(
 
         fun getExtras(product:Product):FragmentNavigator.Extras{
             productCardView.transitionName = "product_${product.title}"
+            productTitle.transitionName = "product_title_${product.title}"
+            productVotes.transitionName = "product_votes_${product.title}"
+            productPrice.transitionName = "product_price_${product.title}"
+            productRating.transitionName = "product_rating_${product.title}"
+            productImage.transitionName = "product_image_${product.title}"
 
             return FragmentNavigatorExtras(
                 productCardView to "product_${product.title}",
+                productTitle to "product_title_${product.title}",
+                productVotes to "product_votes_${product.title}",
+                productPrice to "product_price_${product.title}",
+                productRating to "product_rating_${product.title}",
+                productImage to "product_image_${product.title}",
             )
 
         }

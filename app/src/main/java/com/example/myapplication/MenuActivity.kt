@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -7,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -18,6 +21,47 @@ import java.io.IOException
 class MenuActivity : AppCompatActivity() {
     private val helpUrl = "https://www.bedu.org/"
     private lateinit var menuNavigationBottom : BottomNavigationView
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_menu)
+        menuNavigationBottom =  findViewById(R.id.bottomNavigationView)
+        setupNavController()
+        products = getProducts(this)
+    }
+
+    private fun setupNavController(){
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.shoppingCartFragment -> showBottomNav()
+                R.id.homeFragment -> showBottomNav()
+                R.id.profileFragment -> showBottomNav()
+                else -> hideBottomNav()
+            }
+        }
+        menuNavigationBottom.setupWithNavController(navController)
+    }
+
+    private fun showBottomNav() {
+        menuNavigationBottom.visibility =View.VISIBLE
+        menuNavigationBottom.animate().translationY(0f).setDuration(300).setListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator) {
+                menuNavigationBottom.visibility = View.VISIBLE
+            }
+        })
+
+    }
+    private fun hideBottomNav() {
+        menuNavigationBottom.animate().translationY(100f).setDuration(300).setListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator) {
+                menuNavigationBottom.visibility = View.GONE
+            }
+        })
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.top_nav_menu, menu)
@@ -49,15 +93,7 @@ class MenuActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu)
-        menuNavigationBottom =  findViewById(R.id.bottomNavigationView)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
-        menuNavigationBottom.setupWithNavController(navController)
-        products = getProducts(this)
-    }
+
 
     private fun getJsonDataFromAsset(context: Context, fileName: String = "products.json"): String? {
         val jsonString: String
