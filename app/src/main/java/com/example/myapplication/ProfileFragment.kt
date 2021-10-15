@@ -1,18 +1,25 @@
 package com.example.myapplication
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.FragmentNavigator
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.imageview.ShapeableImageView
+import com.squareup.picasso.Picasso
 
 class ProfileFragment : Fragment() {
 
     private lateinit var recycler:RecyclerView
+    private lateinit var userFirstName : TextView
+    private lateinit var userImage : ShapeableImageView
+    private lateinit var userEmail : TextView
+    private var sharedPreferences: SharedPreferences? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,11 +32,26 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recycler = view.findViewById(R.id.optionRecyclerView)
+        userFirstName = view.findViewById(R.id.user_first_name)
+        userImage = view.findViewById(R.id.user_shapeable_image)
+        userEmail = view.findViewById(R.id.user_email)
 
         val clickListener: () -> Unit = {}
 
         recycler.adapter = OptionAdapter( clickListener, getProfileOptions())
         recycler.layoutManager = LinearLayoutManager(activity)
+
+        sharedPreferences =
+            this.activity?.getSharedPreferences("org.bedu.sharedpreferences", Context.MODE_PRIVATE)
+
+        setUserData()
+
+    }
+
+    private fun setUserData(){
+        userFirstName.setText(sharedPreferences?.getString("USER_FIRST_NAME","Janet"))
+        userEmail.setText(sharedPreferences?.getString("USER_EMAIL","janet.weaver@reqres.in"))
+        Picasso.get().load(sharedPreferences?.getString("USER_IMAGE","https://reqres.in/img/faces/2-image.jpg")).into(userImage)
     }
 
     private fun getProfileOptions():List<Option>{
