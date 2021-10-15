@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
 import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
@@ -29,6 +30,7 @@ class LoginFragment : Fragment() {
     private lateinit var registerRedirectBtn: Button
     private lateinit var userInputText: TextInputEditText
     private lateinit var passwordInputText: TextInputEditText
+    private lateinit var loginProgressBar: ProgressBar
     private var sharedPreferences: SharedPreferences? = null
     private val baseUrl = "https://reqres.in/api/users/"
 
@@ -49,6 +51,7 @@ class LoginFragment : Fragment() {
         registerRedirectBtn = view.findViewById(R.id.buttonCheckIn)
         userInputText = view.findViewById(R.id.userInputText)
         passwordInputText = view.findViewById(R.id.passwordInputText)
+        loginProgressBar = view.findViewById(R.id.loginProgressBar)
 
         sharedPreferences =
             this.activity?.getSharedPreferences("org.bedu.sharedpreferences", Context.MODE_PRIVATE)
@@ -85,6 +88,8 @@ class LoginFragment : Fragment() {
             val passNotEmpty: Boolean = !loginFormPassword.editText?.text.isNullOrEmpty()
 
             if (emailNotEmpty && passNotEmpty){
+                loginProgressBar.visibility = View.VISIBLE
+                loginButton.isEnabled = false
                 Thread{
                     checkUserEmail(view)
                 }.start()
@@ -150,6 +155,12 @@ class LoginFragment : Fragment() {
             }
         }
         if(!check){
+            activity?.runOnUiThread {
+                loginProgressBar.visibility = View.INVISIBLE
+                loginButton.isEnabled = true
+
+            }
+
             Snackbar.make(
                 view,
                 getString(R.string.noticeUserNotFound),
@@ -160,6 +171,8 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginSuccessfully(){
+        loginProgressBar.visibility = View.INVISIBLE
+        loginButton.isEnabled = true
         findNavController().navigate(
             R.id.action_loginFragment2_to_menuActivity,
             null

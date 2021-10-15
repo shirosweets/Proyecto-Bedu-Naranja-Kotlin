@@ -7,6 +7,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -16,10 +17,13 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import okhttp3.*
+import org.json.JSONObject
 import java.io.IOException
 
 class MenuActivity : AppCompatActivity() {
     private val helpUrl = "https://www.bedu.org/"
+    private val productsUrl = "https://fakestoreapi.com/products"
     private lateinit var menuNavigationBottom : BottomNavigationView
 
 
@@ -28,7 +32,7 @@ class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
         menuNavigationBottom =  findViewById(R.id.bottomNavigationView)
         setupNavController()
-        products = getProducts(this)
+        getProducts()
     }
 
     private fun setupNavController(){
@@ -106,18 +110,41 @@ class MenuActivity : AppCompatActivity() {
         return jsonString
     }
 
-    private fun getProducts(context: Context): List<Product> {
-        val jsonString = getJsonDataFromAsset(context)
-        val listProductType = object : TypeToken<List<Product>>() {}.type
-        val ret: List<Product> =  Gson().fromJson(jsonString, listProductType)
-        ret.forEach {
-            it.rating = (3..5).random().toFloat()
-            it.votes = (10..999).random()
-        }
-        return ret
+    fun getProducts(){
+
+        val okHttpClient = OkHttpClient()
+        val request = Request.Builder()
+            .url(productsUrl)
+            .build()
+
+        okHttpClient.newCall(request).enqueue(object : Callback {
+
+            override fun onFailure(call: Call, e: IOException) {
+                Log.d("Error",e.toString())
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                val jsonString = response.body?.string()
+
+                runOnUiThread{
+
+                    val listProductType = object : TypeToken<List<Product>>() {}.type
+                    var ret :List<Product> =  Gson().fromJson(jsonString, listProductType)
+                    ret.forEach {
+                        it.rating = (3..5).random().toFloat()
+                        it.votes = (10..999).random()
+
+                    }
+                    products = ret
+                }
+            }
+        })
     }
 
     companion object {
         var products: List<Product> = listOf()
     }
+
+
+
 }
