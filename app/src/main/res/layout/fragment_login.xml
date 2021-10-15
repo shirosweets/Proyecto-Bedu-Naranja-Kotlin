@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/opaque"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".LoginFragment">
@@ -63,12 +62,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:drawableStart="@drawable/ic_lock"
-                    android:drawablePadding="10dp"
-                    android:textColor="@color/white"
+                    style="@style/TextFullInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:maxLines="1"
                     tools:layout_editor_absoluteY="547dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,22 +76,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:text="@string/logInButton"
-                android:textSize="16sp"
                 android:singleLine="true"/>
 
             <Button
                 android:id="@+id/buttonCheckIn"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_marginTop="10dp"
+                style="@style/BorderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="40dp"
                 android:text="@string/checkInButton"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/white"
-                android:textSize="11dp" />
-
+                />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

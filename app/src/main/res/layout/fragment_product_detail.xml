@@ -24,7 +24,6 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="16dp"
                 android:text="Nuevo"
-                android:textColor="@color/lightGray"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +33,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED"
-                android:textColor="@color/gray"
                 android:textSize="18dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/guideline5"
@@ -57,7 +55,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="444"
-                android:textColor="@color/black"
                 android:textSize="12dp"
                 android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="@+id/product_rating"
@@ -90,7 +87,6 @@
 
             <TextView
                 android:id="@+id/product_detail_amout_payments"
-                style="@style/textViewBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
@@ -105,14 +101,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:text="de $100"
-                android:textColor="@color/lightGray"
                 app:layout_constraintBottom_toBottomOf="@+id/product_detail_amout_payments"
                 app:layout_constraintStart_toEndOf="@+id/product_detail_amout_payments"
                 app:layout_constraintTop_toTopOf="@+id/product_detail_amout_payments" />
 
             <TextView
                 android:id="@+id/product_detail_shipping"
-                style="@style/textViewBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -125,7 +119,6 @@
 
             <TextView
                 android:id="@+id/product_detail_delivery_date"
-                style="@style/textViewBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -149,7 +142,6 @@
 
             <TextView
                 android:id="@+id/product_detail_description"
-                style="@style/textViewBlack"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
