@@ -25,7 +25,7 @@
     <color name="light_secondaryColor">#D50C0C</color>
     <color name="light_secondaryVariant">#f03c15</color>
     <color name="light_onSecondaryColor">#FFFFFF</color>
-    <color name="light_backgroundColor">#FFA182</color>
+    <color name="light_backgroundColor">#FFCCBB</color>
 
     <!--Accent Colors-->
     <color name="grey_50opacity">#80838383</color>

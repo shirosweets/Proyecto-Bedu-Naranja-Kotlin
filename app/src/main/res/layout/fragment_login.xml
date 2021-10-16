@@ -28,28 +28,27 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textTitle"
-                android:layout_width="186dp"
-                android:layout_height="55dp"
+                android:layout_width="300dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="50dp"
                 android:text="@string/app_name"
-                app:autoSizeTextType="uniform"
-                android:layout_marginTop="50dp"/>
+                style="@style/AdjustTitle"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/loginFormEmail"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
-                android:hint="@string/hint_email">
+                android:hint="@string/hint_email"
+                style="@style/FormInput">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:drawableStart="@drawable/ic_email"
-                    android:drawablePadding="10dp"
-                    android:textColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    tools:layout_editor_absoluteY="547dp" />
+                    tools:layout_editor_absoluteY="547dp"
+                    style="@style/FormInput"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -57,16 +56,17 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:hint="@string/hint_password"
                 app:passwordToggleEnabled="true"
-                android:hint="@string/hint_password">
+                style="@style/FormInput">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:drawableStart="@drawable/ic_lock"
-                    style="@style/TextFullInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    tools:layout_editor_absoluteY="547dp" />
+                    tools:layout_editor_absoluteY="547dp"
+                    style="@style/FormInput"/>
             </com.google.android.material.textfield.TextInputLayout>
 
 
