@@ -59,8 +59,8 @@ class ProductAdapter(
 
         fun render(product: Product) {
             productTitle.text = product.title
-            productVotes.text = product.votes.toString()
-            productRating.rating = product.rating
+            productVotes.text = product.rating?.count.toString()
+            productRating.rating = product.rating?.rate ?: 5f
             productPrice.text = "$ ${product.price}"
             Picasso.get().load(product.image).into(productImage)
         }

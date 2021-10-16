@@ -17,13 +17,15 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import okhttp3.*
+import okhttp3.internal.threadFactory
 import org.json.JSONObject
 import java.io.IOException
 
 class MenuActivity : AppCompatActivity() {
     private val helpUrl = "https://www.bedu.org/"
-    private val productsUrl = "https://fakestoreapi.com/products"
     private lateinit var menuNavigationBottom : BottomNavigationView
 
 
@@ -32,7 +34,7 @@ class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
         menuNavigationBottom =  findViewById(R.id.bottomNavigationView)
         setupNavController()
-        getProducts()
+        //getProducts()
     }
 
     private fun setupNavController(){
@@ -110,40 +112,43 @@ class MenuActivity : AppCompatActivity() {
         return jsonString
     }
 
-    fun getProducts(){
 
-        val okHttpClient = OkHttpClient()
-        val request = Request.Builder()
-            .url(productsUrl)
-            .build()
 
-        okHttpClient.newCall(request).enqueue(object : Callback {
-
-            override fun onFailure(call: Call, e: IOException) {
-                Log.d("Error",e.toString())
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                val jsonString = response.body?.string()
-
-                runOnUiThread{
-
-                    val listProductType = object : TypeToken<List<Product>>() {}.type
-                    var ret :List<Product> =  Gson().fromJson(jsonString, listProductType)
-                    ret.forEach {
-                        it.rating = (3..5).random().toFloat()
-                        it.votes = (10..999).random()
-
-                    }
-                    products = ret
-                }
-            }
-        })
-    }
-
-    companion object {
-        var products: List<Product> = listOf()
-    }
+//    companion object {
+//        val productsUrl = "https://fakestoreapi.com/products"
+//
+//        var products: List<Product> = listOf()
+//
+//        fun getProducts(){
+//
+//            val okHttpClient = OkHttpClient()
+//            val request = Request.Builder()
+//                .url(productsUrl)
+//                .build()
+//
+//            okHttpClient.newCall(request).enqueue(object : Callback {
+//
+//                override fun onFailure(call: Call, e: IOException) {
+//                    Log.d("Error",e.toString())
+//                }
+//
+//                override fun onResponse(call: Call, response: Response) {
+//                    val jsonString = response.body?.string()
+//
+//                    GlobalScope.launch {
+//                        val listProductType = object : TypeToken<List<Product>>() {}.type
+//                        var ret :List<Product> =  Gson().fromJson(jsonString, listProductType)
+//                        ret.forEach {
+//                            it.rating = (3..5).random().toFloat()
+//                            it.votes = (10..999).random()
+//
+//                        }
+//                        products = ret
+//                    }
+//                }
+//            })
+//        }
+//   }
 
 
 

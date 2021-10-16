@@ -3,16 +3,16 @@ package com.example.myapplication
 import android.os.Parcel
 import android.os.Parcelable
 
-class Product(
+
+data class Product(
     val id: Int,
     val title: String,
     val price: Float,
     val description: String,
     val category: String,
-    val image: String
-): Parcelable {
-    var rating: Float = 0f
-    var votes: Int = 0
+    val image: String,
+    val rating: Rating?
+):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString().toString(),
@@ -20,40 +20,22 @@ class Product(
         parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readString().toString(),
-        parcel.readFloat(),
-        parcel.readInt()
+        parcel.readParcelable(Rating::class.java.classLoader)
     ) {
-    }
-
-    constructor(
-        id: Int,
-        title: String,
-        price: Float,
-        description: String,
-        category: String,
-        image: String,
-        rating: Float,
-        votes: Int
-    ) : this(
-        id, title, price, description, category, image
-    ) {
-        this.rating = rating
-        this.votes = votes
     }
 
     override fun describeContents(): Int {
         TODO("Not yet implemented")
     }
 
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
+    override fun writeToParcel(parcel: Parcel, p1: Int) {
         parcel.writeInt(id)
         parcel.writeString(title)
         parcel.writeFloat(price)
         parcel.writeString(description)
         parcel.writeString(category)
         parcel.writeString(image)
-        parcel.writeFloat(rating)
-        parcel.writeInt(votes)
+        parcel.writeParcelable(rating,Parcelable.PARCELABLE_WRITE_RETURN_VALUE)
     }
 
     companion object CREATOR : Parcelable.Creator<Product> {
@@ -66,3 +48,8 @@ class Product(
         }
     }
 }
+
+
+
+
+

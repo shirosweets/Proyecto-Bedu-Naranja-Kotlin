@@ -3,7 +3,6 @@ package com.example.myapplication
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,9 +17,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import okhttp3.*
-import org.json.JSONException
 import org.json.JSONObject
-import java.io.IOException
 
 class LoginFragment : Fragment() {
 
@@ -121,7 +118,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun checkUserEmail(view: View) {
-        var check = false
+       var check = false
         for(userNumber in 1..12){
             val okHttpClient = OkHttpClient()
             val url = "$baseUrl$userNumber"

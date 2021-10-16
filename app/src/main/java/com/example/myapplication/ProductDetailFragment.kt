@@ -69,8 +69,8 @@ class ProductDetailFragment : Fragment() {
 
         val splitString = "%.2f".format(product.price / 6f)
         binding.productTitle.text = product.title
-        binding.productRating.rating = product.rating
-        binding.productVotes.text = product.votes.toString()
+        binding.productRating.rating = product.rating?.rate ?: 5f
+        binding.productVotes.text = product.rating?.count.toString()
         Picasso.get().load(product.image).into(binding.productImage)
         binding.productPrice.text = "$ ${product.price}"
         binding.productDetailSplitPayment.text = "$ $splitString"
