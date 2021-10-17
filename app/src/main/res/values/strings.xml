@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bedu shop</string>
+    <string name="app_name">Bedu Shop</string>
 
     <!--Text hint-->
     <string name="emailHint">Correo electrónico</string>
@@ -27,5 +27,7 @@
     <string name="menu_shopping_cart">Carrito</string>
     <string name="menu_profile">Perfil</string>
 
-
+    <!---Notifications-->
+    <string name="notification_1">Compra realizada</string>
+    <string name="notify_body_1">¡Tu pedido llegará en una semana!</string>
 </resources>

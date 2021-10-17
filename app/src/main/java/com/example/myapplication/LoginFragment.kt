@@ -36,7 +36,7 @@ class LoginFragment : Fragment() {
     private val BASE_LOGIN_URL = "https://reqres.in/"
     private val BASE_USER_URL = "https://reqres.in/api/users/"
 
-
+    private lateinit var notifyButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,12 +58,16 @@ class LoginFragment : Fragment() {
         passwordInputText = view.findViewById(R.id.passwordInputText)
         loginProgressBar = view.findViewById(R.id.loginProgressBar)
 
+        notifyButton = view.findViewById(R.id.notifyBuy)
 
         sharedPreferences = this.activity?.getSharedPreferences("org.bedu.sharedpreferences", Context.MODE_PRIVATE)
 
         setSharedPreferencesInputText()
         setTextChangeActions()
         setClickListeners(view)
+        notifyButton.setOnClickListener{
+            
+        }
 
     }
 
@@ -194,8 +198,5 @@ class LoginFragment : Fragment() {
             ?.putString("USER_AVATAR", user.data.avatar)
             ?.putString("USER_FIRST_NAME", user.data.first_name)
             ?.apply()
-
     }
-
-
 }
