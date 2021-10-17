@@ -17,7 +17,6 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat.getColor
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
@@ -32,7 +31,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class LoginFragment : Fragment() {
-
     private lateinit var loginFormUser: TextInputLayout
     private lateinit var loginFormPassword: TextInputLayout
     private lateinit var loginButton: MaterialButton
@@ -40,9 +38,9 @@ class LoginFragment : Fragment() {
     private lateinit var userInputText: TextInputEditText
     private lateinit var passwordInputText: TextInputEditText
     private lateinit var loginProgressBar: ProgressBar
-    private var sharedPreferences: SharedPreferences? = null
-    private val BASE_LOGIN_URL = "https://reqres.in/"
-    private val BASE_USER_URL = "https://reqres.in/api/users/"
+    private lateinit var sharedPreferences: SharedPreferences
+    private val baseLoginUrl = "https://reqres.in/"
+    private val baseUserUrl = "https://reqres.in/api/users/"
 
     private lateinit var notificationBuyButton: Button
 
@@ -60,8 +58,6 @@ class LoginFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-
         super.onViewCreated(view, savedInstanceState)
         loginFormUser = view.findViewById(R.id.loginFormEmail)
         loginFormPassword = view.findViewById(R.id.loginFormPassword)
@@ -70,15 +66,17 @@ class LoginFragment : Fragment() {
         userInputText = view.findViewById(R.id.userInputText)
         passwordInputText = view.findViewById(R.id.passwordInputText)
         loginProgressBar = view.findViewById(R.id.loginProgressBar)
-
+        sharedPreferences = requireActivity().getSharedPreferences(
+            getString(R.string.loginSharedPreferenceFile),
+            Context.MODE_PRIVATE
+        )
+        userInputText.setText(sharedPreferences.getString("USER_EMAIL", ""))
         notificationBuyButton = view.findViewById(R.id.notificationBuy)
-
-        sharedPreferences = this.activity?.getSharedPreferences("org.bedu.sharedpreferences", Context.MODE_PRIVATE)
 
         setSharedPreferencesInputText()
         setTextChangeActions()
         setClickListeners(view)
-        notificationBuyButton.setOnClickListener{
+        notificationBuyButton.setOnClickListener {
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                 BuyNotification()
             }
@@ -123,20 +121,19 @@ class LoginFragment : Fragment() {
 
     private fun setTextChangeActions() {
         userInputText.doOnTextChanged { text, _, _, _ ->
-            if (text!!.isNotEmpty()) {
+            if (!text.isNullOrEmpty()) {
                 loginFormUser.error = null
             }
         }
 
         passwordInputText.doOnTextChanged { text, _, _, _ ->
-            if (text!!.isNotEmpty()) {
+            if (!text.isNullOrEmpty()) {
                 loginFormPassword.error = null
             }
         }
     }
 
     private fun setClickListeners(view: View) {
-
         loginButton.setOnClickListener {
             val emailNotEmpty: Boolean = !loginFormUser.editText?.text.isNullOrEmpty()
             val passNotEmpty: Boolean = !loginFormPassword.editText?.text.isNullOrEmpty()
@@ -180,18 +177,23 @@ class LoginFragment : Fragment() {
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
-
     }
 
     private fun checkUser(view: View){
         CoroutineScope(Dispatchers.IO).launch {
-            val call = getRetrofit(BASE_LOGIN_URL).create(APIService::class.java).loginUser(userInputText.text.toString(),passwordInputText.text.toString())
+            val call = getRetrofit(baseLoginUrl)
+                .create(APIService::class.java)
+                .loginUser(
+                    userInputText.text.toString(),
+                    passwordInputText.text.toString()
+                )
+
             activity?.runOnUiThread{
-                if(call.isSuccessful){
+                if (call.isSuccessful){
                     getUserData(userInputText.text.toString())
                     loginSuccessfully()
-                }else{
+                }
+                else {
                     loginProgressBar.visibility = View.INVISIBLE
                     loginButton.isEnabled = true
 
@@ -203,7 +205,6 @@ class LoginFragment : Fragment() {
                         .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
                         .setAction(getString(R.string.snackbarButton)) {}.show()}
                 }
-
             }
         }
 
@@ -216,29 +217,31 @@ class LoginFragment : Fragment() {
         )
     }
 
-    private fun getUserData(userEmail:String){
-
+    private fun getUserData(userEmail: String) {
         for(userNumber in 1..12) {
             CoroutineScope(Dispatchers.IO).launch {
-                val call = getRetrofit(BASE_USER_URL).create(APIService::class.java).getUserData(userNumber.toString())
+                val call = getRetrofit(baseUserUrl)
+                    .create(APIService::class.java)
+                    .getUserData(userNumber.toString())
                 val userReceived = call.body()
-                activity?.runOnUiThread{
-                    if(call.isSuccessful){
-                        if(userReceived?.data?.email == userEmail){
+
+                activity?.runOnUiThread {
+                    if(call.isSuccessful) {
+                        if(userReceived?.data?.email == userEmail) {
                             savedSharedPreferencesUser(userReceived)
                         }
-                    }else{
+                    }
+                    else {
                         Log.d("Error:","User data call failed")
                     }
                 }
             }
         }
-
     }
 
     private fun savedSharedPreferencesUser(user : User){
-        sharedPreferences?.edit()
-            ?.putBoolean("USER_ACCESS",true)
+        sharedPreferences.edit()
+            ?.putBoolean("USER_ACCESS", true)
             ?.putString("USER_EMAIL", user.data.email)
             ?.putString("USER_AVATAR", user.data.avatar)
             ?.putString("USER_FIRST_NAME", user.data.first_name)

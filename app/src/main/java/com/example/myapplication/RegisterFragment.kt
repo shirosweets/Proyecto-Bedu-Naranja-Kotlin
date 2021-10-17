@@ -60,7 +60,10 @@ class RegisterFragment : Fragment() {
         phoneInputText = view.findViewById(R.id.phoneInputText)
         passwordInputText = view.findViewById(R.id.passwordInputText)
 
-        sharedPreferences = this.activity?.getSharedPreferences("org.bedu.sharedpreferences", Context.MODE_PRIVATE)
+        sharedPreferences = requireContext().getSharedPreferences(
+            getString(R.string.loginSharedPreferenceFile),
+            Context.MODE_PRIVATE
+        )
 
         setTextChangeActions()
         setClickListeners(view)

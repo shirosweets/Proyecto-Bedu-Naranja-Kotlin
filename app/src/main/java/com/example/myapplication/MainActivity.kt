@@ -10,20 +10,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         this.setTheme(UserConfig.getThemeResourceId(this))
         val sharedPreferences = this.getSharedPreferences(
-            "org.bedu.sharedpreferences",
+            getString(R.string.loginSharedPreferenceFile),
             Context.MODE_PRIVATE
         )
-
-        if(sharedPreferences?.getBoolean("USER_ACCESS", false) == true){
+        if(sharedPreferences.getBoolean("USER_ACCESS", false)) {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
-        else{
+        else {
             setContentView(R.layout.activity_main)
             supportActionBar?.hide()
         }
     }
 }
-
-
-
