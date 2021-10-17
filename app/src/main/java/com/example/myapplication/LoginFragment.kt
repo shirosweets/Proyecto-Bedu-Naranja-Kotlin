@@ -1,7 +1,10 @@
 package com.example.myapplication
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,6 +13,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
+import androidx.annotation.RequiresApi
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat.getColor
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
@@ -36,16 +44,21 @@ class LoginFragment : Fragment() {
     private val BASE_LOGIN_URL = "https://reqres.in/"
     private val BASE_USER_URL = "https://reqres.in/api/users/"
 
+    private lateinit var notificationBuyButton: Button
 
+    val CHANNEL_OTHERS = "OTROS"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            setNotificationChannel()
+        }
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
 
@@ -58,15 +71,51 @@ class LoginFragment : Fragment() {
         passwordInputText = view.findViewById(R.id.passwordInputText)
         loginProgressBar = view.findViewById(R.id.loginProgressBar)
 
+        notificationBuyButton = view.findViewById(R.id.notificationBuy)
 
         sharedPreferences = this.activity?.getSharedPreferences("org.bedu.sharedpreferences", Context.MODE_PRIVATE)
 
         setSharedPreferencesInputText()
         setTextChangeActions()
         setClickListeners(view)
+        notificationBuyButton.setOnClickListener{
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                BuyNotification()
+            }
+        }
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun setNotificationChannel(){
+        val name = getString(R.string.notification_1)
+        val descriptionText = getString(R.string.notify_body_1)
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val channel = NotificationChannel(CHANNEL_OTHERS, name, importance).apply{
+            description = descriptionText
+        }
+
+        val notificationManager: NotificationManager =
+            requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        notificationManager.createNotificationChannel(channel)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun BuyNotification(){
+        var builder = NotificationCompat.Builder(requireContext(), CHANNEL_OTHERS)
+            .setSmallIcon(R.drawable.ic_bedu_shop)
+            .setColor(getColor(requireContext(), R.color.secondaryColor))
+            .setContentTitle(getString(R.string.notification_1))
+            .setContentText(getString(R.string.notify_body_1))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        // Send notification
+        with(NotificationManagerCompat.from(requireContext())){
+            notify(20, builder.build()) // id generic
+        }
+
+    }
 
     private fun setSharedPreferencesInputText() {
         userInputText.setText(sharedPreferences?.getString("USER_EMAIL", ""))
@@ -194,8 +243,5 @@ class LoginFragment : Fragment() {
             ?.putString("USER_AVATAR", user.data.avatar)
             ?.putString("USER_FIRST_NAME", user.data.first_name)
             ?.apply()
-
     }
-
-
 }

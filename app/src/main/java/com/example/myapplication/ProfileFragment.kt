@@ -3,11 +3,14 @@ package com.example.myapplication
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
@@ -22,6 +25,8 @@ class ProfileFragment : Fragment() {
     private lateinit var userImage : ShapeableImageView
     private lateinit var userEmail : TextView
     private var sharedPreferences: SharedPreferences? = null
+
+    private lateinit var closeSession: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,13 +48,20 @@ class ProfileFragment : Fragment() {
             activity?.recreate()
         }
 
+        closeSession = view.findViewById(R.id.buttonCloseSession)
 
         recycler.adapter = OptionAdapter( getOptionsClickListener(), getProfileOptions())
         recycler.layoutManager = LinearLayoutManager(activity)
 
         sharedPreferences =
-            this.activity?.getSharedPreferences("org.bedu.sharedpreferences", Context.MODE_PRIVATE)
+            this.activity?.getSharedPreferences(
+                "org.bedu.sharedpreferences",
+                Context.MODE_PRIVATE
+            )
 
+        closeSession.setOnClickListener {
+            closeSesion()
+        }
         setUserData()
 
     }
@@ -58,6 +70,17 @@ class ProfileFragment : Fragment() {
         userFirstName.setText(sharedPreferences?.getString("USER_FIRST_NAME","Janet"))
         userEmail.setText(sharedPreferences?.getString("USER_EMAIL","janet.weaver@reqres.in"))
         Picasso.get().load(sharedPreferences?.getString("USER_AVATAR","https://reqres.in/img/faces/2-image.jpg")).into(userImage)
+    }
+
+    private fun closeSesion(){
+        Log.v("MYDEBUG", sharedPreferences.toString())
+        sharedPreferences?.edit()
+            ?.putBoolean("USER_ACCESS",false)
+            ?.apply()
+        findNavController().navigate(
+            R.id.action_profileFragment_to_homeFragment,
+            null
+        )
     }
 
     private fun getProfileOptions():List<Option>{
@@ -84,6 +107,4 @@ class ProfileFragment : Fragment() {
 
         return clickListener
     }
-
-
 }
