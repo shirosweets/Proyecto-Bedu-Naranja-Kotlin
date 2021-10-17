@@ -21,15 +21,15 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/materialTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:text="@string/reg_fragment_title"
-                android:textSize="30dp"
                 app:layout_constraintBottom_toTopOf="@+id/google_sign_in_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.671" />
+                app:layout_constraintVertical_bias="0.671"
+                style="@style/AdjustTitle"/>
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/google_sign_in_button"
@@ -99,7 +99,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/separator3"
                 app:layout_constraintVertical_bias="0.15"
-                app:layout_constraintVertical_chainStyle="packed">
+                app:layout_constraintVertical_chainStyle="packed"
+                style="@style/FormInput">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -110,7 +111,8 @@
                     android:maxLines="1"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="547dp" />
+                    tools:layout_editor_absoluteY="547dp"
+                    style="@style/FormInput"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -123,7 +125,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/regFormUser">
+                app:layout_constraintTop_toBottomOf="@+id/regFormUser"
+                style="@style/FormInput">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -134,7 +137,8 @@
                     android:maxLines="1"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="547dp" />
+                    tools:layout_editor_absoluteY="547dp"
+                    style="@style/FormInput"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -147,7 +151,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/regFormEmail">
+                app:layout_constraintTop_toBottomOf="@+id/regFormEmail"
+                style="@style/FormInput">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -158,7 +163,8 @@
                     android:maxLines="1"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="547dp" />
+                    tools:layout_editor_absoluteY="547dp"
+                    style="@style/FormInput"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -172,7 +178,8 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/regformPhoneNumber"
-                app:passwordToggleEnabled="true">
+                app:passwordToggleEnabled="true"
+                style="@style/FormInput">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -183,7 +190,8 @@
                     android:maxLines="1"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="547dp" />
+                    tools:layout_editor_absoluteY="547dp"
+                    style="@style/FormInput"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton

@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!--    <item name="colorPrimary">@color/purple_500</item>-->
-    <!--    <item name="colorPrimaryVariant">@color/purple_700</item>-->
-    <!--    <item name="colorOnPrimary">@color/white</item>-->
-    <!--    &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
-    <!--    <item name="colorSecondary">@color/teal_200</item>-->
-    <!--    <item name="colorSecondaryVariant">@color/teal_700</item>-->
-    <!--    <item name="colorOnSecondary">@color/black</item>-->
-
     <!--Dark Theme Specific Colors-->
     <color name="dark_primaryColor">#000000</color>
     <color name="dark_primaryVariant">#b50000</color>
@@ -34,25 +25,7 @@
     <color name="white_50opacity">#80000000</color>
 
     <!--Other Colors-->
-<!--    <color name="purple_200">#FFBB86FC</color>-->
-<!--    <color name="purple_500">#FF6200EE</color>-->
-<!--    <color name="purple_700">#FF3700B3</color>-->
-<!--    <color name="teal_200">#FF03DAC5</color>-->
-<!--    <color name="teal_700">#FF018786</color>-->
-<!--    <color name="black">#FF000000</color>-->
     <color name="white">#FFFFFFFF</color>
     <color name="black">#000000</color>
-<!--    <color name="orange">#F03C15</color>-->
-<!--    <color name="opaque">#172126</color>-->
-<!--    <color name="gray">#333333</color>-->
     <color name="green">#4BD100</color>
-<!--    <color name="lightGray">#B3B3B3</color>-->
-<!--    <color name="primaryColor">#172126</color>-->
-<!--    <color name="primaryLightColor">#3e484e</color>-->
-<!--    <color name="primaryDarkColor">#000000</color>-->
-<!--    <color name="secondaryColor">#f03c15</color>-->
-<!--    <color name="secondaryLightColor">#ff7244</color>-->
-<!--    <color name="secondaryDarkColor">#b50000</color>-->
-<!--    <color name="primaryTextColor">#ffffff</color>-->
-<!--    <color name="secondaryTextColor">#000000</color>-->
 </resources>

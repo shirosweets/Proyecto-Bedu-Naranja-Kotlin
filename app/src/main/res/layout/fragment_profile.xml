@@ -16,14 +16,16 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:text="@string/dark_theme_switch_text"
-            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintBottom_toTopOf="@+id/profileTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/profileTitle"
+            style="@style/AdjustTitle"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:gravity="center"
             android:text="Profile"
             android:textSize="80dp"
             app:layout_constraintBottom_toBottomOf="parent"
