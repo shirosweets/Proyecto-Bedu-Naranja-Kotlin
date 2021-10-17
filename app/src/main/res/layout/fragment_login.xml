@@ -105,12 +105,12 @@
 
             <Button
                 android:id="@+id/notificationBuy"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                style="@style/MaterialButtonStyle"
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
-                android:text="Se ha realizado una compra"
+                android:text="TEST DE NOTIFICACIÓN DE COMPRA"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/white"

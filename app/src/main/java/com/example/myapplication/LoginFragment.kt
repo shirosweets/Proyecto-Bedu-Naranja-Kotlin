@@ -2,7 +2,9 @@ package com.example.myapplication
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
@@ -101,18 +103,27 @@ class LoginFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun BuyNotification(){
+        // Un PendingIntent para dirigirnos a una actividad pulsando la notificación
+        // Se debe modificar MenuActivity por el Activity del S.Car
+        val intent = Intent(requireContext(), MenuActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(
+            requireContext(), 0, intent, PendingIntent.FLAG_MUTABLE)
+
         var builder = NotificationCompat.Builder(requireContext(), CHANNEL_OTHERS)
             .setSmallIcon(R.drawable.ic_bedu_shop)
-            .setColor(getColor(requireContext(), R.color.secondaryColor))
+            .setColor(getColor(requireContext(), R.color.light_secondaryVariant))
             .setContentTitle(getString(R.string.notification_1))
             .setContentText(getString(R.string.notify_body_1))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pendingIntent) //se define aquí el content intend
+            .setAutoCancel(true) //la notificación desaparece al dar click sobre ella
 
         // Send notification
         with(NotificationManagerCompat.from(requireContext())){
             notify(20, builder.build()) // id generic
         }
-
     }
 
     private fun setSharedPreferencesInputText() {
