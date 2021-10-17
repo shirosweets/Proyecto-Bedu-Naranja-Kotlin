@@ -51,7 +51,7 @@ class ProfileFragment : Fragment() {
     private fun setUserData(){
         userFirstName.setText(sharedPreferences?.getString("USER_FIRST_NAME","Janet"))
         userEmail.setText(sharedPreferences?.getString("USER_EMAIL","janet.weaver@reqres.in"))
-        Picasso.get().load(sharedPreferences?.getString("USER_IMAGE","https://reqres.in/img/faces/2-image.jpg")).into(userImage)
+        Picasso.get().load(sharedPreferences?.getString("USER_AVATAR","https://reqres.in/img/faces/2-image.jpg")).into(userImage)
     }
 
     private fun getProfileOptions():List<Option>{
