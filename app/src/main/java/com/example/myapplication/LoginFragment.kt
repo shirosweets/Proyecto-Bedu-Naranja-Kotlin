@@ -43,14 +43,6 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        sharedPreferences = this.activity?.getSharedPreferences("org.bedu.sharedpreferences", Context.MODE_PRIVATE)
-        if(sharedPreferences?.getBoolean("USER_ACCESS", false) == true){
-            findNavController().navigate(
-                R.id.action_loginFragment2_to_menuActivity,
-                null
-            )
-        }
-
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
@@ -67,7 +59,7 @@ class LoginFragment : Fragment() {
         loginProgressBar = view.findViewById(R.id.loginProgressBar)
 
 
-
+        sharedPreferences = this.activity?.getSharedPreferences("org.bedu.sharedpreferences", Context.MODE_PRIVATE)
 
         setSharedPreferencesInputText()
         setTextChangeActions()
