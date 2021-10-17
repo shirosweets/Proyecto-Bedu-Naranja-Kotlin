@@ -19,11 +19,12 @@ import com.squareup.picasso.Picasso
 
 class ProfileFragment : Fragment() {
     private lateinit var themeSwitch: SwitchMaterial
+
     private lateinit var recycler:RecyclerView
     private lateinit var userFirstName : TextView
     private lateinit var userImage : ShapeableImageView
     private lateinit var userEmail : TextView
-    private lateinit var sharedPreferences: SharedPreferences
+    private var sharedPreferences: SharedPreferences? = null
 
     private lateinit var closeSession: Button
 
@@ -47,31 +48,28 @@ class ProfileFragment : Fragment() {
             activity?.recreate()
         }
 
+        closeSession = view.findViewById(R.id.buttonCloseSession)
+
         recycler.adapter = OptionAdapter( getOptionsClickListener(), getProfileOptions())
         recycler.layoutManager = LinearLayoutManager(activity)
 
-        sharedPreferences = requireContext().getSharedPreferences(
-            getString(R.string.loginSharedPreferenceFile),
-            Context.MODE_PRIVATE
-        )
+        sharedPreferences =
+            this.activity?.getSharedPreferences(
+                "org.bedu.sharedpreferences",
+                Context.MODE_PRIVATE
+            )
+
+        closeSession.setOnClickListener {
+            closeSesion()
+        }
         setUserData()
+
     }
 
     private fun setUserData(){
-        userFirstName.text = sharedPreferences.getString(
-            "USER_FIRST_NAME",
-            "Janet"
-        )
-        userEmail.text = sharedPreferences.getString(
-            "USER_EMAIL",
-            "janet.weaver@reqres.in"
-        )
-        Picasso.get().load(
-            sharedPreferences.getString(
-                "USER_AVATAR",
-                "https://reqres.in/img/faces/2-image.jpg"
-            )
-        ).into(userImage)
+        userFirstName.setText(sharedPreferences?.getString("USER_FIRST_NAME","Janet"))
+        userEmail.setText(sharedPreferences?.getString("USER_EMAIL","janet.weaver@reqres.in"))
+        Picasso.get().load(sharedPreferences?.getString("USER_AVATAR","https://reqres.in/img/faces/2-image.jpg")).into(userImage)
     }
 
     private fun closeSesion(){
