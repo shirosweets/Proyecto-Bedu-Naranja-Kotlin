@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 class OptionAdapter(
-    private val click_listener: () -> Unit,
+    private val click_listener: (String) -> Unit,
     private val options_list: List<Option>
 ): RecyclerView.Adapter<OptionAdapter.OptionHolder>() {
 
@@ -31,7 +31,7 @@ class OptionAdapter(
         holder.render(currentOption)
 
         holder.itemView.setOnClickListener{
-            click_listener()
+            click_listener(currentOption.name)
         }
 
     }

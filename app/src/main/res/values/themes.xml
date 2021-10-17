@@ -28,6 +28,7 @@
         <item name="textInputStyle">@style/TextInputLayout</item>
 <!--        <item name="editTextStyle">@style/EditText</item>-->
         <item name="materialButtonStyle">@style/MaterialButtonStyle</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
     <style name="HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
@@ -58,6 +59,15 @@
     </style>
     <style name="ShapeAppearanceOverlay.BeduCompras.CornerSize50Percent" parent="">
         <item name="cornerSize">50%</item>
+    </style>
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/round_corners</item>
     </style>
 
 </resources>

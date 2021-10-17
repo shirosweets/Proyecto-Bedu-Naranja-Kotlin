@@ -36,9 +36,8 @@ class ProfileFragment : Fragment() {
         userImage = view.findViewById(R.id.user_shapeable_image)
         userEmail = view.findViewById(R.id.user_email)
 
-        val clickListener: () -> Unit = {}
 
-        recycler.adapter = OptionAdapter( clickListener, getProfileOptions())
+        recycler.adapter = OptionAdapter( getOptionsClickListener(), getProfileOptions())
         recycler.layoutManager = LinearLayoutManager(activity)
 
         sharedPreferences =
@@ -61,6 +60,22 @@ class ProfileFragment : Fragment() {
             Option("Pedidos",R.drawable.ic_restore),
             Option("Notificaciones",R.drawable.ic_notifications_active),
             Option("Cambiar contraseña",R.drawable.ic_lock),)
+    }
+
+    private fun getOptionsClickListener():(String) -> Unit{
+
+        val clickListener: (String) -> Unit = {
+            when(it){
+                "Mis direcciones" -> {
+                    val addressFragment = AddressFragment()
+                    addressFragment.show(this.parentFragmentManager,"fragment")
+                }
+
+                else -> {}
+            }
+        }
+
+        return clickListener
     }
 
 
