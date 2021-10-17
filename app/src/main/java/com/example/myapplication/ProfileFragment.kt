@@ -11,9 +11,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.squareup.picasso.Picasso
 
 class ProfileFragment : Fragment() {
+    private lateinit var themeSwitch: SwitchMaterial
 
     private lateinit var recycler:RecyclerView
     private lateinit var userFirstName : TextView
@@ -25,7 +27,6 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
@@ -35,6 +36,12 @@ class ProfileFragment : Fragment() {
         userFirstName = view.findViewById(R.id.user_first_name)
         userImage = view.findViewById(R.id.user_shapeable_image)
         userEmail = view.findViewById(R.id.user_email)
+        themeSwitch = view.findViewById(R.id.theme_switch)
+        themeSwitch.isChecked = UserConfig.isDarkTheme(requireContext())
+        themeSwitch.setOnCheckedChangeListener { _, _ ->
+            activity?.applicationContext?.let { UserConfig.switchTheme(it) }
+            activity?.recreate()
+        }
 
 
         recycler.adapter = OptionAdapter( getOptionsClickListener(), getProfileOptions())

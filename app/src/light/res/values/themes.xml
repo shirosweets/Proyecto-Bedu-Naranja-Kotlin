@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.BeduShop" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Dark" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -13,7 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
-    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Light" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
@@ -30,11 +30,11 @@
         <item name="materialButtonStyle">@style/MaterialButtonStyle</item>
     </style>
 
-    <style name="HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
+    <style name="HintTextStyle" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
     <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="hintTextAppearance">@style/HintTextStyle</item>
         <item name="hintTextColor">?attr/colorAccent</item>
         <item name="android:textColorHint">@color/lightGray</item>
         <item name="android:paddingBottom">8dp</item>

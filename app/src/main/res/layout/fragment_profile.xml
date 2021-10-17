@@ -1,107 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileFragment">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <View
+            android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="?attr/colorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="150dp"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/user_shapeable_image"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src="@drawable/beto_bedu"
-                app:layout_constraintBottom_toBottomOf="@+id/view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.BeduCompras.CornerSize50Percent"
-                app:strokeColor="@color/white"
-                app:strokeWidth="4dp" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/user_shapeable_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/beto_bedu"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.BeduCompras.CornerSize50Percent"
+            app:strokeColor="@color/white"
+            app:strokeWidth="4dp" />
 
-            <TextView
-                android:id="@+id/user_first_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Usuario"
-                android:textColor="@color/gray"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user_shapeable_image" />
-
-
-            <TextView
-                android:id="@+id/user_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="daniel@bedu.org"
-                android:textColor="@color/gray"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user_first_name" />
+        <TextView
+            android:id="@+id/user_first_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Usuario"
+            android:textColor="@color/gray"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_shapeable_image"
+            />
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/optionRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="40dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user_email"
-                tools:listitem="@layout/fragment_profile_option_contact" />
-
-            <Button
-                android:id="@+id/buttonCloseSession"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="40dp"
-                android:drawableLeft="@drawable/ic_power"
-                android:drawablePadding="10dp"
-                android:singleLine="true"
-                android:text="cerrar sesión"
-                android:textAlignment="center"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/optionRecyclerView" />
+        <TextView
+            android:id="@+id/user_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="daniel@bedu.org"
+            android:textColor="@color/gray"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_first_name"
+            />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/optionRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_email"
+            tools:listitem="@layout/fragment_profile_option_contact"
+            />
 
-    </ScrollView>
+        <Button
+            android:id="@+id/buttonCloseSession"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:drawableLeft="@drawable/ic_power"
+            android:drawablePadding="10dp"
+            android:singleLine="true"
+            android:text="cerrar sesión"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/optionRecyclerView"
+            />
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/theme_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/dark_theme_switch_text"
+            app:layout_constraintBottom_toTopOf="@+id/profileTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
+        <TextView
+            android:id="@+id/profileTitle"
+            style="@style/AdjustTitle"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="Profile"
+            android:textSize="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -15,7 +15,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bedu_shop_menu"
-        app:itemRippleColor="@color/secondaryColor"
+        app:itemRippleColor="?attr/colorSecondary"
         app:itemIconTint="@color/menu_item_color"/>
 
     <androidx.fragment.app.FragmentContainerView

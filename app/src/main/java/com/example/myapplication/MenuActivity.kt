@@ -31,6 +31,7 @@ class MenuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.setTheme(UserConfig.getThemeResourceId(this))
         setContentView(R.layout.activity_menu)
         menuNavigationBottom =  findViewById(R.id.bottomNavigationView)
         setupNavController()
@@ -98,7 +99,6 @@ class MenuActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 
 
     private fun getJsonDataFromAsset(context: Context, fileName: String = "products.json"): String? {

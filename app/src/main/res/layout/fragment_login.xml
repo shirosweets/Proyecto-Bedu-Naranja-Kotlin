@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/opaque"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".LoginFragment">
@@ -13,12 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
+
         <LinearLayout
             android:orientation="vertical"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
             <ImageView
                 android:layout_marginTop="35dp"
@@ -29,11 +28,11 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textTitle"
-                android:layout_width="186dp"
-                android:layout_height="55dp"
+                android:layout_width="300dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="50dp"
                 android:text="@string/app_name"
-                app:autoSizeTextType="uniform"
-                android:layout_marginTop="50dp"/>
+                style="@style/AdjustTitle"/>
 
             <ProgressBar
                 android:id="@+id/loginProgressBar"
@@ -47,21 +46,20 @@
                 android:id="@+id/loginFormEmail"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="80dp"
                 android:hint="@string/hint_email"
                 app:errorEnabled="true"
-                app:errorIconDrawable="@drawable/ic_error">
+                app:errorIconDrawable="@drawable/ic_error"
+                style="@style/FormInput">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/userInputText"
                     android:drawableStart="@drawable/ic_email"
-                    android:drawablePadding="10dp"
-                    android:textColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    tools:layout_editor_absoluteY="547dp" />
+                    tools:layout_editor_absoluteY="547dp"
+                    style="@style/FormInput"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -69,21 +67,20 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                app:passwordToggleEnabled="true"
                 android:hint="@string/hint_password"
+                app:passwordToggleEnabled="true"
                 app:errorEnabled="true"
-                app:errorIconDrawable="@drawable/ic_error">
+                app:errorIconDrawable="@drawable/ic_error"
+                style="@style/FormInput">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordInputText"
-                    android:drawableStart="@drawable/ic_lock_white"
-                    android:drawablePadding="10dp"
-                    android:textColor="@color/white"
+                    android:drawableStart="@drawable/ic_lock"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:maxLines="1"
-                    tools:layout_editor_absoluteY="547dp" />
+                    tools:layout_editor_absoluteY="547dp"
+                    style="@style/FormInput"/>
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -93,25 +90,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:text="@string/logInButton"
-                android:textSize="16sp"
                 android:singleLine="true"/>
 
             <Button
                 android:id="@+id/buttonCheckIn"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_marginTop="10dp"
+                style="@style/BorderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="40dp"
                 android:text="@string/checkInButton"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/white"
-                android:textSize="11dp" />
-
-
-
-
+                />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
