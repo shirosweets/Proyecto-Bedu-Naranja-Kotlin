@@ -67,10 +67,10 @@ class ProductDetailFragment : Fragment() {
         binding.productImage.transitionName = "product_image_${product.title}"
 
 
-        val splitString = "%.2f".format(product.price / 6f)
+        val splitString = "%.2f".format(product.price ?: 0f / 6f)
         binding.productTitle.text = product.title
-        binding.productRating.rating = product.rating?.rate ?: 5f
-        binding.productVotes.text = product.rating?.count.toString()
+        binding.productRating.rating = product.ratingRate ?: 5f
+        binding.productVotes.text = product.ratingCount?.toString() ?: "0"
         Picasso.get().load(product.image).into(binding.productImage)
         binding.productPrice.text = "$ ${product.price}"
         binding.productDetailSplitPayment.text = "$ $splitString"

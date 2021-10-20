@@ -1,0 +1,48 @@
+package com.example.myapplication
+
+import android.util.Log
+import io.realm.Realm
+import io.realm.exceptions.RealmException
+import io.realm.exceptions.RealmPrimaryKeyConstraintException
+
+object ProductDatabase {
+    private val realm: Realm = Realm.getDefaultInstance()
+
+    private fun getOrCreate(id: Int): Product {
+        return try {
+            realm.createObject(Product::class.java, id)
+        } catch (e: RealmPrimaryKeyConstraintException) {
+            realm.where(Product::class.java).equalTo("id", id).findFirst()!!
+        }
+    }
+
+    fun addProduct(
+        id: Int,
+        title: String,
+        price: Float,
+        description: String,
+        category: String,
+        image: String,
+        ratingCount: Int,
+        ratingRate: Float,
+        amountAddedToCart: Int
+    ) {
+        realm.beginTransaction()
+        val product: Product = getOrCreate(id)
+        product.title = title
+        product.price = price
+        product.description = description
+        product.category = category
+        product.image = image
+        product.ratingCount = ratingCount
+        product.ratingRate = ratingRate
+        product.amountAddedToCart = amountAddedToCart
+        realm.commitTransaction()
+    }
+
+    fun fetchProduct(id: Int): Product? {
+        return realm.where(Product::class.java).equalTo("id", id).findFirst()
+    }
+
+    fun fetchAllProducts(): List<Product> = realm.where(Product::class.java).findAll()
+}

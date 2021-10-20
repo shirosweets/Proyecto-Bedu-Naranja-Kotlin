@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.ProductDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -43,17 +45,14 @@ class HomeFragment : Fragment() {
 
     private fun loadProductsSuccessfully(view:View, products : List<Product>){
         val clickListener: (Product, FragmentNavigator.Extras) -> Unit = {
-                product,extras ->
+                product, extras ->
             val action = HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(product)
             Navigation.findNavController(view).navigate(action,extras)
         }
-        recycler.adapter = ProductAdapter( clickListener, products)
-
+        recycler.adapter = ProductAdapter(clickListener, products)
         recycler.layoutManager = LinearLayoutManager(activity)
-
         recycler.visibility = View.VISIBLE
         homeProgressBar.visibility = View.INVISIBLE
-
     }
 
     private fun getRetrofit():Retrofit{
@@ -68,15 +67,31 @@ class HomeFragment : Fragment() {
             val call = getRetrofit().create(APIService::class.java).getProducts("products")
             val productsReceived = call.body()
             activity?.runOnUiThread{
-                if(call.isSuccessful){
-                    loadProductsSuccessfully(view,productsReceived ?: listOf<Product>())
-                }else{
-                    Toast.makeText(requireContext(),"Error al solicitar productos",Toast.LENGTH_SHORT).show()
+                if(call.isSuccessful) {
+                    productsReceived?.forEach {
+                        Log.v("MYDEBUG", it.toString())
+                        ProductDatabase.addProduct(
+                            it.id,
+                            it.title,
+                            it.price,
+                            it.description,
+                            it.category,
+                            it.image,
+                            it.rating.count,
+                            it.rating.rate,
+                            0
+                        )
+                    }
+                    loadProductsSuccessfully(view, ProductDatabase.fetchAllProducts())
                 }
-
+                else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Error al solicitar productos",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }
-
-
 }
