@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -24,7 +23,7 @@ class ShoppingCartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cartRecycler = view.findViewById(R.id.productCartRecyclerView)
+        cartRecycler = view.findViewById(R.id.cart_recycler_view)
         cartRecycler.layoutManager = LinearLayoutManager(activity)
         val products = ProductDatabase.fetchAllProducts().filter {
             (it.amountAddedToCart ?: 0) > 0
