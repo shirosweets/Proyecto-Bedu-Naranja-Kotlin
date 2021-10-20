@@ -13,13 +13,14 @@
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="?attr/colorOnSecondary">
 
             <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="?attr/colorPrimary"
+                android:background="?attr/android:colorBackground"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,15 +45,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Usuario"
-                android:textColor="@color/gray"
+                android:text="@string/user"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/user_shapeable_image"
-                />
-
+                style="@style/AdjusTittleBed" />
 
             <TextView
                 android:id="@+id/user_email"
@@ -60,15 +59,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="daniel@bedu.org"
-                android:textColor="@color/gray"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/user_first_name"
-                />
-
+                style="@style/AdjusTittleBed" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/optionRecyclerView"
@@ -84,7 +81,6 @@
 
             <Button
                 android:id="@+id/buttonCloseSession"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -92,25 +88,28 @@
                 android:drawableLeft="@drawable/ic_power"
                 android:drawablePadding="10dp"
                 android:singleLine="true"
-                android:text="cerrar sesión"
+                android:text="@string/log_out"
                 android:textAlignment="center"
                 android:textSize="20dp"
                 android:textStyle="bold"
+                app:iconTint="?attr/colorOnSecondary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/optionRecyclerView"
-                />
+                style="@style/MaterialButtonUniformStyle" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/theme_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dark_theme_switch_text"
+
                 app:layout_constraintBottom_toTopOf="@+id/user_shapeable_image"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/NormalTextStyle" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

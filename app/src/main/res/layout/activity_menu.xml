@@ -15,8 +15,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bedu_shop_menu"
-        app:itemRippleColor="?attr/colorSecondary"
-        app:itemIconTint="@color/menu_item_color"/>
+        style="@style/BottonNavigationStyle"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/my_nav_host_fragment"
@@ -29,6 +28,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/menu_navigation"></androidx.fragment.app.FragmentContainerView>
+        app:navGraph="@navigation/menu_navigation">
+    </androidx.fragment.app.FragmentContainerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

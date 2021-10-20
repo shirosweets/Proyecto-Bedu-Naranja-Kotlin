@@ -18,7 +18,6 @@
     <string name="noticeIncompleteFields">Por favor, complete todos los campos</string>
     <string name="noticeIncompleteField">Campo incompleto</string>
     <string name="noticeUserNotFound">Usuario no encontrado</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Blank Fragment</string>
 
     <!--Titles-->
@@ -39,4 +38,24 @@
     <!---Notifications-->
     <string name="notification_1">Compra realizada</string>
     <string name="notify_body_1">¡Tu pedido llegará en una semana!</string>
+
+    <!---ShoppingCart-->
+    <string name="new_product">Nuevo</string>
+    <string name="six_months_without_interest">En 6 meses sin intereses</string>
+    <string name="product_image">Imagen del producto</string>
+    <string name="add_to_shop_cart">Añadir al carrito</string>
+    <string name="deliver_tomorrow">Entregar mañana</string>
+    <string name="available_in_your_home">Disponible en tu domicilio</string>
+
+    <!---Profile-->
+    <string name="user">Usuario</string>
+    <string name="log_out">Cerrar sesión</string>
+    <!---Options-->
+    <string name="my_address">Mis direcciones</string>
+
+    <!---Address-->
+    <string name="add_address">Añadir dirección</string>
+    <string name="current_address">Ubicación Actual</string>
+    <string name="update">ACTUALIZAR</string>
+
 </resources>

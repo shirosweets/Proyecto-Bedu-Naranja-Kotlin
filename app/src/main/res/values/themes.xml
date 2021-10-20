@@ -17,6 +17,7 @@
         <!-- UI colors -->
         <item name="android:colorBackground">@color/light_backgroundColor</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="colorAccent">@color/gray</item>
     </style>
 
     <style name="Theme.Dark" parent="Theme.Base">
@@ -31,6 +32,22 @@
         <!-- UI colors -->
         <item name="android:colorBackground">@color/dark_backgroundColor</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="colorAccent">@color/lightGray</item>
+    </style>
+
+    <style name="Theme.Drakula" parent="Theme.Base">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/dark_primaryColor</item>
+        <item name="colorPrimaryVariant">@color/dark_primaryVariant</item>
+        <item name="colorOnPrimary">@color/dark_onPrimaryColor</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/dark_secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/dark_secondaryVariant</item>
+        <item name="colorOnSecondary">@color/dark_onSecondaryColor</item>
+        <!-- UI colors -->
+        <item name="android:colorBackground">@color/dark_backgroundColor</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="colorAccent">@color/lightGray</item>
     </style>
 
     <!-- Elements theme -->
@@ -41,7 +58,8 @@
         <item name="maxLines">1</item>
         <item name="passwordToggleTint">?attr/colorSecondary</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
-        <item name="android:textColorHint">?attr/colorPrimaryVariant</item>
+        <item name="android:textColorHint">?attr/colorSecondary</item>
+        <item name="hintTextColor">?attr/colorSecondary</item>
     </style>
 
     <style name="AdjustTitle" parent="Widget.MaterialComponents.TextView">
@@ -51,9 +69,36 @@
         <item name="android:textAlignment">center</item>
     </style>
 
-    <style name="MaterialButtonStyle" parent="Widget.MaterialComponents.Button">">
+    <style name="AdjusTittleBed" parent="Widget.MaterialComponents.TextView">
+        <item name="autoSizeTextType">uniform</item>
+        <item name="android:textColor">?android:colorBackground</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="MaterialButtonStyle" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">?attr/colorSecondary</item>
         <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="iconTint">?attr/colorOnSecondary</item>
+    </style>
+
+    <style name="MaterialButtonUniformStyle" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">?attr/colorSecondary</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="iconTint">?attr/colorOnSecondary</item>
+    </style>
+
+    <style name="NormalTextStyle">
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
+    <style name="IconStyle">
+        <item name="android:tint">?attr/colorAccent</item>
+    </style>
+
+    <style name="BottonNavigationStyle">
+        <item name="colorOnSecondary">?colorSecondary</item>
+        <item name="itemIconTint">@color/menu_item_color</item>
+        <item name="itemRippleColor">@color/menu_item_color</item>
     </style>
 
     <style name="BorderlessButtonStyle" parent="TextAppearance.MaterialComponents.Button">
@@ -68,9 +113,11 @@
         <item name="android:background">?android:selectableItemBackground</item>
         <item name="android:letterSpacing">0.0178571429</item>
     </style>
+
     <style name="ShapeAppearanceOverlay.BeduCompras.CornerSize50Percent" parent="">
         <item name="cornerSize">50%</item>
     </style>
+
     <style name="AppBottomSheetDialogTheme"
         parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>

@@ -40,13 +40,13 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="invisible"/>
+                android:visibility="gone"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/loginFormEmail"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="40dp"
                 android:hint="@string/hint_email"
                 app:errorEnabled="true"
                 app:errorIconDrawable="@drawable/ic_error"
@@ -54,12 +54,12 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/userInputText"
-                    android:drawableStart="@drawable/ic_email"
+                    style="@style/FormInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_email"
                     android:inputType="textEmailAddress"
-                    tools:layout_editor_absoluteY="547dp"
-                    style="@style/FormInput"/>
+                    tools:layout_editor_absoluteY="547dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout

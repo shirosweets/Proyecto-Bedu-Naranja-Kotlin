@@ -21,6 +21,4 @@
         tools:listitem="@layout/fragment_product_contact"
         />
 
-
-
 </FrameLayout>

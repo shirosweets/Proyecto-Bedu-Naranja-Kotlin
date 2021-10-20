@@ -9,17 +9,16 @@
 
     <TextView
         android:id="@+id/option_name"
-        style="@style/textViewBlack"
         android:layout_width="0dp"
         android:textSize ="20dp"
         android:layout_height="wrap_content"
-        android:text="Mis direcciones"
-        android:textColor="@color/gray"
+        android:text="@string/my_address"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/NormalTextStyle" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -45,7 +44,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        style="@style/IconStyle" />
 
     <ImageView
         android:id="@+id/image"
@@ -58,7 +58,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/IconStyle" />
 
     <ImageView
         android:layout_width="fill_parent"
@@ -72,6 +73,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/IconStyle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,7 +41,6 @@ class HomeFragment : Fragment() {
         getProducts(view)
     }
 
-
     private fun loadProductsSuccessfully(view:View, products : List<Product>){
         val clickListener: (Product, FragmentNavigator.Extras) -> Unit = {
                 product,extras ->

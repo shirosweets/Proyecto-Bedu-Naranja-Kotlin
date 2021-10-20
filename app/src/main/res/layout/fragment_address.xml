@@ -6,13 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".AddressFragment">
 
-
     <TextView
         android:id="@+id/tvAddressTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Agregar dirección"
+        android:text="@string/add_address"
         android:textColor="@color/black"
         android:textSize="23dp"
         android:textStyle="bold"
@@ -41,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Ubicación Actual"
+                android:text="@string/current_address"
                 android:textColor="@color/black"
                 android:textSize="23dp"
                 android:textStyle="bold"
@@ -75,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:drawableLeft="@drawable/ic_my_location"
-                android:text="ACTUALIZAR"
+                android:text="@string/update"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/black"
                 android:textSize="18dp"
@@ -138,6 +137,5 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
         app:layout_constraintTop_toBottomOf="@+id/tvOldDirection1" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
