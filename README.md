@@ -34,12 +34,13 @@ Proyecto del curso de Kotlin de Naranja X proporcionado por BEDU. El desarrollo 
 # Tabla de contenidos
 
 - [Proyecto Bedu Naranja X - Kotlin 2021](#proyecto-bedu-naranja-x---kotlin-2021)
-- [Tabla de contenidos](#tabla-de-cobntenidos)
+- [Tabla de contenidos](#tabla-de-contenidos)
 - [Integrantes](#integrantes)
 - [Forma de trabajo](#forma-de-trabajo)
 - [Videos](#videos)
-    - [Demo N°0](#demo-n0)
-    - [Puntos desarrollados en la demo N°0](#puntos-desarrollados-en-la-demo-n0)
+  - [Demo N°0](#demo-n0)
+  - [Puntos desarrollados en la demo N°0](#puntos-desarrollados-en-la-demo-n0)
+  - [Puntos desarrollados en la demo N°1](#puntos-desarrollados-en-la-demo-n1)
 
 # Integrantes
 
@@ -80,10 +81,17 @@ Como el IDE de Android Studio no permite tener una herramienta similar a Live Sh
     > presentados como CardView
 * Build Variants
   * Por tema (dark/light)
-  * Por release/debug}
+  * Por release/debug
 * Modularización de código
 * Implementación de tipos segura (no "!!")
 * Implementación de estilos por categoría
+
+## Puntos desarrollados en la demo N°1
+
+* Icono personalizado para la app
+* Notificación con redirección al comprar un producto
+* Posibilidad de cerrar sesión
+* Toast al no ingresar los datos en el LogIN
 
 ---
 

@@ -18,6 +18,11 @@
 | ![c_172126](https://github.com/shirosweets/Proyecto-Bedu-Naranja-Kotlin/blob/main/assets/c_172126.png) | `#172126`     | background        |
 
 
+# Icono de la app
+
+<img src="../app/src/main/res/mipmap-xxxhdpi/ic_launcher_v2_round.png" width="100">
+<img src="../app/src/main/res/mipmap-xxxhdpi/ic_launcher_v2.png" width="100">
+
 # Logearse
 
 <div align="center">
