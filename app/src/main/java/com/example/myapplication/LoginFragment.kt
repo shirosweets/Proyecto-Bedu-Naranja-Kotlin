@@ -83,7 +83,6 @@ class LoginFragment : Fragment() {
                 BuyNotification()
             }
         }
-
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
