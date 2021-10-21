@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
@@ -44,7 +45,13 @@ class ProfileFragment : Fragment() {
         }
 
         closeSession = view.findViewById(R.id.buttonCloseSession)
-        closeSession.setOnClickListener { LoginManager.logOut(requireActivity()) }
+        closeSession.setOnClickListener {
+            LoginManager.logOut(requireActivity())
+            findNavController().navigate(
+                R.id.action_profileFragment_to_mainActivity,
+                null
+            )
+        }
 
         recycler.adapter = OptionAdapter( getOptionsClickListener(), getProfileOptions())
         recycler.layoutManager = LinearLayoutManager(activity)

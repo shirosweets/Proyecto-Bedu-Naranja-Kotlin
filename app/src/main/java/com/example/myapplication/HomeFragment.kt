@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,13 +58,25 @@ class HomeFragment : Fragment() {
     }
 
     private fun getProducts(view: View) {
-        val isFetched: Boolean = ConfigManager.prefs(requireActivity())
-            .getBoolean(getString(R.string.pref_is_database_fetched), false)
-        if (isFetched) {
-            loadProductsSuccessfully(view, ProductDatabase.fetchAllProducts())
-        } else {
-            loadProductsFromAPI(view)
+        val dbFetchedPrefKey = getString(R.string.pref_is_database_fetched)
+        val isProductDatabaseFetched: Boolean = ConfigManager.prefs(requireActivity())
+            .getBoolean(dbFetchedPrefKey, false)
+
+        if (isProductDatabaseFetched) {
+            val products = ProductDatabase.fetchAllProducts()
+            Log.d("MYDEBUG", "Found: ${products.size} products in local database")
+            if (products.isNotEmpty()) {
+                return loadProductsSuccessfully(view, products)
+            }
+            else {
+                ConfigManager.prefs(requireActivity())
+                    .edit()
+                    .putBoolean(dbFetchedPrefKey, false)
+                    .apply()
+            }
         }
+        Log.d("MYDEBUG", "Loading Products from API")
+        loadProductsFromAPI(view)
     }
 
     private fun loadProductsFromAPI(view: View) {
