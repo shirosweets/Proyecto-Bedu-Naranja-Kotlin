@@ -4,14 +4,14 @@ import android.os.Parcel
 import android.os.Parcelable
 
 
-data class Product(
+data class DataProduct(
     val id: Int,
     val title: String,
     val price: Float,
     val description: String,
     val category: String,
     val image: String,
-    val rating: Rating?
+    val rating: Rating
 ):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
@@ -20,7 +20,7 @@ data class Product(
         parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readString().toString(),
-        parcel.readParcelable(Rating::class.java.classLoader)
+        parcel.readParcelable(Rating::class.java.classLoader) ?: Rating(0f, 0)
     ) {
     }
 
@@ -38,18 +38,13 @@ data class Product(
         parcel.writeParcelable(rating,Parcelable.PARCELABLE_WRITE_RETURN_VALUE)
     }
 
-    companion object CREATOR : Parcelable.Creator<Product> {
-        override fun createFromParcel(parcel: Parcel): Product {
-            return Product(parcel)
+    companion object CREATOR : Parcelable.Creator<DataProduct> {
+        override fun createFromParcel(parcel: Parcel): DataProduct {
+            return DataProduct(parcel)
         }
 
-        override fun newArray(size: Int): Array<Product?> {
+        override fun newArray(size: Int): Array<DataProduct?> {
             return arrayOfNulls(size)
         }
     }
 }
-
-
-
-
-

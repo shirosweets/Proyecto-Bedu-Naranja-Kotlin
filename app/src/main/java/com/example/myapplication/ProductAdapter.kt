@@ -14,7 +14,7 @@ import com.google.android.material.card.MaterialCardView
 import com.squareup.picasso.Picasso
 
 class ProductAdapter(
-    private val click_listener: (Product,FragmentNavigator.Extras) -> Unit,
+    private val click_listener: (Product, FragmentNavigator.Extras) -> Unit,
     private val product_list: List<Product>
 ): RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
 
@@ -59,8 +59,8 @@ class ProductAdapter(
 
         fun render(product: Product) {
             productTitle.text = product.title
-            productVotes.text = product.rating?.count.toString()
-            productRating.rating = product.rating?.rate ?: 5f
+            productVotes.text = product.ratingCount?.toString() ?: "0"
+            productRating.rating = product.ratingRate ?: 5f
             productPrice.text = "$ ${product.price}"
             Picasso.get().load(product.image).into(productImage)
         }

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ProductContactFragment">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cart_contact_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="14dp"
+        app:cardCornerRadius="30dp"
+        app:contentPadding="4dp"
+        android:layout_marginBottom="16dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/cart_contact_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Product Title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/cart_contact_guideline3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cart_contact_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="$999.99"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/cart_contact_guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/cart_contact_title" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/cart_contact_guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.34" />
+
+            <ImageView
+                android:id="@+id/cart_contact_image"
+                android:layout_width="111dp"
+                android:layout_height="102dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cart_contact_price"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/cart_contact_plus_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_add_sign"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cart_contact_cart_amount"
+                app:layout_constraintTop_toBottomOf="@+id/cart_contact_price" />
+
+            <ImageView
+                android:id="@+id/cart_contact_remove_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:src="@drawable/ic_remove"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/cart_contact_guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/cart_contact_price"
+                app:layout_constraintVertical_bias="0.521" />
+
+            <TextView
+                android:id="@+id/cart_contact_cart_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cart_contact_remove_sign"
+                app:layout_constraintTop_toBottomOf="@+id/cart_contact_price"
+                tools:text="0" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

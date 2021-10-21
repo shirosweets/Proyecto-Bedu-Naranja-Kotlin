@@ -15,6 +15,4 @@ class ProductContactFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_product_contact, container, false)
     }
-
-
 }

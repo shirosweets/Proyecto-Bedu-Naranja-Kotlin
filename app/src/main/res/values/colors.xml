@@ -9,7 +9,12 @@
     <color name="dark_onSecondaryColor">#FFFFFF</color>
     <color name="dark_backgroundColor">#172126</color>
 
-    <!--Light Theme Specific Colors-->
+    <!--Light Theme Specific Colors-->                findNavController().navigate(
+                    R.id.action_productDetailFragment_to_shoppingCartFragment,
+                    null,
+                    addToCartTransitionOpt
+                )
+
     <color name="light_primaryColor">#FFFFFF</color>
     <color name="light_primaryVariant">#ff7244</color>
     <color name="light_onPrimaryColor">#000000</color>
@@ -27,6 +32,7 @@
     <!--Other Colors-->
     <color name="white">#FFFFFFFF</color>
     <color name="black">#000000</color>
+    <color name="almostBlack">#04081E</color>
     <color name="gray">#6C6C6C</color>
     <color name="lightGray">#ACACAC</color>
     <color name="green">#4BD100</color>

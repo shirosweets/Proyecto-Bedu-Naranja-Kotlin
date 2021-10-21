@@ -4,8 +4,18 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
+import android.util.Log
+import io.realm.Realm
+import io.realm.RealmResults
 
 class MainActivity : AppCompatActivity() {
+    val realm: Realm = Realm.getDefaultInstance()
+    val products: RealmResults<Product> = realm.where(Product::class.java).findAll()
+    init {
+        Log.d("MYDEBUG","$products")
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.setTheme(UserConfig.getThemeResourceId(this))

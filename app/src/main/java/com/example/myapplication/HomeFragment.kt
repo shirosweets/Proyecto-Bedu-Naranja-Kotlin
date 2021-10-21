@@ -1,6 +1,9 @@
 package com.example.myapplication
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +14,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.ProductDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,6 +26,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var recycler: RecyclerView
     private lateinit var homeProgressBar: ProgressBar
+    private lateinit var sharedPreferences: SharedPreferences
     private val baseUrl = "https://fakestoreapi.com/"
 
     override fun onCreateView(
@@ -37,23 +42,23 @@ class HomeFragment : Fragment() {
 
         recycler = view.findViewById(R.id.productRecyclerView)
         homeProgressBar = view.findViewById(R.id.homeProgressBar)
-
+        sharedPreferences = requireActivity().getSharedPreferences(
+            getString(R.string.loginSharedPreferenceFile),
+            Context.MODE_PRIVATE
+        )
         getProducts(view)
     }
 
     private fun loadProductsSuccessfully(view:View, products : List<Product>){
         val clickListener: (Product, FragmentNavigator.Extras) -> Unit = {
-                product,extras ->
+                product, extras ->
             val action = HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(product)
             Navigation.findNavController(view).navigate(action,extras)
         }
-        recycler.adapter = ProductAdapter( clickListener, products)
-
+        recycler.adapter = ProductAdapter(clickListener, products)
         recycler.layoutManager = LinearLayoutManager(activity)
-
         recycler.visibility = View.VISIBLE
         homeProgressBar.visibility = View.INVISIBLE
-
     }
 
     private fun getRetrofit():Retrofit{
@@ -63,20 +68,54 @@ class HomeFragment : Fragment() {
             .build()
     }
 
-    private fun getProducts(view: View){
-        CoroutineScope(Dispatchers.IO).launch {
-            val call = getRetrofit().create(APIService::class.java).getProducts("products")
-            val productsReceived = call.body()
-            activity?.runOnUiThread{
-                if(call.isSuccessful){
-                    loadProductsSuccessfully(view,productsReceived ?: listOf<Product>())
-                }else{
-                    Toast.makeText(requireContext(),"Error al solicitar productos",Toast.LENGTH_SHORT).show()
-                }
+    private fun fetchFromAPI() {
 
+    }
+
+    private fun getProducts(view: View){
+        val isFetched: Boolean = sharedPreferences
+            .getBoolean(getString(R.string.pref_is_database_fetched), false)
+        if (isFetched) {
+            loadProductsSuccessfully(view, ProductDatabase.fetchAllProducts())
+        } else {
+            CoroutineScope(Dispatchers.IO).launch {
+                val call = getRetrofit().create(APIService::class.java).getProducts("products")
+                val productsReceived = call.body()
+                activity?.runOnUiThread{
+                    if(call.isSuccessful) {
+                        productsReceived?.forEach {
+                            Log.v("MYDEBUG", it.toString())
+                            val amountAddedToCart = ProductDatabase
+                                .fetchProduct(it.id)
+                                ?.amountAddedToCart
+                                ?: 0
+                            ProductDatabase.addProduct(
+                                it.id,
+                                it.title,
+                                it.price,
+                                it.description,
+                                it.category,
+                                it.image,
+                                it.rating.count,
+                                it.rating.rate,
+                                amountAddedToCart
+                            )
+                        }
+                        sharedPreferences.edit().putBoolean(
+                            getString(R.string.pref_is_database_fetched),
+                            true
+                        ).apply()
+                        loadProductsSuccessfully(view, ProductDatabase.fetchAllProducts())
+                    }
+                    else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Error al solicitar productos",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
             }
         }
     }
-
-
 }
