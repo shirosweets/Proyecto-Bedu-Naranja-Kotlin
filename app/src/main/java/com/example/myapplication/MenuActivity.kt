@@ -28,9 +28,9 @@ class MenuActivity : AppCompatActivity() {
     private val helpUrl = "https://www.bedu.org/"
     private lateinit var menuNavigationBottom : BottomNavigationView
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        UserConfig.setLocale(this, UserConfig.getLanguage(this))
         this.setTheme(UserConfig.getThemeResourceId(this))
         setContentView(R.layout.activity_menu)
         menuNavigationBottom =  findViewById(R.id.bottomNavigationView)
@@ -61,6 +61,7 @@ class MenuActivity : AppCompatActivity() {
         })
 
     }
+
     private fun hideBottomNav() {
         menuNavigationBottom.animate().translationY(100f).setDuration(300).setListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator) {
@@ -68,7 +69,6 @@ class MenuActivity : AppCompatActivity() {
             }
         })
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.top_nav_menu, menu)

@@ -7,6 +7,8 @@
     <string name="pref_key_DARK_THEME" translatable="false">org.bedu.app.preferences.IS_DARK_THEME</string>
     <string name="pref_key_ISO_Language" translatable="false">org.bedu.app.preferences.ISO_LANGUAGE</string>
     <string name="B_DEBUG" translatable="false">BEDU_DEBUG</string>
+    <string name="select">Seleccionar</string>
+    <string name="text_change_language">Cambiar idioma</string>
 
     <!--Buttons-->
     <string name="log_in_button">Iniciar sesión</string>
@@ -78,18 +80,27 @@
     <string name="current_address">Ubicación Actual</string>
     <string name="update">ACTUALIZAR</string>
     <!-- Preference Titles -->
-    <string name="messages_header" translatable="false">Messages</string>
-    <string name="sync_header" translatable="false">Sync</string>
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
 
     <!-- Messages Preferences -->
-    <string name="signature_title" translatable="false">Your signature</string>
-    <string name="reply_title" translatable="false">Default reply action</string>
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title" translatable="false">Sync email periodically</string>
-    <string name="attachment_title" translatable="false">Download incoming attachments</string>
-    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
-    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_activity_language">LanguageActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>
