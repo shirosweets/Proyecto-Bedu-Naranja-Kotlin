@@ -8,7 +8,8 @@ class MainApp: Application() {
     override fun onCreate() {
         super.onCreate()
         Realm.init(this)
-        val config = RealmConfiguration.Builder().name("realmDB.beduShop").build()
+        val databaseName = getString(R.string.realm_database)
+        val config = RealmConfiguration.Builder().name(databaseName).build()
         Realm.setDefaultConfiguration(config)
     }
 }

@@ -18,18 +18,17 @@ class MenuActivity : AppCompatActivity() {
     private val helpUrl = "https://www.bedu.org/"
     private lateinit var menuNavigationBottom : BottomNavigationView
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.setTheme(ConfigManager.getThemeResourceId(this))
         setContentView(R.layout.activity_menu)
         menuNavigationBottom =  findViewById(R.id.bottomNavigationView)
         setupNavController()
-        //getProducts()
     }
 
     private fun setupNavController(){
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
@@ -44,21 +43,28 @@ class MenuActivity : AppCompatActivity() {
 
     private fun showBottomNav() {
         menuNavigationBottom.visibility =View.VISIBLE
-        menuNavigationBottom.animate().translationY(0f).setDuration(300).setListener(object : AnimatorListenerAdapter() {
+        menuNavigationBottom
+            .animate()
+            .translationY(0f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator) {
                 menuNavigationBottom.visibility = View.VISIBLE
             }
         })
-
     }
+
     private fun hideBottomNav() {
-        menuNavigationBottom.animate().translationY(100f).setDuration(300).setListener(object : AnimatorListenerAdapter() {
+        menuNavigationBottom
+            .animate()
+            .translationY(100f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator) {
                 menuNavigationBottom.visibility = View.GONE
             }
         })
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.top_nav_menu, menu)

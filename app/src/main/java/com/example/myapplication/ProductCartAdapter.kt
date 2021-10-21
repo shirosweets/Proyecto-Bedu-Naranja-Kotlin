@@ -33,7 +33,9 @@ class ProductCartAdapter(
         private val productCartImage: ImageView = view.findViewById(R.id.cart_contact_image)
         private val productCartPlusSign: ImageView = view.findViewById(R.id.cart_contact_plus_sign)
         private val productCartAmount: TextView = view.findViewById(R.id.cart_contact_cart_amount)
-        private val productCartRemoveSign: ImageView = view.findViewById(R.id.cart_contact_remove_sign)
+        private val productCartRemoveSign: ImageView = view.findViewById(
+            R.id.cart_contact_remove_sign
+        )
 
         fun render(product: Product, position: Int) {
             productCartTitle.text = product.title

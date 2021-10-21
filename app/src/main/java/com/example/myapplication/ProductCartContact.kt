@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 
 
-class productCartContact : Fragment() {
+class ProductCartContact : Fragment() {
     private lateinit var addItem: ImageView
     private lateinit var removeItem: ImageView
 
@@ -16,8 +16,11 @@ class productCartContact : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_product_cart_contact, container, false)
+        return inflater.inflate(
+            R.layout.fragment_product_cart_contact,
+            container,
+            false
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

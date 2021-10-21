@@ -2,16 +2,13 @@ package com.example.myapplication
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
@@ -29,15 +26,13 @@ class PaymentResumeFragment : Fragment() {
     private lateinit var subTotalValue: TextView
     private lateinit var totalValue: TextView
     private val shippingCost: Float = 30f
-    val CHANNEL_OTHERS = "OTROS"
+    private val channelOthers = "OTROS"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            setNotificationChannel()
-        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { setNotificationChannel() }
         return inflater.inflate(R.layout.fragment_payment_resume, container, false)
     }
 
@@ -56,8 +51,7 @@ class PaymentResumeFragment : Fragment() {
 
         payButton = view.findViewById(R.id.paymentResumePayButton)
         payButton.setOnClickListener {
-
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 buyNotification()
                 resetCartAmount()
             }
@@ -96,7 +90,7 @@ class PaymentResumeFragment : Fragment() {
         val name = getString(R.string.notification_1)
         val descriptionText = getString(R.string.notify_body_1)
         val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val channel = NotificationChannel(CHANNEL_OTHERS, name, importance).apply{
+        val channel = NotificationChannel(channelOthers, name, importance).apply {
             description = descriptionText
         }
 
@@ -114,17 +108,16 @@ class PaymentResumeFragment : Fragment() {
             .setDestination(R.id.sucessfulPaymentFragment)
             .createPendingIntent()
 
-        val builder = NotificationCompat.Builder(requireContext(), CHANNEL_OTHERS)
+        val builder = NotificationCompat.Builder(requireContext(), channelOthers)
             .setSmallIcon(R.drawable.ic_bedu_shop)
             .setColor(ContextCompat.getColor(requireContext(), R.color.light_secondaryVariant))
             .setContentTitle(getString(R.string.notification_1))
             .setContentText(getString(R.string.notify_body_1))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingIntent) //se define aquí el content intend
-            .setAutoCancel(true) //la notificación desaparece al dar click sobre ella
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
 
-        // Send notification
-        with(NotificationManagerCompat.from(requireContext())){
+        with(NotificationManagerCompat.from(requireContext())) {
             notify(20, builder.build())
         }
     }

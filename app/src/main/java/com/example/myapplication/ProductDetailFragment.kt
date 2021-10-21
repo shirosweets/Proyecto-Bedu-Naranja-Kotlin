@@ -31,12 +31,10 @@ class ProductDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
-        // Inflate the transition for this fragment
-        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
-
-       // Inflate the layout for this fragment
+    ): View {
+        sharedElementEnterTransition = TransitionInflater
+            .from(context)
+            .inflateTransition(android.R.transition.move)
 
         _binding = FragmentProductDetailBinding.inflate(inflater, container, false)
         binding.productDetailAddToCartButton.setOnClickListener {
@@ -48,11 +46,6 @@ class ProductDetailFragment : Fragment() {
                     addToCartTransitionOpt
                 )
             }
-//            Toast.makeText(
-//                it.context,
-//                "Se agregó al carrito:\n\n${args.product.title}",
-//                Toast.LENGTH_SHORT
-//            ).show()
         }
         showProduct(args.product)
         return binding.root
@@ -65,7 +58,6 @@ class ProductDetailFragment : Fragment() {
         binding.productPrice.transitionName = "product_price_${product.title}"
         binding.productRating.transitionName = "product_rating_${product.title}"
         binding.productImage.transitionName = "product_image_${product.title}"
-
 
         val splitString = "%.2f".format(product.price ?: 0f / 6f)
         binding.productTitle.text = product.title

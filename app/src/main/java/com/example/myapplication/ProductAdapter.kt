@@ -18,7 +18,6 @@ class ProductAdapter(
     private val product_list: List<Product>
 ): RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ProductHolder(
@@ -35,27 +34,24 @@ class ProductAdapter(
 
         holder.render(currentProduct)
         val extras = holder.getExtras(currentProduct)
+        holder.itemView.setOnClickListener { click_listener(currentProduct,extras) }
 
-        holder.itemView.setOnClickListener{
-            click_listener(currentProduct,extras)
-        }
-
-        val animation = AnimationUtils.loadAnimation(holder.itemView.context,R.anim.slide_in_left_slow)
+        val animation = AnimationUtils.loadAnimation(
+            holder.itemView.context,
+            R.anim.slide_in_left_slow
+        )
         holder.itemView.startAnimation(animation)
     }
 
     override fun getItemCount(): Int = product_list.size
 
     inner class ProductHolder(view: View): RecyclerView.ViewHolder(view) {
-        val productTitle: TextView = view.findViewById(R.id.product_title)
-        val productVotes: TextView = view.findViewById(R.id.product_votes)
-        val productPrice: TextView = view.findViewById(R.id.product_price)
-        val productRating: RatingBar = view.findViewById(R.id.product_rating)
-        val productImage: ImageView = view.findViewById(R.id.product_contact_image)
-
-        val productCardView: MaterialCardView =  view.findViewById(R.id.product_card_view)
-
-
+        private val productTitle: TextView = view.findViewById(R.id.product_title)
+        private val productVotes: TextView = view.findViewById(R.id.product_votes)
+        private val productPrice: TextView = view.findViewById(R.id.product_price)
+        private val productRating: RatingBar = view.findViewById(R.id.product_rating)
+        private val productImage: ImageView = view.findViewById(R.id.product_contact_image)
+        private val productCardView: MaterialCardView =  view.findViewById(R.id.product_card_view)
 
         fun render(product: Product) {
             productTitle.text = product.title
@@ -81,7 +77,6 @@ class ProductAdapter(
                 productRating to "product_rating_${product.title}",
                 productImage to "product_image_${product.title}",
             )
-
         }
     }
 }
