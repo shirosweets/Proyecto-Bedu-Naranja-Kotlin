@@ -82,29 +82,19 @@ class LoginFragment : Fragment() {
 
     private fun setClickListeners(view: View) {
         loginButton.setOnClickListener {
-            val password: String = passwordInputText.text.toString()
-            var showSnack = false
             if (isLoginFormValid()) {
-                if (LoginManager.isPasswordValid(password)) {
-                    loginProgressBar.visibility = View.VISIBLE
-                    loginButton.isEnabled = false
-                    checkUser(view)
-                } else {
-                    loginFormPassword.error = LoginManager.getPasswordErrorHint(
-                        requireContext(), password
-                    )
-                    showSnack = true
-                }
+                loginProgressBar.visibility = View.VISIBLE
+                loginButton.isEnabled = false
+                checkUser(view)
             } else {
-                showSnack = true
+                loginFormPassword.error = LoginManager.getPasswordErrorHint(
+                    requireContext(),
+                    passwordInputText.text?.toString()
+                )
                 if (userInputText.text.isNullOrEmpty()) {
                     loginFormUser.error = getString(R.string.notice_incomplete_field)
                 }
-                if (passwordInputText.text.isNullOrEmpty()) {
-                    loginFormPassword.error = getString(R.string.notice_incomplete_field)
-                }
-            }
-            if (showSnack) {
+
                 val incompleteFieldNotice = getString(R.string.notice_in_complete_fields)
                 Snackbar.make(view, incompleteFieldNotice, Snackbar.LENGTH_SHORT)
                     .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
@@ -166,7 +156,9 @@ class LoginFragment : Fragment() {
     }
 
     private fun isLoginFormValid(): Boolean {
-        return !(userInputText.text.isNullOrEmpty() || passwordInputText.text.isNullOrEmpty())
+        val userValid: Boolean = !userInputText.text.isNullOrEmpty()
+        val passValid: Boolean = LoginManager.isPasswordValid(passwordInputText.text?.toString())
+        return (userValid && passValid)
     }
 
     private fun getUserData(userEmail: String) {

@@ -18,11 +18,21 @@ object LoginManager {
 
     fun logOut(activity: Activity) = setLogin(activity, false)
 
-    fun isPasswordValid(password: String): Boolean {
-        return password.length > 7
+    fun isPasswordValid(password: String?): Boolean {
+        return (password?.length ?: 0) > 7
     }
 
-    fun getPasswordErrorHint(context: Context, password: String): String {
-        return context.getString(R.string.notice_password_characters_less_than_8)
+    fun getPasswordErrorHint(context: Context, password: String?): String? {
+        return when {
+            password.isNullOrEmpty() -> {
+                context.getString(R.string.notice_incomplete_field)
+            }
+            password.length < 8 -> {
+                context.getString(R.string.notice_password_characters_less_than_8)
+            }
+            else -> {
+                null
+            }
+        }
     }
 }
