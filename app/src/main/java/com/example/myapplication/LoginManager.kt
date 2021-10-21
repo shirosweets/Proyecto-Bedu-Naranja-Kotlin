@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.app.Activity
+import android.content.Context
 
 object LoginManager {
     private const val LOGIN_KEY = "org.bedu.app.LoginManager.LOGIN_PREF_KEY"
@@ -16,4 +17,12 @@ object LoginManager {
     fun logIn(activity: Activity) = setLogin(activity, true)
 
     fun logOut(activity: Activity) = setLogin(activity, false)
+
+    fun isPasswordValid(password: String): Boolean {
+        return password.length > 7
+    }
+
+    fun getPasswordErrorHint(context: Context, password: String): String {
+        return context.getString(R.string.notice_password_characters_less_than_8)
+    }
 }

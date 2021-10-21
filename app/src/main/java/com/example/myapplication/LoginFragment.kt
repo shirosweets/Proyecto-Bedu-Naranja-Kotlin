@@ -82,65 +82,35 @@ class LoginFragment : Fragment() {
 
     private fun setClickListeners(view: View) {
         loginButton.setOnClickListener {
-            when(LoginCheck.checkEmailAndPassword(userInputText.text.toString(),passwordInputText.text.toString())){
-                "SUCCESSFUL_LOGIN"->{
+            val password: String = passwordInputText.text.toString()
+            var showSnack = false
+            if (isLoginFormValid()) {
+                if (LoginManager.isPasswordValid(password)) {
                     loginProgressBar.visibility = View.VISIBLE
                     loginButton.isEnabled = false
                     checkUser(view)
+                } else {
+                    loginFormPassword.error = LoginManager.getPasswordErrorHint(
+                        requireContext(), password
+                    )
+                    showSnack = true
                 }
-                "EMPTY_FIELDS" ->{
+            } else {
+                showSnack = true
+                if (userInputText.text.isNullOrEmpty()) {
                     loginFormUser.error = getString(R.string.notice_incomplete_field)
+                }
+                if (passwordInputText.text.isNullOrEmpty()) {
                     loginFormPassword.error = getString(R.string.notice_incomplete_field)
-                    Snackbar.make(
-                        view,
-                        getString(R.string.notice_in_complete_fields),
-                        Snackbar.LENGTH_SHORT
-                    )
-                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                        .setAction(getString(R.string.snack_bar_button)) {}.show()
                 }
-                "EMAIL_IS_EMPTY"->{
-                    loginFormUser.error = getString(R.string.notice_incomplete_field)
-                    Snackbar.make(
-                        view,
-                        getString(R.string.notice_in_complete_fields),
-                        Snackbar.LENGTH_SHORT
-                    )
-                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                        .setAction(getString(R.string.snack_bar_button)) {}.show()
-                }
-                "PASSWORD_IS_EMPTY"->{
-                    loginFormPassword.error = getString(R.string.notice_incomplete_field)
-                    Snackbar.make(
-                        view,
-                        getString(R.string.notice_in_complete_fields),
-                        Snackbar.LENGTH_SHORT
-                    )
-                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                        .setAction(getString(R.string.snack_bar_button)) {}.show()
-                }
-                "PASSWORD_CHARACTERS_IS_LESS_THAN_8"->{
-                    loginFormPassword.error = getString(R.string.notice_password_characters_less_than_8)
-                    Snackbar.make(
-                        view,
-                        getString(R.string.notice_in_complete_fields),
-                        Snackbar.LENGTH_SHORT
-                    )
-                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                        .setAction(getString(R.string.snack_bar_button)) {}.show()
-                }
-                else ->{
-
-                }
-
             }
-
-
+            if (showSnack) {
+                val incompleteFieldNotice = getString(R.string.notice_in_complete_fields)
+                Snackbar.make(view, incompleteFieldNotice, Snackbar.LENGTH_SHORT)
+                    .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
+                    .setAction(getString(R.string.snack_bar_button)) {}.show()
+            }
         }
-
-
-
-
 
         registerRedirectBtn.setOnClickListener {
             findNavController().navigate(
@@ -193,6 +163,10 @@ class LoginFragment : Fragment() {
             R.id.action_loginFragment2_to_menuActivity,
             null
         )
+    }
+
+    private fun isLoginFormValid(): Boolean {
+        return !(userInputText.text.isNullOrEmpty() || passwordInputText.text.isNullOrEmpty())
     }
 
     private fun getUserData(userEmail: String) {
