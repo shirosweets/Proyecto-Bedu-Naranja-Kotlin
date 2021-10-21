@@ -55,14 +55,14 @@
 
 <!-- Elements theme -->
     <style name="FormInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:background">@color/grey_10opacity</item>
-        <item name="drawableTint">@color/white</item>
+        <item name="drawableTint">?attr/colorOnPrimary</item>
         <item name="android:drawablePadding">10dp</item>
         <item name="maxLines">1</item>
-        <item name="passwordToggleTint">?attr/colorSecondary</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeColor">?attr/colorSecondary</item>
+        <item name="passwordToggleTint">?attr/colorOnPrimary</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
-        <item name="android:textColorHint">?attr/colorSecondary</item>
-        <item name="hintTextColor">?attr/colorSecondary</item>
+        <item name="android:textColorHint">@color/lightGray</item>
     </style>
 
     <style name="AdjustTitle" parent="Widget.MaterialComponents.TextView">
@@ -115,7 +115,7 @@
     <style name="BorderlessButtonStyle" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">?colorOnPrimary</item>
-        <item name="android:textSize">11dp</item>
+        <item name="android:textSize">11sp</item>
         <item name="android:textStyle">normal</item>
         <item name="fontFamily">sans-serif</item>
         <item name="android:fontFamily">sans-serif</item>

@@ -54,12 +54,13 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/userInputText"
-                    style="@style/FormInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_email"
                     android:inputType="textEmailAddress"
-                    tools:layout_editor_absoluteY="547dp" />
+                    tools:layout_editor_absoluteY="547dp"
+                    style="@style/FormInput"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
