@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 
 
-class productCartContact : Fragment() {
+class ProductCartContact : Fragment() {
     private lateinit var addItem: ImageView
     private lateinit var removeItem: ImageView
 

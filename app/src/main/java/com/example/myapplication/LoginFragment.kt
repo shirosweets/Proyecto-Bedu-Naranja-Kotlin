@@ -82,31 +82,65 @@ class LoginFragment : Fragment() {
 
     private fun setClickListeners(view: View) {
         loginButton.setOnClickListener {
-            val emailNotEmpty: Boolean = !loginFormUser.editText?.text.isNullOrEmpty()
-            val passNotEmpty: Boolean = !loginFormPassword.editText?.text.isNullOrEmpty()
-
-            if (emailNotEmpty && passNotEmpty){
-                loginProgressBar.visibility = View.VISIBLE
-                loginButton.isEnabled = false
-                checkUser(view)
-            }
-            else {
-                if (!emailNotEmpty) {
+            when(LoginCheck.checkEmailAndPassword(userInputText.text.toString(),passwordInputText.text.toString())){
+                "SUCCESSFUL_LOGIN"->{
+                    loginProgressBar.visibility = View.VISIBLE
+                    loginButton.isEnabled = false
+                    checkUser(view)
+                }
+                "EMPTY_FIELDS" ->{
                     loginFormUser.error = getString(R.string.notice_incomplete_field)
-                }
-                if (!passNotEmpty) {
                     loginFormPassword.error = getString(R.string.notice_incomplete_field)
+                    Snackbar.make(
+                        view,
+                        getString(R.string.notice_in_complete_fields),
+                        Snackbar.LENGTH_SHORT
+                    )
+                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
+                        .setAction(getString(R.string.snack_bar_button)) {}.show()
+                }
+                "EMAIL_IS_EMPTY"->{
+                    loginFormUser.error = getString(R.string.notice_incomplete_field)
+                    Snackbar.make(
+                        view,
+                        getString(R.string.notice_in_complete_fields),
+                        Snackbar.LENGTH_SHORT
+                    )
+                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
+                        .setAction(getString(R.string.snack_bar_button)) {}.show()
+                }
+                "PASSWORD_IS_EMPTY"->{
+                    loginFormPassword.error = getString(R.string.notice_incomplete_field)
+                    Snackbar.make(
+                        view,
+                        getString(R.string.notice_in_complete_fields),
+                        Snackbar.LENGTH_SHORT
+                    )
+                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
+                        .setAction(getString(R.string.snack_bar_button)) {}.show()
+                }
+                "PASSWORD_CHARACTERS_IS_LESS_THAN_8"->{
+                    loginFormPassword.error = getString(R.string.notice_password_characters_less_than_8)
+                    Snackbar.make(
+                        view,
+                        getString(R.string.notice_in_complete_fields),
+                        Snackbar.LENGTH_SHORT
+                    )
+                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
+                        .setAction(getString(R.string.snack_bar_button)) {}.show()
+                }
+                else ->{
+
                 }
 
-                Snackbar.make(
-                    view,
-                    getString(R.string.notice_in_complete_fields),
-                    Snackbar.LENGTH_SHORT
-                )
-                    .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                    .setAction(getString(R.string.snack_bar_button)) {}.show()
             }
+
+
         }
+
+
+
+
 
         registerRedirectBtn.setOnClickListener {
             findNavController().navigate(

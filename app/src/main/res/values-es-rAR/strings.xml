@@ -49,4 +49,5 @@
     <string name="send_shop_cart">Envío</string>
     <string name="current_payment_method">Método de pago actual</string>
     <string name="search_toast_deac">La búsqueda está deshabilitada</string>
+    <string name="notice_password_characters_less_than_8">Debe ser mayor a 7 caracteres</string>
 </resources>
