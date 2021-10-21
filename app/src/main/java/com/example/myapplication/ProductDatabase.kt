@@ -49,6 +49,16 @@ object ProductDatabase {
 
     fun fetchAllProducts(): List<Product> = realm.where(Product::class.java).findAll()
 
+    fun fetchCartProducts(): List<Product> {
+        return realm
+            .where(Product::class.java)
+            .greaterThan(
+                "amountAddedToCart",
+                0
+            )
+            .findAll()
+    }
+
     fun addOneToCart(id: Int) {
         val product: Product? = fetchProduct(id)
         product?.let {
