@@ -12,7 +12,7 @@ data class DataProduct(
     val category: String,
     val image: String,
     val rating: Rating
-): Parcelable {
+) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString().toString(),
@@ -21,10 +21,9 @@ data class DataProduct(
         parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readParcelable(Rating::class.java.classLoader) ?: Rating(0f, 0)
-    ) {
-    }
+    )
 
-    override fun describeContents(): Int  = 0
+    override fun describeContents(): Int = 0
 
     override fun writeToParcel(parcel: Parcel, p1: Int) {
         parcel.writeInt(id)
@@ -33,7 +32,7 @@ data class DataProduct(
         parcel.writeString(description)
         parcel.writeString(category)
         parcel.writeString(image)
-        parcel.writeParcelable(rating,Parcelable.PARCELABLE_WRITE_RETURN_VALUE)
+        parcel.writeParcelable(rating, Parcelable.PARCELABLE_WRITE_RETURN_VALUE)
     }
 
     companion object CREATOR : Parcelable.Creator<DataProduct> {

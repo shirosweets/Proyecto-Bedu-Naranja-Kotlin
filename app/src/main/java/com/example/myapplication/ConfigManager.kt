@@ -30,7 +30,7 @@ class ConfigManager {
         }
 
         fun getThemeResourceId(context: Context): Int {
-            return if(isDarkTheme(context)) R.style.Theme_Dark else R.style.Theme_Light
+            return if (isDarkTheme(context)) R.style.Theme_Dark else R.style.Theme_Light
         }
 
         fun switchTheme(context: Context) = setTheme(context, !isDarkTheme(context))

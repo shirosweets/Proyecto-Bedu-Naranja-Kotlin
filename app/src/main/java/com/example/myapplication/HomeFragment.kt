@@ -38,10 +38,10 @@ class HomeFragment : Fragment() {
         getProducts(view)
     }
 
-    private fun loadProductsSuccessfully(view:View, products : List<Product>){
+    private fun loadProductsSuccessfully(view: View, products: List<Product>) {
         val clickListener: (Product, FragmentNavigator.Extras) -> Unit = { product, extras ->
             val action = HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(product)
-            Navigation.findNavController(view).navigate(action,extras)
+            Navigation.findNavController(view).navigate(action, extras)
         }
         recycler.adapter = ProductAdapter(clickListener, products)
         recycler.layoutManager = LinearLayoutManager(activity)
@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
     }
 
 
-    private fun getRetrofit():Retrofit{
+    private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
@@ -67,8 +67,7 @@ class HomeFragment : Fragment() {
             Log.d("MYDEBUG", "Found: ${products.size} products in local database")
             if (products.isNotEmpty()) {
                 return loadProductsSuccessfully(view, products)
-            }
-            else {
+            } else {
                 ConfigManager.prefs(requireActivity())
                     .edit()
                     .putBoolean(dbFetchedPrefKey, false)
@@ -84,7 +83,7 @@ class HomeFragment : Fragment() {
             val call = getRetrofit().create(APIService::class.java).getProducts("products")
             val productsReceived = call.body()
             activity?.runOnUiThread {
-                if(call.isSuccessful) {
+                if (call.isSuccessful) {
                     productsReceived?.forEach {
                         val amountAddedToCart = ProductDatabase
                             .fetchProduct(it.id)
@@ -107,8 +106,7 @@ class HomeFragment : Fragment() {
                         true
                     ).apply()
                     loadProductsSuccessfully(view, ProductDatabase.fetchAllProducts())
-                }
-                else {
+                } else {
                     Toast.makeText(
                         requireContext(),
                         "Error al solicitar productos",

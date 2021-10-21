@@ -3,11 +3,11 @@ package com.example.myapplication
 import android.os.Parcel
 import android.os.Parcelable
 
-class Rating(val rate:Float,val count:Int): Parcelable {
+class Rating(val rate: Float, val count: Int) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readFloat(),
         parcel.readInt()
-    ) {}
+    )
 
     override fun describeContents(): Int = 0
 

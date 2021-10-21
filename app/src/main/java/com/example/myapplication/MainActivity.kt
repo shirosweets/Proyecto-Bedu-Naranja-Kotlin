@@ -11,8 +11,7 @@ class MainActivity : AppCompatActivity() {
         if (LoginManager.isLoggedIn(this)) {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
-        }
-        else {
+        } else {
             setContentView(R.layout.activity_main)
             supportActionBar?.hide()
         }

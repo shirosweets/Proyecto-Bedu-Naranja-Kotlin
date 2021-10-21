@@ -61,13 +61,15 @@ class RegisterFragment : Fragment() {
 
         for ((inputEditText, _) in inputMap) {
             inputEditText.doOnTextChanged { text, _, _, _ ->
-                if (!text.isNullOrEmpty()) { inputEditText.error = null }
+                if (!text.isNullOrEmpty()) {
+                    inputEditText.error = null
+                }
             }
         }
         setClickListeners(view)
     }
 
-    private fun setClickListeners(view: View){
+    private fun setClickListeners(view: View) {
         registerButton.setOnClickListener {
             if (isFormValid()) {
                 ConfigManager.prefs(requireActivity()).edit()
@@ -77,8 +79,7 @@ class RegisterFragment : Fragment() {
 
                 val action = RegisterFragmentDirections.actionRegisterFragment2ToLoginFragment2()
                 Navigation.findNavController(view).navigate(action)
-            }
-            else {
+            } else {
                 for ((inputEditText, inputEditLayout) in inputMap) {
                     if (inputEditText.text.isNullOrEmpty()) {
                         inputEditLayout.error = getString(R.string.notice_incomplete_field)
@@ -91,7 +92,7 @@ class RegisterFragment : Fragment() {
                     Snackbar.LENGTH_SHORT
                 )
                     .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                    .setAction(getString(R.string.snack_bar_button)){}.show()
+                    .setAction(getString(R.string.snack_bar_button)) {}.show()
             }
         }
     }

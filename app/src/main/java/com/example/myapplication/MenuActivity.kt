@@ -16,17 +16,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MenuActivity : AppCompatActivity() {
     private val helpUrl = "https://www.bedu.org/"
-    private lateinit var menuNavigationBottom : BottomNavigationView
+    private lateinit var menuNavigationBottom: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.setTheme(ConfigManager.getThemeResourceId(this))
         setContentView(R.layout.activity_menu)
-        menuNavigationBottom =  findViewById(R.id.bottomNavigationView)
+        menuNavigationBottom = findViewById(R.id.bottomNavigationView)
         setupNavController()
     }
 
-    private fun setupNavController(){
+    private fun setupNavController() {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
@@ -42,16 +42,16 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun showBottomNav() {
-        menuNavigationBottom.visibility =View.VISIBLE
+        menuNavigationBottom.visibility = View.VISIBLE
         menuNavigationBottom
             .animate()
             .translationY(0f)
             .setDuration(300)
             .setListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator) {
-                menuNavigationBottom.visibility = View.VISIBLE
-            }
-        })
+                override fun onAnimationEnd(animation: Animator) {
+                    menuNavigationBottom.visibility = View.VISIBLE
+                }
+            })
     }
 
     private fun hideBottomNav() {
@@ -60,10 +60,10 @@ class MenuActivity : AppCompatActivity() {
             .translationY(100f)
             .setDuration(300)
             .setListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator) {
-                menuNavigationBottom.visibility = View.GONE
-            }
-        })
+                override fun onAnimationEnd(animation: Animator) {
+                    menuNavigationBottom.visibility = View.GONE
+                }
+            })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -72,7 +72,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.top_menu_search -> {
                 Toast.makeText(
                     this,

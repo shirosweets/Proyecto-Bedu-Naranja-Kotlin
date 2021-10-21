@@ -48,7 +48,7 @@ class ProductDetailFragment : Fragment() {
     }
 
     private fun showProduct(product: Product) {
-        binding.productCardView.transitionName  = "product_${product.title}"
+        binding.productCardView.transitionName = "product_${product.title}"
         binding.productTitle.transitionName = "product_title_${product.title}"
         binding.productVotes.transitionName = "product_votes_${product.title}"
         binding.productPrice.transitionName = "product_price_${product.title}"

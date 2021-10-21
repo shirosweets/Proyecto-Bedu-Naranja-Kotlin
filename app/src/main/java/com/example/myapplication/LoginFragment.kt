@@ -85,12 +85,11 @@ class LoginFragment : Fragment() {
             val emailNotEmpty: Boolean = !loginFormUser.editText?.text.isNullOrEmpty()
             val passNotEmpty: Boolean = !loginFormPassword.editText?.text.isNullOrEmpty()
 
-            if (emailNotEmpty && passNotEmpty){
+            if (emailNotEmpty && passNotEmpty) {
                 loginProgressBar.visibility = View.VISIBLE
                 loginButton.isEnabled = false
                 checkUser(view)
-            }
-            else {
+            } else {
                 if (!emailNotEmpty) {
                     loginFormUser.error = getString(R.string.notice_incomplete_field)
                 }
@@ -116,14 +115,14 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun getRetrofit(baseUrl:String): Retrofit {
+    private fun getRetrofit(baseUrl: String): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
-    private fun checkUser(view: View){
+    private fun checkUser(view: View) {
         CoroutineScope(Dispatchers.IO).launch {
             val call = getRetrofit(baseLoginUrl)
                 .create(APIService::class.java)
@@ -132,12 +131,11 @@ class LoginFragment : Fragment() {
                     passwordInputText.text.toString()
                 )
 
-            activity?.runOnUiThread{
-                if (call.isSuccessful){
+            activity?.runOnUiThread {
+                if (call.isSuccessful) {
                     getUserData(userInputText.text.toString())
                     loginSuccessfully()
-                }
-                else {
+                } else {
                     loginProgressBar.visibility = View.INVISIBLE
                     loginButton.isEnabled = true
 
@@ -147,12 +145,13 @@ class LoginFragment : Fragment() {
                         Snackbar.LENGTH_SHORT
                     )
                         .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                        .setAction(getString(R.string.snack_bar_button)) {}.show()}
+                        .setAction(getString(R.string.snack_bar_button)) {}.show()
                 }
             }
         }
+    }
 
-    private fun loginSuccessfully(){
+    private fun loginSuccessfully() {
         loginProgressBar.visibility = View.INVISIBLE
         loginButton.isEnabled = true
         findNavController().navigate(
@@ -162,7 +161,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun getUserData(userEmail: String) {
-        for(userNumber in 1..12) {
+        for (userNumber in 1..12) {
             CoroutineScope(Dispatchers.IO).launch {
                 val call = getRetrofit(baseUserUrl)
                     .create(APIService::class.java)
@@ -170,20 +169,19 @@ class LoginFragment : Fragment() {
                 val userReceived = call.body()
 
                 activity?.runOnUiThread {
-                    if(call.isSuccessful) {
+                    if (call.isSuccessful) {
                         if (userReceived?.data?.email == userEmail) {
                             savedSharedPreferencesUser(userReceived)
                         }
-                    }
-                    else {
-                        Log.d("Error:","User data call failed")
+                    } else {
+                        Log.d("Error:", "User data call failed")
                     }
                 }
             }
         }
     }
 
-    private fun savedSharedPreferencesUser(user : User){
+    private fun savedSharedPreferencesUser(user: User) {
         sharedPreferences.edit()
             .putString("USER_EMAIL", user.data.email)
             .putString("USER_AVATAR", user.data.avatar)

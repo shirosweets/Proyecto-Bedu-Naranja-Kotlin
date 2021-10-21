@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso
 class ProductAdapter(
     private val click_listener: (Product, FragmentNavigator.Extras) -> Unit,
     private val product_list: List<Product>
-): RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
+) : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -34,7 +34,7 @@ class ProductAdapter(
 
         holder.render(currentProduct)
         val extras = holder.getExtras(currentProduct)
-        holder.itemView.setOnClickListener { click_listener(currentProduct,extras) }
+        holder.itemView.setOnClickListener { click_listener(currentProduct, extras) }
 
         val animation = AnimationUtils.loadAnimation(
             holder.itemView.context,
@@ -45,13 +45,13 @@ class ProductAdapter(
 
     override fun getItemCount(): Int = product_list.size
 
-    inner class ProductHolder(view: View): RecyclerView.ViewHolder(view) {
+    inner class ProductHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val productTitle: TextView = view.findViewById(R.id.product_title)
         private val productVotes: TextView = view.findViewById(R.id.product_votes)
         private val productPrice: TextView = view.findViewById(R.id.product_price)
         private val productRating: RatingBar = view.findViewById(R.id.product_rating)
         private val productImage: ImageView = view.findViewById(R.id.product_contact_image)
-        private val productCardView: MaterialCardView =  view.findViewById(R.id.product_card_view)
+        private val productCardView: MaterialCardView = view.findViewById(R.id.product_card_view)
 
         fun render(product: Product) {
             productTitle.text = product.title
@@ -61,7 +61,7 @@ class ProductAdapter(
             Picasso.get().load(product.image).into(productImage)
         }
 
-        fun getExtras(product:Product):FragmentNavigator.Extras{
+        fun getExtras(product: Product): FragmentNavigator.Extras {
             productCardView.transitionName = "product_${product.title}"
             productTitle.transitionName = "product_title_${product.title}"
             productVotes.transitionName = "product_votes_${product.title}"

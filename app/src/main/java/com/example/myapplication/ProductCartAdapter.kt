@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso
 
 class ProductCartAdapter(
     private var product_list: List<Product>
-): RecyclerView.Adapter<ProductCartAdapter.ProductHolder>() {
+) : RecyclerView.Adapter<ProductCartAdapter.ProductHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ProductHolder(
@@ -27,7 +27,7 @@ class ProductCartAdapter(
         holder.render(currentProduct, position)
     }
 
-    inner class ProductHolder(view: View): RecyclerView.ViewHolder(view) {
+    inner class ProductHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val productCartTitle: TextView = view.findViewById(R.id.cart_contact_title)
         private val productCartPrice: TextView = view.findViewById(R.id.cart_contact_price)
         private val productCartImage: ImageView = view.findViewById(R.id.cart_contact_image)

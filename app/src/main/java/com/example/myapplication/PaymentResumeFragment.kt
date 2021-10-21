@@ -32,7 +32,9 @@ class PaymentResumeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { setNotificationChannel() }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            setNotificationChannel()
+        }
         return inflater.inflate(R.layout.fragment_payment_resume, container, false)
     }
 
@@ -41,7 +43,7 @@ class PaymentResumeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recycler = view.findViewById(R.id.paymentResumeRecyclerView)
-        recycler.adapter = OptionAdapter( getOptionsClickListener(), getPaymentOptions())
+        recycler.adapter = OptionAdapter(getOptionsClickListener(), getPaymentOptions())
         recycler.layoutManager = LinearLayoutManager(activity)
 
         subTotalValue = view.findViewById(R.id.subtotalValue)
@@ -64,7 +66,7 @@ class PaymentResumeFragment : Fragment() {
 
     private fun resetCartAmount() {
         val products = ProductDatabase.fetchCartProducts()
-        products.forEach { it.id?.let { id ->  ProductDatabase.resetProductCartAmount(id) } }
+        products.forEach { it.id?.let { id -> ProductDatabase.resetProductCartAmount(id) } }
     }
 
     private fun getSubtotal(): Float {
@@ -80,13 +82,13 @@ class PaymentResumeFragment : Fragment() {
 
     private fun getPaymentOptions(): List<Option> {
         return listOf(
-            Option(getString(R.string.current_address),R.drawable.ic_location),
-            Option(getString(R.string.current_payment_method),R.drawable.ic_credit_card)
+            Option(getString(R.string.current_address), R.drawable.ic_location),
+            Option(getString(R.string.current_payment_method), R.drawable.ic_credit_card)
         )
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun setNotificationChannel(){
+    private fun setNotificationChannel() {
         val name = getString(R.string.notification_1)
         val descriptionText = getString(R.string.notify_body_1)
         val importance = NotificationManager.IMPORTANCE_DEFAULT
@@ -101,7 +103,7 @@ class PaymentResumeFragment : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun buyNotification(){
+    private fun buyNotification() {
         val pendingIntent = NavDeepLinkBuilder(requireActivity())
             .setComponentName(MenuActivity::class.java)
             .setGraph(R.navigation.menu_navigation)
@@ -122,5 +124,5 @@ class PaymentResumeFragment : Fragment() {
         }
     }
 
-    private fun getOptionsClickListener():(String) -> Unit = {}
+    private fun getOptionsClickListener(): (String) -> Unit = {}
 }

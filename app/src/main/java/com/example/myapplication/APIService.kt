@@ -7,15 +7,15 @@ import retrofit2.http.*
 
 interface APIService {
     @GET
-    suspend fun getProducts(@Url url:String): Response<List<DataProduct>>
+    suspend fun getProducts(@Url url: String): Response<List<DataProduct>>
 
     @GET
-    suspend fun getUserData(@Url url:String):Response<User>
+    suspend fun getUserData(@Url url: String): Response<User>
 
     @FormUrlEncoded
     @POST("api/login")
     suspend fun loginUser(
-        @Field("email") email:String,
-        @Field("password") password:String
+        @Field("email") email: String,
+        @Field("password") password: String
     ): Response<ResponseBody>
 }

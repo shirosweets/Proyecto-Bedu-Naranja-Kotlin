@@ -18,9 +18,9 @@ import com.squareup.picasso.Picasso
 class ProfileFragment : Fragment() {
     private lateinit var themeSwitch: SwitchMaterial
     private lateinit var recycler: RecyclerView
-    private lateinit var userFirstName : TextView
-    private lateinit var userImage : ShapeableImageView
-    private lateinit var userEmail : TextView
+    private lateinit var userFirstName: TextView
+    private lateinit var userImage: ShapeableImageView
+    private lateinit var userEmail: TextView
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var closeSession: Button
 
@@ -53,14 +53,14 @@ class ProfileFragment : Fragment() {
             )
         }
 
-        recycler.adapter = OptionAdapter( getOptionsClickListener(), getProfileOptions())
+        recycler.adapter = OptionAdapter(getOptionsClickListener(), getProfileOptions())
         recycler.layoutManager = LinearLayoutManager(activity)
 
         sharedPreferences = ConfigManager.prefs(requireActivity())
         setUserData()
     }
 
-    private fun setUserData(){
+    private fun setUserData() {
         userFirstName.text = sharedPreferences.getString("USER_FIRST_NAME", "Janet")
         userEmail.text = sharedPreferences.getString("USER_EMAIL", "janet.weaver@reqres.in")
         Picasso.get().load(
@@ -71,13 +71,14 @@ class ProfileFragment : Fragment() {
         ).into(userImage)
     }
 
-    private fun getProfileOptions():List<Option>{
+    private fun getProfileOptions(): List<Option> {
         return listOf(
-            Option(getString(R.string.my_address),R.drawable.ic_location),
-            Option(getString(R.string.payment_methods),R.drawable.ic_credit_card),
-            Option(getString(R.string.my_orders_cart),R.drawable.ic_restore),
-            Option(getString(R.string.notifications),R.drawable.ic_notifications_active),
-            Option(getString(R.string.change_password),R.drawable.ic_lock),)
+            Option(getString(R.string.my_address), R.drawable.ic_location),
+            Option(getString(R.string.payment_methods), R.drawable.ic_credit_card),
+            Option(getString(R.string.my_orders_cart), R.drawable.ic_restore),
+            Option(getString(R.string.notifications), R.drawable.ic_notifications_active),
+            Option(getString(R.string.change_password), R.drawable.ic_lock),
+        )
     }
 
     private fun getOptionsClickListener(): (String) -> Unit {
@@ -86,7 +87,9 @@ class ProfileFragment : Fragment() {
                 getString(R.string.my_address) -> {
                     val addressFragment = AddressFragment()
                     addressFragment.show(parentFragmentManager, "fragment")
-                } else -> {}
+                }
+                else -> {
+                }
             }
         }
     }

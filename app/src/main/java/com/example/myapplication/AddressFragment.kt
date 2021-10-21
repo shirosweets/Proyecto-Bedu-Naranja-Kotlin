@@ -22,12 +22,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.util.*
 
 
-class AddressFragment: BottomSheetDialogFragment() {
-    private lateinit var imageButtonClose :ImageView
-    private lateinit var buttonUpdateAddress : Button
-    private lateinit var tvActualDirection:TextView
-    private lateinit var tvOldDirection1 : TextView
-    private lateinit var tvOldDirection2 : TextView
+class AddressFragment : BottomSheetDialogFragment() {
+    private lateinit var imageButtonClose: ImageView
+    private lateinit var buttonUpdateAddress: Button
+    private lateinit var tvActualDirection: TextView
+    private lateinit var tvOldDirection1: TextView
+    private lateinit var tvOldDirection2: TextView
     private lateinit var sharedPreferences: SharedPreferences
     lateinit var mFusedLocationClient: FusedLocationProviderClient
     private val permissionId = 33
@@ -58,9 +58,9 @@ class AddressFragment: BottomSheetDialogFragment() {
     }
 
     private fun setSharedPreferencesAddress() {
-        tvActualDirection.text = sharedPreferences.getString("USER_ACTUAL_ADDRESS","")
-        tvOldDirection1.text = sharedPreferences.getString("USER_OLD_ADDRESS1","")
-        tvOldDirection2.text = sharedPreferences.getString("USER_OLD_ADDRESS2","")
+        tvActualDirection.text = sharedPreferences.getString("USER_ACTUAL_ADDRESS", "")
+        tvOldDirection1.text = sharedPreferences.getString("USER_OLD_ADDRESS1", "")
+        tvOldDirection2.text = sharedPreferences.getString("USER_OLD_ADDRESS2", "")
     }
 
 
@@ -72,8 +72,7 @@ class AddressFragment: BottomSheetDialogFragment() {
                     .lastLocation
                     .addOnSuccessListener(getLocationSuccessListener())
             }
-        }
-        else {
+        } else {
             requestPermissions()
         }
     }
@@ -81,7 +80,7 @@ class AddressFragment: BottomSheetDialogFragment() {
     private fun getLocationSuccessListener(): ((Location) -> Unit) {
         return { location: Location ->
             val geocoder = Geocoder(requireContext(), Locale.getDefault())
-            val addresses  = location.latitude.let {
+            val addresses = location.latitude.let {
                 geocoder.getFromLocation(
                     it.toDouble(),
                     location.longitude.toDouble(),
@@ -94,9 +93,9 @@ class AddressFragment: BottomSheetDialogFragment() {
                 tvOldDirection1.text = tvActualDirection.text.toString()
                 tvActualDirection.text = actualAddress
                 sharedPreferences.edit()
-                    .putString("USER_ACTUAL_ADDRESS",tvActualDirection.text.toString())
-                    .putString("USER_OLD_ADDRESS1",tvOldDirection1.text.toString())
-                    .putString("USER_OLD_ADDRESS2",tvOldDirection2.text.toString())
+                    .putString("USER_ACTUAL_ADDRESS", tvActualDirection.text.toString())
+                    .putString("USER_OLD_ADDRESS1", tvOldDirection1.text.toString())
+                    .putString("USER_OLD_ADDRESS2", tvOldDirection2.text.toString())
                     .apply()
             }
         }

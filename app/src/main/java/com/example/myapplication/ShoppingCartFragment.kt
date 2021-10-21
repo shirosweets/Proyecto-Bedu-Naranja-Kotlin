@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 
 class ShoppingCartFragment : Fragment() {
-    private lateinit var cartRecycler : RecyclerView
+    private lateinit var cartRecycler: RecyclerView
     private lateinit var proceedToPaymentButton: MaterialButton
 
     override fun onCreateView(
@@ -32,8 +32,7 @@ class ShoppingCartFragment : Fragment() {
                     getString(R.string.need_to_add_prod),
                     Toast.LENGTH_SHORT
                 ).show()
-            }
-            else {
+            } else {
                 findNavController().navigate(
                     R.id.action_shoppingCartFragment_to_paymentResumeFragment,
                     null
