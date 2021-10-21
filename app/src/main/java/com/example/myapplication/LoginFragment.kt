@@ -171,7 +171,7 @@ class LoginFragment : Fragment() {
 
                 activity?.runOnUiThread {
                     if(call.isSuccessful) {
-                        if(userReceived?.data?.email == userEmail) {
+                        if (userReceived?.data?.email == userEmail) {
                             savedSharedPreferencesUser(userReceived)
                         }
                     }
@@ -185,10 +185,10 @@ class LoginFragment : Fragment() {
 
     private fun savedSharedPreferencesUser(user : User){
         sharedPreferences.edit()
-            ?.putBoolean("USER_ACCESS", true)
-            ?.putString("USER_EMAIL", user.data.email)
-            ?.putString("USER_AVATAR", user.data.avatar)
-            ?.putString("USER_FIRST_NAME", user.data.first_name)
-            ?.apply()
+            .putString("USER_EMAIL", user.data.email)
+            .putString("USER_AVATAR", user.data.avatar)
+            .putString("USER_FIRST_NAME", user.data.first_name)
+            .apply()
+        LoginManager.logIn(requireActivity())
     }
 }

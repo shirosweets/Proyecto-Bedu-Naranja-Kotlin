@@ -46,7 +46,7 @@ class ProfileFragment : Fragment() {
         }
 
         closeSession = view.findViewById(R.id.buttonCloseSession)
-        closeSession.setOnClickListener { closeSession() }
+        closeSession.setOnClickListener { LoginManager.logOut(requireActivity()) }
 
         recycler.adapter = OptionAdapter( getOptionsClickListener(), getProfileOptions())
         recycler.layoutManager = LinearLayoutManager(activity)
@@ -64,14 +64,6 @@ class ProfileFragment : Fragment() {
                 "https://reqres.in/img/faces/2-image.jpg"
             )
         ).into(userImage)
-    }
-
-    private fun closeSession(){
-        sharedPreferences.edit().putBoolean("USER_ACCESS",false).apply()
-        findNavController().navigate(
-            R.id.action_profileFragment_to_mainActivity,
-            null
-        )
     }
 
     private fun getProfileOptions():List<Option>{
