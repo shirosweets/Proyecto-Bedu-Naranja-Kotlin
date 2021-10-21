@@ -17,7 +17,8 @@
         <!-- UI colors -->
         <item name="android:colorBackground">@color/light_backgroundColor</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <item name="colorAccent">@color/gray</item>
+        <item name="colorAccent">@color/dark_secondaryColor</item>
+        <!-- <item name="colorAccent">@color/gray</item> -->
     </style>
 
     <style name="Theme.Dark" parent="Theme.Base">
@@ -32,7 +33,8 @@
         <!-- UI colors -->
         <item name="android:colorBackground">@color/dark_backgroundColor</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <item name="colorAccent">@color/lightGray</item>
+        <item name="colorAccent">@color/dark_secondaryColor</item>
+        <!-- <item name="colorAccent">@color/lightGray</item> -->
     </style>
 
     <style name="Theme.Drakula" parent="Theme.Base">
@@ -47,10 +49,11 @@
         <!-- UI colors -->
         <item name="android:colorBackground">@color/dark_backgroundColor</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <item name="colorAccent">@color/lightGray</item>
-    </style>
+        <item name="colorAccent">@color/dark_secondaryColor</item>
+        <!-- <item name="colorAccent">@color/lightGray</item> -->
+</style>
 
-    <!-- Elements theme -->
+<!-- Elements theme -->
     <style name="FormInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:background">@color/grey_10opacity</item>
         <item name="drawableTint">@color/white</item>
@@ -88,15 +91,23 @@
     </style>
 
     <style name="NormalTextStyle">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">@color/gray</item>
     </style>
 
     <style name="IconStyle">
         <item name="android:tint">?attr/colorAccent</item>
     </style>
 
+    <style name="MyRatingBar" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="android:minHeight">15dp</item>
+        <item name="android:maxHeight">15dp</item>
+        <item name="colorAccent">?attr/colorAccent</item>
+        <item name="colorControlNormal">@color/gray</item>
+        <item name="colorControlActivated">?attr/colorSecondary</item>
+    </style>
+
     <style name="BottonNavigationStyle">
-        <item name="colorOnSecondary">?colorSecondary</item>
+        <item name="colorOnSecondary">?attr/colorSecondary</item>
         <item name="itemIconTint">@color/menu_item_color</item>
         <item name="itemRippleColor">@color/menu_item_color</item>
     </style>

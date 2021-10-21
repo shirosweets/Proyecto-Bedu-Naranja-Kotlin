@@ -88,10 +88,13 @@ Como el IDE de Android Studio no permite tener una herramienta similar a Live Sh
 
 ## Puntos desarrollados en la demo N°1
 
-* Icono personalizado para la app
-* Notificación con redirección al comprar un producto
+* Toast al no ingresar los datos en el Login y el Register
 * Posibilidad de cerrar sesión
-* Toast al no ingresar los datos en el LogIN
+* Icono personalizado para la app
+* Lista de productos a partir de una base de datos
+* Añadir productos al carrito
+* Realizar pagos
+* Notificación con redirección al comprar un producto
 
 ---
 
