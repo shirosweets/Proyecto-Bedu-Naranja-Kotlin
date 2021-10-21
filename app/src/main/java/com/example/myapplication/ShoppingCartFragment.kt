@@ -31,7 +31,7 @@ class ShoppingCartFragment : Fragment() {
             if (ProductDatabase.fetchCartProducts().isEmpty()) {
                 Toast.makeText(
                     requireContext(),
-                    "Agregue productos al carrito para proceder",
+                    getString(R.string.need_to_add_prod),
                     Toast.LENGTH_SHORT
                 ).show()
             }

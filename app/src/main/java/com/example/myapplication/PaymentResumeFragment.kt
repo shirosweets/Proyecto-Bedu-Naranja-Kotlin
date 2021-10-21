@@ -86,8 +86,8 @@ class PaymentResumeFragment : Fragment() {
 
     private fun getPaymentOptions(): List<Option> {
         return listOf(
-            Option("Dirección Actual",R.drawable.ic_location),
-            Option("Método de pago actual",R.drawable.ic_credit_card)
+            Option(getString(R.string.current_address),R.drawable.ic_location),
+            Option(getString(R.string.current_payment_method),R.drawable.ic_credit_card)
         )
     }
 

@@ -7,12 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.FragmentNavigatorExtras
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
@@ -61,7 +57,7 @@ class RegisterFragment : Fragment() {
         passwordInputText = view.findViewById(R.id.passwordInputText)
 
         sharedPreferences = requireContext().getSharedPreferences(
-            getString(R.string.loginSharedPreferenceFile),
+            getString(R.string.login_shared_preference_file),
             Context.MODE_PRIVATE
         )
 
@@ -108,14 +104,14 @@ class RegisterFragment : Fragment() {
                 Navigation.findNavController(view).navigate(action)
 
             } else {
-                if(nameInputText.text.isNullOrEmpty()){regFormUser.error=getString(R.string.noticeIncompleteField)}
-                if(emailInputText.text.isNullOrEmpty()){regFormEmail.error=getString(R.string.noticeIncompleteField)}
-                if(phoneInputText.text.isNullOrEmpty()){regFormPhone.error=getString(R.string.noticeIncompleteField)}
-                if(passwordInputText.text.isNullOrEmpty()){regFormPassword.error=getString(R.string.noticeIncompleteField)}
+                if(nameInputText.text.isNullOrEmpty()){regFormUser.error=getString(R.string.notice_incomplete_field)}
+                if(emailInputText.text.isNullOrEmpty()){regFormEmail.error=getString(R.string.notice_incomplete_field)}
+                if(phoneInputText.text.isNullOrEmpty()){regFormPhone.error=getString(R.string.notice_incomplete_field)}
+                if(passwordInputText.text.isNullOrEmpty()){regFormPassword.error=getString(R.string.notice_incomplete_field)}
 
-                Snackbar.make(view, getString(R.string.noticeIncompleteFields), Snackbar.LENGTH_SHORT)
+                Snackbar.make(view, getString(R.string.notice_in_complete_fields), Snackbar.LENGTH_SHORT)
                     .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                    .setAction(getString(R.string.snackbarButton)){}.show()
+                    .setAction(getString(R.string.snack_bar_button)){}.show()
             }
         }
     }
