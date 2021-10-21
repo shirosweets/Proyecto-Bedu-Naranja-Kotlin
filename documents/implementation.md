@@ -9,11 +9,14 @@
 # Tabla de contenidos
 
 - [Flujo](#flujo)
-    - [Main navigation](#main-navigation)
-    - [Menu navigation](#menu-navigation)
+  - [Main navigation](#main-navigation)
+  - [Menu navigation](#menu-navigation)
 - [Dificultades y soluciones](#dificultades-y-soluciones)
-    - [Rating y votos random](#rating-y-votos-random)
-    - [Menú de navegación](#menú-de-navegación)
+  - [Rating y votos random](#rating-y-votos-random)
+  - [Menú de navegación](#menú-de-navegación)
+- [Uso de tests unitarios](#uso-de-tests-unitarios)
+  - [Tests unitarios que corren en la JVM, sin dependencia del framework de Android](#tests-unitarios-que-corren-en-la-JVM,-sin-dependencia-del-framework-de-Android)
+  - [Tests que involucran el uso del framework de android en un test unitario local (no instrumentado)](#tests-que-involucran-el-uso-del-framework-de-android-en-un-test-unitario-local-(no-instrumentado))
 
 # Flujo
 
@@ -137,6 +140,59 @@
 - Solución:
 
   Logramos implementar el uso de una función que nos permite asignar el `navController` del `navHostFragment` perteneciente a la `MenuActivity`, en el `BottomNavigationView`. Lo cual realiza completamente la identificación de cual Fragment se debería mostrar según el item seleccionado, con la única precaución de tener en cada uno de estos ítems el id exactamente igual que el nombre del Fragment que queremos mostrar para cada caso.
+
+
+&nbsp;
+
+# Uso de tests unitarios
+
+&nbsp;
+
+## Tests unitarios que corren en la JVM, sin dependencia del framework de Android
+
+- Localizamos dentro de nuestro proyecto el archivo donde se encuentran los test
+
+<div align="center">
+
+<img src="../assets/JVMtestTree.png" width="500">
+
+</div>
+
+- Abrimos nuestro LoginCheckTest
+- Seleccionamos el botón que se encuentra del lado izquierdo de la declaración de nuestra clase
+- Elegimos la opción `Run LoginCheckTest`
+- Finalmente vemos el resultado en nuestra pestaña `Run` (Ubicada en la parte inferior del proyecto)
+
+<div align="center">
+
+<img src="../assets/JVMtestResult.png" width="500">
+
+</div>
+
+&nbsp;
+
+## Tests que involucran el uso del framework de android en un test unitario local (no instrumentado)
+
+- Localizamos dentro de nuestro proyecto el archivo donde se encuentran los test de android
+
+<div align="center">
+
+<img src="../assets/androidTestTree.png" width="500">
+
+</div>
+
+- Abrimos nuestro ResourceComparerTest
+- Seleccionamos el botón que se encuentra del lado izquierdo de la declaración de nuestra clase
+- Elegimos la opción `Run ResourceComparerTest`
+- Finalmente vemos el resultado en nuestra pestaña `Run` (Ubicada en la parte inferior del proyecto)
+
+<div align="center">
+
+<img src="../assets/androidTestResult.png" width="500">
+
+</div>
+
+
 ---
 
 **[README](../README.md)** | **[Documentación](root.md)** | **[Recursos de BEDU y Referencias](resources.md)**

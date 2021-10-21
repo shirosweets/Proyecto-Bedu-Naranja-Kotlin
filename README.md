@@ -78,7 +78,7 @@ Como el IDE de Android Studio no permite tener una herramienta similar a Live Sh
   > password | email | phone | text
 * ScrollView en Register y Login para hacerlo responsivo en modo Portrait
 * RecyclerView para los Productos
-    > presentados como CardView
+  > presentados como CardView
 * Build Variants
   * Por tema (dark/light)
   * Por release/debug
@@ -88,14 +88,25 @@ Como el IDE de Android Studio no permite tener una herramienta similar a Live Sh
 
 ## Puntos desarrollados en la demo N°1
 
-* Toast al no ingresar los datos en el Login y el Register
+* Snackbar al no ingresar los datos en el Login y el Register
+* Marcado de errores individuales al iniciar sesión o registrarse
+  > campo incompleto
+
+  > contraseña menor a 8 caracteres
+* Consumo de API a partir de metodos POST y GET, para verificar el inicio de sesión (usando Corrutinas y Retrofit 2)
+* Manejo de SharedPreferences para acceso rapido de usuario registrado
+* Consumo de API a partir de metodo GET, para la carga de productos en pantalla de inicio (usando Corrutinas y Retrofit 2)
+* Actualizacion real de la ubicación a partir de GPS (se almacenan hasta 3 ubicaciones con SharedPreferences)
 * Posibilidad de cerrar sesión
 * Icono personalizado para la app
-* Lista de productos a partir de una base de datos
+* Lista de productos almacenados y modificados en base de datos (usando Realm)
 * Añadir productos al carrito
 * Realizar pagos
 * Notificación con redirección al comprar un producto
-
+* Test Unitarios en JVM sin dependencia del framework de Android
+* Test Unitarios con uso del framework de Android (no instrumentados)
+* Cambio de idiomas según preferencias del usuario
+* Switch para cambio de temas, disponible para usuarios registrados
 ---
 
 **[Documentación](documents/root.md)** | **[Recursos de BEDU y Referencias](documents/resources.md)**
