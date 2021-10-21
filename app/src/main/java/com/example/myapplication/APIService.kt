@@ -7,10 +7,7 @@ import retrofit2.http.*
 import retrofit2.http.PUT
 
 
-
-
 interface APIService {
-
     @GET
     suspend fun getProducts(@Url url:String): Response<List<DataProduct>>
 
@@ -19,6 +16,8 @@ interface APIService {
 
     @FormUrlEncoded
     @POST("api/login")
-    suspend fun loginUser(@Field("email") email:String,
-                          @Field("password")password:String):Response<ResponseBody>
+    suspend fun loginUser(
+        @Field("email") email:String,
+        @Field("password") password:String
+    ): Response<ResponseBody>
 }

@@ -24,9 +24,7 @@ data class DataProduct(
     ) {
     }
 
-    override fun describeContents(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun describeContents(): Int  = 0
 
     override fun writeToParcel(parcel: Parcel, p1: Int) {
         parcel.writeInt(id)

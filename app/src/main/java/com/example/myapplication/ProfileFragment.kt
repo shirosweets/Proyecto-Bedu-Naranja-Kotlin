@@ -22,8 +22,7 @@ class ProfileFragment : Fragment() {
     private lateinit var userFirstName : TextView
     private lateinit var userImage : ShapeableImageView
     private lateinit var userEmail : TextView
-    private var sharedPreferences: SharedPreferences? = null
-
+    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var closeSession: Button
 
     override fun onCreateView(
@@ -47,31 +46,28 @@ class ProfileFragment : Fragment() {
         }
 
         closeSession = view.findViewById(R.id.buttonCloseSession)
+        closeSession.setOnClickListener { closeSession() }
 
         recycler.adapter = OptionAdapter( getOptionsClickListener(), getProfileOptions())
         recycler.layoutManager = LinearLayoutManager(activity)
 
-        sharedPreferences =
-            this.activity?.getSharedPreferences(
-                "org.bedu.sharedpreferences",
-                Context.MODE_PRIVATE
-            )
-
-        closeSession.setOnClickListener { closeSession() }
+        sharedPreferences = ConfigManager.prefs(requireActivity())
         setUserData()
-
     }
 
     private fun setUserData(){
-        userFirstName.setText(sharedPreferences?.getString("USER_FIRST_NAME","Janet"))
-        userEmail.setText(sharedPreferences?.getString("USER_EMAIL","janet.weaver@reqres.in"))
-        Picasso.get().load(sharedPreferences?.getString("USER_AVATAR","https://reqres.in/img/faces/2-image.jpg")).into(userImage)
+        userFirstName.text = sharedPreferences.getString("USER_FIRST_NAME", "Janet")
+        userEmail.text = sharedPreferences.getString("USER_EMAIL", "janet.weaver@reqres.in")
+        Picasso.get().load(
+            sharedPreferences.getString(
+                "USER_AVATAR",
+                "https://reqres.in/img/faces/2-image.jpg"
+            )
+        ).into(userImage)
     }
 
     private fun closeSession(){
-        sharedPreferences?.edit()
-            ?.putBoolean("USER_ACCESS",false)
-            ?.apply()
+        sharedPreferences.edit().putBoolean("USER_ACCESS",false).apply()
         findNavController().navigate(
             R.id.action_profileFragment_to_mainActivity,
             null

@@ -29,9 +29,7 @@ open class Product(): RealmObject(), Parcelable {
         amountAddedToCart = parcel.readInt()
     }
 
-    override fun describeContents(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun describeContents(): Int = 0
 
     override fun writeToParcel(parcel: Parcel, p1: Int) {
         parcel.writeInt(id ?: -1)
