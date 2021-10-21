@@ -90,7 +90,7 @@ class ProfileFragment : Fragment() {
     private fun getOptionsClickListener(): (String) -> Unit {
         return {
             when (it) {
-                "Mis direcciones" -> {
+                getString(R.string.my_address) -> {
                     val addressFragment = AddressFragment()
                     addressFragment.show(parentFragmentManager, "fragment")
                 }

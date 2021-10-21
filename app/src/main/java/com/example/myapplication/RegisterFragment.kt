@@ -94,14 +94,18 @@ class RegisterFragment : Fragment() {
         registerButton.setOnClickListener {
             if(isFormValid()) {
 
-                sharedPreferences?.edit()
-                    ?.putString("USER_EMAIL", emailInputText.text.toString())
-                    ?.putString("USER_PASSWORD", passwordInputText.text.toString())
-                    ?.apply()
+                if(passwordInputText.text.toString().length<8){
+                    regFormPassword.error=getString(R.string.notice_password_characters_less_than_8)
+                }else{
+                    sharedPreferences?.edit()
+                        ?.putString("USER_EMAIL", emailInputText.text.toString())
+                        ?.putString("USER_PASSWORD", passwordInputText.text.toString())
+                        ?.apply()
 
 
-                val action = RegisterFragmentDirections.actionRegisterFragment2ToLoginFragment2()
-                Navigation.findNavController(view).navigate(action)
+                    val action = RegisterFragmentDirections.actionRegisterFragment2ToLoginFragment2()
+                    Navigation.findNavController(view).navigate(action)
+                }
 
             } else {
                 if(nameInputText.text.isNullOrEmpty()){regFormUser.error=getString(R.string.notice_incomplete_field)}
