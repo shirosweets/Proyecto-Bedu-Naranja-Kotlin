@@ -3,6 +3,7 @@
 
     <!--System & App-->
     <string name="user_preferences_file">org.bedu.app.USER_PREFERENCES</string>
+    <string name="pref_is_database_fetched">org.bedu.app.IS_DATABASE_FETCHED</string>
     <string name="pref_key_DARK_THEME">org.bedu.app.preferences.IS_DARK_THEME</string>
     <string name="B_DEBUG">BEDU_DEBUG</string>
 

@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -24,6 +26,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var recycler: RecyclerView
     private lateinit var homeProgressBar: ProgressBar
+    private lateinit var sharedPreferences: SharedPreferences
     private val baseUrl = "https://fakestoreapi.com/"
 
     override fun onCreateView(
@@ -39,7 +42,10 @@ class HomeFragment : Fragment() {
 
         recycler = view.findViewById(R.id.productRecyclerView)
         homeProgressBar = view.findViewById(R.id.homeProgressBar)
-
+        sharedPreferences = requireActivity().getSharedPreferences(
+            getString(R.string.loginSharedPreferenceFile),
+            Context.MODE_PRIVATE
+        )
         getProducts(view)
     }
 
@@ -62,34 +68,52 @@ class HomeFragment : Fragment() {
             .build()
     }
 
+    private fun fetchFromAPI() {
+
+    }
+
     private fun getProducts(view: View){
-        CoroutineScope(Dispatchers.IO).launch {
-            val call = getRetrofit().create(APIService::class.java).getProducts("products")
-            val productsReceived = call.body()
-            activity?.runOnUiThread{
-                if(call.isSuccessful) {
-                    productsReceived?.forEach {
-                        Log.v("MYDEBUG", it.toString())
-                        ProductDatabase.addProduct(
-                            it.id,
-                            it.title,
-                            it.price,
-                            it.description,
-                            it.category,
-                            it.image,
-                            it.rating.count,
-                            it.rating.rate,
-                            0
-                        )
+        val isFetched: Boolean = sharedPreferences
+            .getBoolean(getString(R.string.pref_is_database_fetched), false)
+        if (isFetched) {
+            loadProductsSuccessfully(view, ProductDatabase.fetchAllProducts())
+        } else {
+            CoroutineScope(Dispatchers.IO).launch {
+                val call = getRetrofit().create(APIService::class.java).getProducts("products")
+                val productsReceived = call.body()
+                activity?.runOnUiThread{
+                    if(call.isSuccessful) {
+                        productsReceived?.forEach {
+                            Log.v("MYDEBUG", it.toString())
+                            val amountAddedToCart = ProductDatabase
+                                .fetchProduct(it.id)
+                                ?.amountAddedToCart
+                                ?: 0
+                            ProductDatabase.addProduct(
+                                it.id,
+                                it.title,
+                                it.price,
+                                it.description,
+                                it.category,
+                                it.image,
+                                it.rating.count,
+                                it.rating.rate,
+                                amountAddedToCart
+                            )
+                        }
+                        sharedPreferences.edit().putBoolean(
+                            getString(R.string.pref_is_database_fetched),
+                            true
+                        ).apply()
+                        loadProductsSuccessfully(view, ProductDatabase.fetchAllProducts())
                     }
-                    loadProductsSuccessfully(view, ProductDatabase.fetchAllProducts())
-                }
-                else {
-                    Toast.makeText(
-                        requireContext(),
-                        "Error al solicitar productos",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Error al solicitar productos",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
         }

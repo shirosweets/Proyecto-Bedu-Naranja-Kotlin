@@ -4,14 +4,17 @@ import android.util.Log
 import io.realm.Realm
 import io.realm.exceptions.RealmException
 import io.realm.exceptions.RealmPrimaryKeyConstraintException
+import kotlin.math.max
 
 object ProductDatabase {
     private val realm: Realm = Realm.getDefaultInstance()
 
     private fun getOrCreate(id: Int): Product {
         return try {
+            Log.v("MYDEBUG", "Creating new Product!")
             realm.createObject(Product::class.java, id)
         } catch (e: RealmPrimaryKeyConstraintException) {
+            Log.v("MYDEBUG", "Fetching found Product")
             realm.where(Product::class.java).equalTo("id", id).findFirst()!!
         }
     }
@@ -45,4 +48,22 @@ object ProductDatabase {
     }
 
     fun fetchAllProducts(): List<Product> = realm.where(Product::class.java).findAll()
+
+    fun addOneToCart(id: Int) {
+        val product: Product? = fetchProduct(id)
+        product?.let {
+            realm.beginTransaction()
+            product.amountAddedToCart = (product.amountAddedToCart ?: 0) + 1
+            realm.commitTransaction()
+        }
+    }
+
+    fun removeOneFromCart(id: Int) {
+        val product: Product? = fetchProduct(id)
+        product?.let {
+            realm.beginTransaction()
+            product.amountAddedToCart = max((product.amountAddedToCart ?: 0) - 1, 0)
+            realm.commitTransaction()
+        }
+    }
 }

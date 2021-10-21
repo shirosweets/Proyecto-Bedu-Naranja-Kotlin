@@ -5,13 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".ShoppingCartFragment">
 
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:textSize="80dp"
-        android:text="Shopping cart"
-        style="@style/AdjustTitle"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/productCartRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/fragment_product_cart_contact"
+        />
 
 </FrameLayout>

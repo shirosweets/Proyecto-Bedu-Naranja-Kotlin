@@ -28,8 +28,6 @@ class ProductDetailFragment : Fragment() {
         }
     }
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,17 +40,19 @@ class ProductDetailFragment : Fragment() {
 
         _binding = FragmentProductDetailBinding.inflate(inflater, container, false)
         binding.productDetailAddToCartButton.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_productDetailFragment_to_shoppingCartFragment,
-                null,
-                addToCartTransitionOpt
-            )
-
-            Toast.makeText(
-                it.context,
-                "Se agregó al carrito:\n\n${args.product.title}",
-                Toast.LENGTH_SHORT
-            ).show()
+            args.product.id?.let { id ->
+                ProductDatabase.addOneToCart(id)
+                findNavController().navigate(
+                    R.id.action_productDetailFragment_to_shoppingCartFragment,
+                    null,
+                    addToCartTransitionOpt
+                )
+            }
+//            Toast.makeText(
+//                it.context,
+//                "Se agregó al carrito:\n\n${args.product.title}",
+//                Toast.LENGTH_SHORT
+//            ).show()
         }
         showProduct(args.product)
         return binding.root

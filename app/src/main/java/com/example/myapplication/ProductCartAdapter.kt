@@ -1,0 +1,79 @@
+package com.example.myapplication
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.view.isInvisible
+import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
+
+class ProductCartAdapter(
+    private var product_list: List<Product>
+): RecyclerView.Adapter<ProductCartAdapter.ProductHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        return ProductHolder(
+            inflater.inflate(
+                R.layout.fragment_product_cart_contact,
+                parent,
+                false
+            )
+        )
+    }
+
+    override fun onBindViewHolder(holder: ProductHolder, position: Int) {
+        val currentProduct: Product = product_list[position]
+        holder.render(currentProduct, position)
+    }
+
+    inner class ProductHolder(view: View): RecyclerView.ViewHolder(view) {
+        private val view: View = view
+        private val product_cart_title: TextView = view.findViewById(R.id.cart_contact_title)
+        private val product_cart_price: TextView = view.findViewById(R.id.cart_contact_price)
+        private val product_cart_image: ImageView = view.findViewById(R.id.cart_contact_image)
+        private val product_cart_plus_sign: ImageView = view.findViewById(R.id.cart_contact_plus_sign)
+        private val product_cart_amount: TextView = view.findViewById(R.id.cart_contact_cart_amount)
+        private val product_cart_remove_sign: ImageView = view.findViewById(R.id.cart_contact_remove_sign)
+
+        fun render(product: Product, position: Int) {
+            product_cart_title.text = product.title
+            product_cart_price.text = "$ ${product.price}"
+            Picasso.get().load(product.image).into(product_cart_image)
+            product_cart_amount.text = product.amountAddedToCart.toString()
+            setListeners(product, position)
+        }
+
+        private fun setListeners(product: Product, position: Int) {
+            product_cart_plus_sign.setOnClickListener {
+                product.id?.let { id ->
+                    ProductDatabase.addOneToCart(id)
+                    product_cart_amount.text = ProductDatabase
+                        .fetchProduct(id)
+                        ?.amountAddedToCart
+                        .toString()
+                }
+            }
+
+            product_cart_remove_sign.setOnClickListener {
+                product.id?.let { id ->
+                    ProductDatabase.removeOneFromCart(id)
+                    val afterClickAmount: Int = ProductDatabase
+                        .fetchProduct(id)
+                        ?.amountAddedToCart
+                        ?: 0
+                    product_cart_amount.text = afterClickAmount.toString()
+                    if (afterClickAmount == 0) {
+                        product_list = product_list.filter { it.id != product.id }
+                        notifyItemRemoved(position)
+                        notifyItemRangeChanged(position, product_list.size)
+                    }
+                }
+            }
+        }
+    }
+
+    override fun getItemCount(): Int = product_list.size
+}
