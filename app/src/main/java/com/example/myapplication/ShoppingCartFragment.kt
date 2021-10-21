@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,10 +28,19 @@ class ShoppingCartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         proceedToPaymentButton = view.findViewById(R.id.cart_proceed_buy_button)
         proceedToPaymentButton.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_shoppingCartFragment_to_paymentResumeFragment,
-                null
-            )
+            if (ProductDatabase.fetchCartProducts().isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Agregue productos al carrito para proceder",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            else {
+                findNavController().navigate(
+                    R.id.action_shoppingCartFragment_to_paymentResumeFragment,
+                    null
+                )
+            }
         }
         cartRecycler = view.findViewById(R.id.cart_recycler_view)
         cartRecycler.layoutManager = LinearLayoutManager(activity)

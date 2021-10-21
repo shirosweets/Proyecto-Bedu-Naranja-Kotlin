@@ -56,13 +56,21 @@ class PaymentResumeFragment : Fragment() {
 
         payButton = view.findViewById(R.id.paymentResumePayButton)
         payButton.setOnClickListener {
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { buyNotification() }
 
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                buyNotification()
+                resetCartAmount()
+            }
             findNavController().navigate(
                 R.id.action_paymentResumeFragment_to_sucessfulPaymentFragment,
                 null,
             )
         }
+    }
+
+    private fun resetCartAmount() {
+        val products = ProductDatabase.fetchCartProducts()
+        products.forEach { it.id?.let { id ->  ProductDatabase.resetProductCartAmount(id) } }
     }
 
     private fun getSubtotal(): Float {

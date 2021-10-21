@@ -126,7 +126,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun setSharedPreferencesInputText() {
-        userInputText.setText(sharedPreferences?.getString("USER_EMAIL", ""))
+        userInputText.setText(sharedPreferences.getString("USER_EMAIL", ""))
     }
 
     private fun setTextChangeActions() {

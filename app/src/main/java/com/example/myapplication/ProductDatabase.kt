@@ -47,6 +47,15 @@ object ProductDatabase {
         return realm.where(Product::class.java).equalTo("id", id).findFirst()
     }
 
+    fun resetProductCartAmount(id: Int) {
+        val product = fetchProduct(id)
+        if (product != null) {
+            realm.beginTransaction()
+            product.amountAddedToCart = 0
+            realm.commitTransaction()
+        }
+    }
+
     fun fetchAllProducts(): List<Product> = realm.where(Product::class.java).findAll()
 
     fun fetchCartProducts(): List<Product> {
