@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
-                android:text="Subtotal"
+                android:text="@string/subtotal_shop_cart"
                 android:textSize="21sp"
                 app:layout_constraintStart_toStartOf="@+id/guideline13"
                 app:layout_constraintTop_toTopOf="@+id/guideline11" />
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/almostBlack"
-                android:text="Pagar"
+                android:text="@string/pay_shop_cart"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="38dp"
                 android:textSize="21sp"
-                android:text="Envío"
+                android:text="@string/send_shop_cart"
                 app:layout_constraintStart_toStartOf="@+id/guideline13"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
                 android:textSize="21sp"
-                android:text="Total"
+                android:text="@string/total_shop_cart"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline13"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -132,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="22dp"
-                android:text="Datos de pago"
+                android:text="@string/info_pay_shop_cart"
                 android:textSize="35dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline13"

@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         this.setTheme(UserConfig.getThemeResourceId(this))
         val sharedPreferences = this.getSharedPreferences(
-            getString(R.string.loginSharedPreferenceFile),
+            getString(R.string.login_shared_preference_file),
             Context.MODE_PRIVATE
         )
         if(sharedPreferences.getBoolean("USER_ACCESS", false)) {

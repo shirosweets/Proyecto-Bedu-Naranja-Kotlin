@@ -33,7 +33,7 @@
             android:drawableLeft="@drawable/ic_credit_card"
             android:drawablePadding="5dp"
             android:drawableTint="@color/white"
-            android:text="Proceder al Pago"
+            android:text="@string/next_to_pay_shop_cart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

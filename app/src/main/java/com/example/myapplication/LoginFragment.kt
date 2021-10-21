@@ -1,12 +1,7 @@
 package com.example.myapplication
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -15,10 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
-import androidx.annotation.RequiresApi
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat.getColor
 import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
@@ -61,7 +52,7 @@ class LoginFragment : Fragment() {
         passwordInputText = view.findViewById(R.id.passwordInputText)
         loginProgressBar = view.findViewById(R.id.loginProgressBar)
         sharedPreferences = requireActivity().getSharedPreferences(
-            getString(R.string.loginSharedPreferenceFile),
+            getString(R.string.login_shared_preference_file),
             Context.MODE_PRIVATE
         )
         userInputText.setText(sharedPreferences.getString("USER_EMAIL", ""))
@@ -101,19 +92,19 @@ class LoginFragment : Fragment() {
             }
             else {
                 if (!emailNotEmpty) {
-                    loginFormUser.error = getString(R.string.noticeIncompleteField)
+                    loginFormUser.error = getString(R.string.notice_incomplete_field)
                 }
                 if (!passNotEmpty) {
-                    loginFormPassword.error = getString(R.string.noticeIncompleteField)
+                    loginFormPassword.error = getString(R.string.notice_incomplete_field)
                 }
 
                 Snackbar.make(
                     view,
-                    getString(R.string.noticeIncompleteFields),
+                    getString(R.string.notice_in_complete_fields),
                     Snackbar.LENGTH_SHORT
                 )
                     .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                    .setAction(getString(R.string.snackbarButton)) {}.show()
+                    .setAction(getString(R.string.snack_bar_button)) {}.show()
             }
         }
 
@@ -152,11 +143,11 @@ class LoginFragment : Fragment() {
 
                     Snackbar.make(
                         view,
-                        getString(R.string.noticeUserNotFound),
+                        getString(R.string.notice_user_not_found),
                         Snackbar.LENGTH_SHORT
                     )
                         .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                        .setAction(getString(R.string.snackbarButton)) {}.show()}
+                        .setAction(getString(R.string.snack_bar_button)) {}.show()}
                 }
             }
         }

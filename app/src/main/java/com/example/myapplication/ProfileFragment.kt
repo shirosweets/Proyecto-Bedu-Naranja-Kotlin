@@ -80,11 +80,11 @@ class ProfileFragment : Fragment() {
 
     private fun getProfileOptions():List<Option>{
         return listOf(
-            Option("Mis direcciones",R.drawable.ic_location),
-            Option("Método de pago",R.drawable.ic_credit_card),
-            Option("Pedidos",R.drawable.ic_restore),
-            Option("Notificaciones",R.drawable.ic_notifications_active),
-            Option("Cambiar contraseña",R.drawable.ic_lock),)
+            Option(getString(R.string.my_address),R.drawable.ic_location),
+            Option(getString(R.string.payment_methods),R.drawable.ic_credit_card),
+            Option(getString(R.string.my_orders_cart),R.drawable.ic_restore),
+            Option(getString(R.string.notifications),R.drawable.ic_notifications_active),
+            Option(getString(R.string.change_password),R.drawable.ic_lock),)
     }
 
     private fun getOptionsClickListener(): (String) -> Unit {

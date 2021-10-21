@@ -2,23 +2,24 @@
     <string name="app_name">Bedu Shop</string>
 
     <!--System & App-->
-    <string name="user_preferences_file">org.bedu.app.USER_PREFERENCES</string>
-    <string name="pref_is_database_fetched">org.bedu.app.IS_DATABASE_FETCHED</string>
-    <string name="pref_key_DARK_THEME">org.bedu.app.preferences.IS_DARK_THEME</string>
-    <string name="B_DEBUG">BEDU_DEBUG</string>
+    <string name="user_preferences_file" translatable="false">org.bedu.app.USER_PREFERENCES</string>
+    <string name="pref_is_database_fetched" translatable="false">org.bedu.app.IS_DATABASE_FETCHED</string>
+    <string name="pref_key_DARK_THEME" translatable="false">org.bedu.app.preferences.IS_DARK_THEME</string>
+    <string name="B_DEBUG" translatable="false">BEDU_DEBUG</string>
 
     <!--Buttons-->
-    <string name="logInButton">Iniciar sesión</string>
-    <string name="checkInButton">Registrate aquí</string>
-    <string name="snackbarButton">Entendido</string>
+    <string name="log_in_button">Iniciar sesión</string>
+    <string name="check_in_button">Registrate aquí</string>
+    <string name="snack_bar_button">Entendido</string>
     <string name="register_button">Registrarse</string>
-    <string name="dark_theme_switch_text">Modo Oscuro</string>
+    <string name="dark_theme_switch_text">Modo oscuro</string>
+    <string name="go_to_main_menu">Ir al menu principal</string>
 
     <!--Notices-->
-    <string name="noticeCheckIn">Registrarse…</string>
-    <string name="noticeIncompleteFields">Por favor, complete todos los campos</string>
-    <string name="noticeIncompleteField">Campo incompleto</string>
-    <string name="noticeUserNotFound">Usuario no encontrado</string>
+    <string name="notice_check_in">Registrarse…</string>
+    <string name="notice_in_complete_fields">Por favor, complete todos los campos</string>
+    <string name="notice_incomplete_field">Campo incompleto</string>
+    <string name="notice_user_not_found">Usuario no encontrado</string>
     <string name="hello_blank_fragment">Blank Fragment</string>
 
     <!--Titles-->
@@ -34,25 +35,41 @@
     <string name="menu_home">Inicio</string>
     <string name="menu_shopping_cart">Carrito</string>
     <string name="menu_profile">Perfil</string>
-    <string name="loginSharedPreferenceFile">org.bedu.sharedpreferences</string>
+    <string name="login_shared_preference_file" translatable="false">org.bedu.sharedpreferences</string>
 
     <!---Notifications-->
     <string name="notification_1">Compra realizada</string>
     <string name="notify_body_1">¡Tu pedido llegará en una semana!</string>
 
     <!---ShoppingCart-->
-    <string name="new_product">Nuevo</string>
-    <string name="six_months_without_interest">En 6 meses sin intereses</string>
-    <string name="product_image">Imagen del producto</string>
-    <string name="add_to_shop_cart">Añadir al carrito</string>
-    <string name="deliver_tomorrow">Entregar mañana</string>
-    <string name="available_in_your_home">Disponible en tu domicilio</string>
+    <string name="new_product">New</string>
+    <string name="six_months_without_interest">In 6 months without interest</string>
+    <string name="product_image">Product image</string>
+    <string name="add_to_shop_cart">Add to cart</string>
+    <string name="deliver_tomorrow">Deliver tomorrow</string>
+    <string name="available_in_your_home">Available at your address</string>
+    <string name="pay_shop_cart">Pay</string>
+    <string name="subtotal_shop_cart">Subtotal</string>
+    <string name="total_shop_cart">Total</string>
+    <string name="send_shop_cart">Envío</string>
+    <string name="info_pay_shop_cart">Payment details</string>
+    <string name="receive_your_package_soon">Recibirás tu paquete pronto</string>
+    <string name="thx_for_your_purchase">Gracias por tu compra!</string>
+    <string name="next_to_pay_shop_cart">Proceder al pago</string>
+    <string name="need_to_add_prod">Agregue productos al carrito para proceder</string>
+    <!---Product-->
+    <string name="current_payment_method">Método de pago actual</string>
 
     <!---Profile-->
     <string name="user">Usuario</string>
     <string name="log_out">Cerrar sesión</string>
     <!---Options-->
     <string name="my_address">Mis direcciones</string>
+    <string name="payment_methods">Método de pago</string>
+    <string name="my_orders_cart">Pedidos</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="change_password">Cambiar contraseña</string>
+    <string name="search_toast_deac">La búsqueda está deshabilitada</string>
 
     <!---Address-->
     <string name="add_address">Añadir dirección</string>

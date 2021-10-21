@@ -80,7 +80,7 @@ class MenuActivity : AppCompatActivity() {
             R.id.top_menu_search -> {
                 Toast.makeText(
                     this,
-                    "La búsqueda está deshabilitada",
+                    getString(R.string.search_toast_deac),
                     Toast.LENGTH_SHORT
                 ).show()
             }

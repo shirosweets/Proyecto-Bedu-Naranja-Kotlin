@@ -14,7 +14,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.ProductDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -43,7 +42,7 @@ class HomeFragment : Fragment() {
         recycler = view.findViewById(R.id.productRecyclerView)
         homeProgressBar = view.findViewById(R.id.homeProgressBar)
         sharedPreferences = requireActivity().getSharedPreferences(
-            getString(R.string.loginSharedPreferenceFile),
+            getString(R.string.login_shared_preference_file),
             Context.MODE_PRIVATE
         )
         getProducts(view)

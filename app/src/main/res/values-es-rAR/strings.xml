@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bedu Shop</string>
+    <string name="six_months_without_interest" translatable="false">En 6 meses sin intereses</string>
+    <string name="product_image">Imagen del producto</string>
+    <string name="log_out">Cerrar sesión</string>
+    <string name="user">Usuario</string>
+    <string name="notify_body_1">¡Tu pedido llegará en una semana!</string>
+    <string name="new_product">Nuevo</string>
+    <string name="add_to_shop_cart">Añadir al carrito</string>
+    <string name="deliver_tomorrow">Entregar mañana</string>
+    <string name="available_in_your_home">Disponible en tu domicilio</string>
+    <string name="pay_shop_cart">Pagar</string>
+    <string name="subtotal_shop_cart">Subtotal</string>
+    <string name="total_shop_cart">Total</string>
+    <string name="info_pay_shop_cart">Datos de pago</string>
+    <string name="add_address">Añadir dirección</string>
+    <string name="current_address">Ubicación Actual</string>
+    <string name="update">ACTUALIZAR</string>
+    <string name="payment_methods">Método de pago</string>
+    <string name="my_orders_cart">Pedidos</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="change_password">Cambiar contraseña</string>
+    <string name="my_address">Mis direcciones</string>
+    <string name="need_to_add_prod">Agregue productos al carrito para proceder</string>
+    <string name="next_to_pay_shop_cart">Proceder al pago</string>
+    <string name="thx_for_your_purchase">Gracias por tu compra!</string>
+    <string name="receive_your_package_soon">Recibirás tu paquete pronto</string>
+    <string name="snack_bar_button">Entendido</string>
+    <string name="log_in_button">Iniciar sesión</string>
+    <string name="dark_theme_switch_text">Modo Oscuro</string>
+    <string name="go_to_main_menu">Ir al menu principal</string>
+    <string name="notice_check_in">Registrarse…</string>
+    <string name="notice_in_complete_fields">Por favor, complete todos los campos</string>
+    <string name="notice_incomplete_field">Campo incompleto</string>
+    <string name="notice_user_not_found">Usuario no encontrado</string>
+    <string name="hello_blank_fragment">Blank Fragment</string>
+    <string name="reg_fragment_title">Regístrate</string>
+    <string name="hint_name">Nombre Completo</string>
+    <string name="hint_email">Correo Electrónico</string>
+    <string name="hint_phone">Teléfono</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_shopping_cart">Carrito</string>
+    <string name="menu_profile">Perfil</string>
+    <string name="notification_1">Compra realizada</string>
+    <string name="register_button">Registrarse</string>
+    <string name="check_in_button">Registrate aquí</string>
+    <string name="send_shop_cart">Envío</string>
+    <string name="current_payment_method">Método de pago actual</string>
+    <string name="search_toast_deac">La búsqueda está deshabilitada</string>
+</resources>
