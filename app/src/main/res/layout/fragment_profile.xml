@@ -51,7 +51,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/user_shapeable_image"
-                style="@style/AdjusTittleBed" />
+                style="@style/AdjustTitleBedu" />
 
             <TextView
                 android:id="@+id/user_email"
@@ -65,7 +65,7 @@
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/user_first_name"
-                style="@style/AdjusTittleBed" />
+                style="@style/AdjustTitleBedu" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/optionRecyclerView"

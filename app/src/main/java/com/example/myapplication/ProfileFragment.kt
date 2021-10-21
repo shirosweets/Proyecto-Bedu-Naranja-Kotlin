@@ -73,7 +73,7 @@ class ProfileFragment : Fragment() {
             ?.putBoolean("USER_ACCESS",false)
             ?.apply()
         findNavController().navigate(
-            R.id.action_profileFragment_to_loginFragment,
+            R.id.action_profileFragment_to_mainActivity,
             null
         )
     }
@@ -87,19 +87,17 @@ class ProfileFragment : Fragment() {
             Option("Cambiar contraseña",R.drawable.ic_lock),)
     }
 
-    private fun getOptionsClickListener():(String) -> Unit{
-
-        val clickListener: (String) -> Unit = {
-            when(it){
+    private fun getOptionsClickListener(): (String) -> Unit {
+        return {
+            when (it) {
                 "Mis direcciones" -> {
                     val addressFragment = AddressFragment()
-                    addressFragment.show(this.parentFragmentManager,"fragment")
+                    addressFragment.show(parentFragmentManager, "fragment")
                 }
 
-                else -> {}
+                else -> {
+                }
             }
         }
-
-        return clickListener
     }
 }
