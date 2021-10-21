@@ -40,9 +40,9 @@ class ProfileFragment : Fragment() {
         userImage = view.findViewById(R.id.user_shapeable_image)
         userEmail = view.findViewById(R.id.user_email)
         themeSwitch = view.findViewById(R.id.theme_switch)
-        themeSwitch.isChecked = UserConfig.isDarkTheme(requireContext())
+        themeSwitch.isChecked = ConfigManager.isDarkTheme(requireContext())
         themeSwitch.setOnCheckedChangeListener { _, _ ->
-            activity?.applicationContext?.let { UserConfig.switchTheme(it) }
+            activity?.applicationContext?.let { ConfigManager.switchTheme(it) }
             activity?.recreate()
         }
 
@@ -90,13 +90,10 @@ class ProfileFragment : Fragment() {
     private fun getOptionsClickListener(): (String) -> Unit {
         return {
             when (it) {
-                "Mis direcciones" -> {
+                getString(R.string.my_address) -> {
                     val addressFragment = AddressFragment()
                     addressFragment.show(parentFragmentManager, "fragment")
-                }
-
-                else -> {
-                }
+                } else -> {}
             }
         }
     }

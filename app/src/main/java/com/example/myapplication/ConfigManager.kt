@@ -1,17 +1,26 @@
 package com.example.myapplication
 
+import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 
 
-class UserConfig {
+class ConfigManager {
     companion object {
         private const val IS_DARK_THEME_DEFAULT: Boolean = true
 
-        fun setTheme(context: Context, isDark: Boolean) {
+        private fun setTheme(context: Context, isDark: Boolean) {
             val userPreferences = PreferenceManager.getDefaultSharedPreferences(context)
             val darkThemePrefKey = context.getString((R.string.pref_key_DARK_THEME))
             userPreferences.edit().putBoolean(darkThemePrefKey, isDark).apply()
+        }
+
+        fun prefs(activity: Activity): SharedPreferences {
+            return activity.getSharedPreferences(
+                activity.getString(R.string.login_shared_preference_file),
+                Context.MODE_PRIVATE
+            )
         }
 
         fun isDarkTheme(context: Context): Boolean {

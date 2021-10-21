@@ -2,12 +2,10 @@ package com.example.myapplication
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -15,14 +13,6 @@ import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import okhttp3.*
-import okhttp3.internal.threadFactory
-import org.json.JSONObject
-import java.io.IOException
 
 class MenuActivity : AppCompatActivity() {
     private val helpUrl = "https://www.bedu.org/"
@@ -31,7 +21,7 @@ class MenuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.setTheme(UserConfig.getThemeResourceId(this))
+        this.setTheme(ConfigManager.getThemeResourceId(this))
         setContentView(R.layout.activity_menu)
         menuNavigationBottom =  findViewById(R.id.bottomNavigationView)
         setupNavController()

@@ -12,7 +12,7 @@ data class DataProduct(
     val category: String,
     val image: String,
     val rating: Rating
-):Parcelable {
+): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString().toString(),

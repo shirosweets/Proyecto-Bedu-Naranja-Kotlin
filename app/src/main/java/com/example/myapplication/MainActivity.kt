@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.setTheme(UserConfig.getThemeResourceId(this))
+        this.setTheme(ConfigManager.getThemeResourceId(this))
         val sharedPreferences = this.getSharedPreferences(
             getString(R.string.login_shared_preference_file),
             Context.MODE_PRIVATE
