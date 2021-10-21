@@ -102,20 +102,6 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/white"
                 android:textSize="11dp" />
-
-            <Button
-                android:id="@+id/notificationBuy"
-                style="@style/MaterialButtonStyle"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="40dp"
-                android:text="TEST DE NOTIFICACIÓN DE COMPRA"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/white"
-                android:textSize="11dp" />
-
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

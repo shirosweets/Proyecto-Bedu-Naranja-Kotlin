@@ -44,21 +44,13 @@ class LoginFragment : Fragment() {
     private val baseLoginUrl = "https://reqres.in/"
     private val baseUserUrl = "https://reqres.in/api/users/"
 
-    private lateinit var notificationBuyButton: Button
-
-    val CHANNEL_OTHERS = "OTROS"
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            setNotificationChannel()
-        }
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loginFormUser = view.findViewById(R.id.loginFormEmail)
@@ -73,56 +65,10 @@ class LoginFragment : Fragment() {
             Context.MODE_PRIVATE
         )
         userInputText.setText(sharedPreferences.getString("USER_EMAIL", ""))
-        notificationBuyButton = view.findViewById(R.id.notificationBuy)
 
         setSharedPreferencesInputText()
         setTextChangeActions()
         setClickListeners(view)
-        notificationBuyButton.setOnClickListener {
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                BuyNotification()
-            }
-        }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun setNotificationChannel(){
-        val name = getString(R.string.notification_1)
-        val descriptionText = getString(R.string.notify_body_1)
-        val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val channel = NotificationChannel(CHANNEL_OTHERS, name, importance).apply{
-            description = descriptionText
-        }
-
-        val notificationManager: NotificationManager =
-            requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-        notificationManager.createNotificationChannel(channel)
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun BuyNotification(){
-        // Un PendingIntent para dirigirnos a una actividad pulsando la notificación
-        // Se debe modificar MenuActivity por el Activity del S.Car
-        val intent = Intent(requireContext(), MenuActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-        val pendingIntent: PendingIntent = PendingIntent.getActivity(
-            requireContext(), 0, intent, PendingIntent.FLAG_MUTABLE)
-
-        var builder = NotificationCompat.Builder(requireContext(), CHANNEL_OTHERS)
-            .setSmallIcon(R.drawable.ic_bedu_shop)
-            .setColor(getColor(requireContext(), R.color.light_secondaryVariant))
-            .setContentTitle(getString(R.string.notification_1))
-            .setContentText(getString(R.string.notify_body_1))
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingIntent) //se define aquí el content intend
-            .setAutoCancel(true) //la notificación desaparece al dar click sobre ella
-
-        // Send notification
-        with(NotificationManagerCompat.from(requireContext())){
-            notify(20, builder.build()) // id generic
-        }
     }
 
     private fun setSharedPreferencesInputText() {
@@ -152,9 +98,6 @@ class LoginFragment : Fragment() {
                 loginProgressBar.visibility = View.VISIBLE
                 loginButton.isEnabled = false
                 checkUser(view)
-//                Thread{
-//                    checkUserEmail(view)
-//                }.start()
             }
             else {
                 if (!emailNotEmpty) {
