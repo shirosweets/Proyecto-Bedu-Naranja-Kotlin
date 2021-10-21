@@ -57,9 +57,7 @@ class ProfileFragment : Fragment() {
                 Context.MODE_PRIVATE
             )
 
-        closeSession.setOnClickListener {
-            closeSession()
-        }
+        closeSession.setOnClickListener { closeSession() }
         setUserData()
 
     }
@@ -75,7 +73,7 @@ class ProfileFragment : Fragment() {
             ?.putBoolean("USER_ACCESS",false)
             ?.apply()
         findNavController().navigate(
-            R.id.action_profileFragment_to_homeFragment,
+            R.id.action_profileFragment_to_loginFragment,
             null
         )
     }
