@@ -15,9 +15,9 @@ class MainActivity : AppCompatActivity() {
         Log.d("MYDEBUG","$products")
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        UserConfig.setLocale(this, UserConfig.getLanguage(this))
         this.setTheme(UserConfig.getThemeResourceId(this))
         val sharedPreferences = this.getSharedPreferences(
             getString(R.string.login_shared_preference_file),

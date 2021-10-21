@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,13 +18,13 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 import com.squareup.picasso.Picasso
 
 class ProfileFragment : Fragment() {
-    private lateinit var themeSwitch: SwitchMaterial
     private lateinit var recycler: RecyclerView
     private lateinit var userFirstName : TextView
     private lateinit var userImage : ShapeableImageView
     private lateinit var userEmail : TextView
     private var sharedPreferences: SharedPreferences? = null
 
+    private lateinit var profSettings: ImageView
     private lateinit var closeSession: Button
 
     override fun onCreateView(
@@ -39,13 +40,8 @@ class ProfileFragment : Fragment() {
         userFirstName = view.findViewById(R.id.user_first_name)
         userImage = view.findViewById(R.id.user_shapeable_image)
         userEmail = view.findViewById(R.id.user_email)
-        themeSwitch = view.findViewById(R.id.theme_switch)
-        themeSwitch.isChecked = UserConfig.isDarkTheme(requireContext())
-        themeSwitch.setOnCheckedChangeListener { _, _ ->
-            activity?.applicationContext?.let { UserConfig.switchTheme(it) }
-            activity?.recreate()
-        }
 
+        profSettings = view.findViewById(R.id.prof_settings)
         closeSession = view.findViewById(R.id.buttonCloseSession)
 
         recycler.adapter = OptionAdapter( getOptionsClickListener(), getProfileOptions())
@@ -57,6 +53,12 @@ class ProfileFragment : Fragment() {
                 Context.MODE_PRIVATE
             )
 
+        profSettings.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_profileFragment_to_settingsFragment,
+                null
+            )
+        }
         closeSession.setOnClickListener { closeSession() }
         setUserData()
 

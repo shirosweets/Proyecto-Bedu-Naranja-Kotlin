@@ -22,7 +22,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class HomeFragment : Fragment() {
-
     private lateinit var recycler: RecyclerView
     private lateinit var homeProgressBar: ProgressBar
     private lateinit var sharedPreferences: SharedPreferences
@@ -32,7 +31,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
