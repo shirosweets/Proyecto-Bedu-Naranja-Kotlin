@@ -1,20 +1,16 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import android.transition.ChangeBounds
-import android.transition.Fade
 import android.transition.TransitionInflater
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import androidx.navigation.fragment.FragmentNavigatorExtras
-import androidx.navigation.fragment.navArgs
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.squareup.picasso.Picasso
+import androidx.navigation.fragment.navArgs
 import androidx.navigation.navOptions
 import com.example.myapplication.databinding.FragmentProductDetailBinding
+import com.squareup.picasso.Picasso
 
 class ProductDetailFragment : Fragment() {
     private var _binding: FragmentProductDetailBinding? = null
