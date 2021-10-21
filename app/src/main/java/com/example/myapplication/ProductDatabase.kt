@@ -18,8 +18,6 @@ object ProductDatabase {
         }
     }
 
-    fun amountProductsInDatabase(): Int = fetchAllProducts().size
-
     fun addProduct(
         id: Int,
         title: String,
