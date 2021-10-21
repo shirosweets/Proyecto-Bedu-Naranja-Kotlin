@@ -29,7 +29,8 @@ class RegisterFragment : Fragment() {
         !(regFormUser.editText?.text.isNullOrEmpty() ||
                 regFormEmail.editText?.text.isNullOrEmpty() ||
                 regFormPhone.editText?.text.isNullOrEmpty() ||
-                regFormPassword.editText?.text.isNullOrEmpty())
+                regFormPassword.editText?.text.isNullOrEmpty() ||
+                regFormPassword.editText?.text.toString().length < 8)
     }
 
     override fun onCreateView(
@@ -71,29 +72,20 @@ class RegisterFragment : Fragment() {
 
     private fun setClickListeners(view: View) {
         registerButton.setOnClickListener {
-            //if (isFormValid()) {
-                //ConfigManager.prefs(requireActivity()).edit()
-                    //.putString("USER_EMAIL", emailInputText.text.toString())
-                    //.putString("USER_PASSWORD", passwordInputText.text.toString())
-                    //.apply()
-
-                //val action = RegisterFragmentDirections.actionRegisterFragment2ToLoginFragment2()
-                //Navigation.findNavController(view).navigate(action)
             if(isFormValid()) {
-
-                if(passwordInputText.text.toString().length<8){
-                    regFormPassword.error=getString(R.string.notice_password_characters_less_than_8)
-                }else{
-                    sharedPreferences?.edit()
-                        ?.putString("USER_EMAIL", emailInputText.text.toString())
-                        ?.putString("USER_PASSWORD", passwordInputText.text.toString())
-                        ?.apply()
-
-
-                    val action = RegisterFragmentDirections.actionRegisterFragment2ToLoginFragment2()
-                    Navigation.findNavController(view).navigate(action)
-                }
+                ConfigManager.prefs(requireActivity()).edit()
+                    .putString("USER_EMAIL", emailInputText.text.toString())
+                    .putString("USER_PASSWORD", passwordInputText.text.toString())
+                    .apply()
+                val action = RegisterFragmentDirections
+                    .actionRegisterFragment2ToLoginFragment2()
+                Navigation.findNavController(view).navigate(action)
             } else {
+                if (passwordInputText.text.toString().length < 8) {
+                    regFormPassword.error = getString(
+                        R.string.notice_password_characters_less_than_8
+                    )
+                }
                 for ((inputEditText, inputEditLayout) in inputMap) {
                     if (inputEditText.text.isNullOrEmpty()) {
                         inputEditLayout.error = getString(R.string.notice_incomplete_field)
