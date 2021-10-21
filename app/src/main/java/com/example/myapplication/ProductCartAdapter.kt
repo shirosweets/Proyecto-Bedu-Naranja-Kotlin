@@ -39,7 +39,7 @@ class ProductCartAdapter(
 
         fun render(product: Product, position: Int) {
             productCartTitle.text = product.title
-            productCartPrice.text = "$ ${product.price}"
+            productCartPrice.text =  "$ %.2f".format(product.amountAddedToCart?.let { product.price?.times(it)})
             Picasso.get().load(product.image).into(productCartImage)
             productCartAmount.text = product.amountAddedToCart.toString()
             setListeners(product, position)
@@ -54,6 +54,7 @@ class ProductCartAdapter(
                         ?.amountAddedToCart
                         .toString()
                 }
+                productCartPrice.text = "$ %.2f".format(product.amountAddedToCart?.let { product.price?.times(it)})
             }
 
             productCartRemoveSign.setOnClickListener {
@@ -70,6 +71,7 @@ class ProductCartAdapter(
                         notifyItemRangeChanged(position, product_list.size)
                     }
                 }
+                productCartPrice.text = "$ %.2f".format(product.amountAddedToCart?.let { product.price?.times(it)})
             }
         }
     }

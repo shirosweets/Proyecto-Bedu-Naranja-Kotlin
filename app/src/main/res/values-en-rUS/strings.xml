@@ -49,4 +49,5 @@
     <string name="send_shop_cart">Shipment</string>
     <string name="current_payment_method">Current payment method</string>
     <string name="search_toast_deac">Search is unavailable</string>
+    <string name="notice_password_characters_less_than_8">Must be greater than 7 characters</string>
 </resources>

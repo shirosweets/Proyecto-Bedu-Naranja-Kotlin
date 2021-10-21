@@ -20,6 +20,7 @@
     <string name="notice_check_in">Registrarse…</string>
     <string name="notice_in_complete_fields">Por favor, complete todos los campos</string>
     <string name="notice_incomplete_field">Campo incompleto</string>
+    <string name="notice_password_characters_less_than_8">Debe ser mayor a 7 caracteres</string>
     <string name="notice_user_not_found">Usuario no encontrado</string>
     <string name="hello_blank_fragment">Blank Fragment</string>
 
