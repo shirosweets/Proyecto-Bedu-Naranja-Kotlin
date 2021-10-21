@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_shoppingCartFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_shoppingCartFragment_to_paymentResumeFragment"
+            app:destination="@id/paymentResumeFragment" />
     </fragment>
     <fragment
         android:id="@+id/productDetailFragment"
@@ -63,5 +66,22 @@
         <action
             android:id="@+id/action_productContactFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentResumeFragment"
+        android:name="com.example.myapplication.PaymentResumeFragment"
+        android:label="fragment_payment_resume"
+        tools:layout="@layout/fragment_payment_resume" >
+        <action
+            android:id="@+id/action_paymentResumeFragment_to_sucessfulPaymentFragment"
+            app:destination="@id/sucessfulPaymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sucessfulPaymentFragment"
+        android:name="com.example.myapplication.SuccessfulPaymentFragment"
+        android:label="SucessfulPaymentFragment" >
+        <action
+            android:id="@+id/action_sucessfulPaymentFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

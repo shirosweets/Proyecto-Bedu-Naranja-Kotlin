@@ -3,7 +3,6 @@ package com.example.myapplication
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,8 +18,7 @@ import com.squareup.picasso.Picasso
 
 class ProfileFragment : Fragment() {
     private lateinit var themeSwitch: SwitchMaterial
-
-    private lateinit var recycler:RecyclerView
+    private lateinit var recycler: RecyclerView
     private lateinit var userFirstName : TextView
     private lateinit var userImage : ShapeableImageView
     private lateinit var userEmail : TextView
@@ -60,7 +58,7 @@ class ProfileFragment : Fragment() {
             )
 
         closeSession.setOnClickListener {
-            closeSesion()
+            closeSession()
         }
         setUserData()
 
@@ -72,8 +70,7 @@ class ProfileFragment : Fragment() {
         Picasso.get().load(sharedPreferences?.getString("USER_AVATAR","https://reqres.in/img/faces/2-image.jpg")).into(userImage)
     }
 
-    private fun closeSesion(){
-        Log.v("MYDEBUG", sharedPreferences.toString())
+    private fun closeSession(){
         sharedPreferences?.edit()
             ?.putBoolean("USER_ACCESS",false)
             ?.apply()
