@@ -20,7 +20,7 @@
 <img src="assets/android.gif" align="right" height="90" hspace="3">
 
 <p>
-Proyecto del curso de Kotlin de Naranja X proporcionado por BEDU. El desarrollo de este proyecto transcurre desde el módulo 2 hasta el módulo 3 implementando los conceptos aprendidos durante el curso.
+Proyecto del curso de Kotlin de Naranja X proporcionado por BEDU. El desarrollo de este proyecto transcurre desde el módulo 2 hasta el módulo 3 implementando los conceptos aprendidos durante el curso. Se enfocó en la experiencia amena con el usuario y la personalización de la app.
 </p>
 
 &nbsp;
@@ -40,6 +40,7 @@ Proyecto del curso de Kotlin de Naranja X proporcionado por BEDU. El desarrollo 
 - [Videos](#videos)
   - [Demo N°0](#demo-n0)
   - [Puntos desarrollados en la demo N°0](#puntos-desarrollados-en-la-demo-n0)
+  - [Demo N°1](#demo-n1)
   - [Puntos desarrollados en la demo N°1](#puntos-desarrollados-en-la-demo-n1)
 
 # Integrantes
@@ -86,6 +87,13 @@ Como el IDE de Android Studio no permite tener una herramienta similar a Live Sh
 * Implementación de tipos segura (no "!!")
 * Implementación de estilos por categoría
 
+## Demo N°1
+
+> `Hacer click en la imagen para reproducirlo`
+
+[![Bedu Project - Team Primer Demo #1 Parte I](https://img.youtube.com/vi/I84r8EGBX0c/0.jpg)](https://youtu.be/I84r8EGBX0c)
+[![Bedu Project - Team Primer Demo #1 Parte II](https://img.youtube.com/vi/4O2uFQCFui4/0.jpg)](https://youtu.be/4O2uFQCFui4)
+
 ## Puntos desarrollados en la demo N°1
 
 * Snackbar al no ingresar los datos en el Login y el Register
@@ -107,6 +115,7 @@ Como el IDE de Android Studio no permite tener una herramienta similar a Live Sh
 * Test Unitarios con uso del framework de Android (no instrumentados)
 * Cambio de idiomas según preferencias del usuario
 * Switch para cambio de temas, disponible para usuarios registrados
+
 ---
 
 **[Documentación](documents/root.md)** | **[Recursos de BEDU y Referencias](documents/resources.md)**
