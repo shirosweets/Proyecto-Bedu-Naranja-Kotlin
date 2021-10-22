@@ -57,4 +57,5 @@
     <string name="configuration_title">Configuración</string>
     <string name="next">Siguiente</string>
     <string name="previous">Previo</string>
+    <string name="notice_password_characters_less_than_8">Debe ser mayor a 7 caracteres</string>
 </resources>

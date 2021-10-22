@@ -3,16 +3,13 @@ package com.example.myapplication
 import android.os.Parcel
 import android.os.Parcelable
 
-class Rating(val rate:Float,val count:Int) : Parcelable {
+class Rating(val rate: Float, val count: Int) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readFloat(),
         parcel.readInt()
-    ) {
-    }
+    )
 
-    override fun describeContents(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun describeContents(): Int = 0
 
     override fun writeToParcel(parcel: Parcel, p1: Int) {
         parcel.writeFloat(rate)
@@ -24,8 +21,6 @@ class Rating(val rate:Float,val count:Int) : Parcelable {
             return Rating(parcel)
         }
 
-        override fun newArray(size: Int): Array<Rating?> {
-            return arrayOfNulls(size)
-        }
+        override fun newArray(size: Int): Array<Rating?> = arrayOfNulls(size)
     }
 }

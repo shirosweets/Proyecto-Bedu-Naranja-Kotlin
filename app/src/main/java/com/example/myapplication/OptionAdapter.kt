@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 class OptionAdapter(
     private val click_listener: (String) -> Unit,
     private val options_list: List<Option>
-): RecyclerView.Adapter<OptionAdapter.OptionHolder>() {
-
+) : RecyclerView.Adapter<OptionAdapter.OptionHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OptionHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -29,24 +28,18 @@ class OptionAdapter(
         val currentOption: Option = options_list[position]
 
         holder.render(currentOption)
-
-        holder.itemView.setOnClickListener{
-            click_listener(currentOption.name)
-        }
-
+        holder.itemView.setOnClickListener { click_listener(currentOption.name) }
     }
 
     override fun getItemCount(): Int = options_list.size
 
-    inner class OptionHolder(view: View): RecyclerView.ViewHolder(view) {
-        val optionName = view.findViewById<TextView>(R.id.option_name)
-        val optionImage = view.findViewById<ImageView>(R.id.option_image)
+    inner class OptionHolder(view: View) : RecyclerView.ViewHolder(view) {
+        private val optionName: TextView = view.findViewById(R.id.option_name)
+        private val optionImage: ImageView = view.findViewById(R.id.option_image)
 
         fun render(option: Option) {
             optionName.text = option.name
             optionImage.setImageResource(option.iconId)
         }
-
-
     }
 }

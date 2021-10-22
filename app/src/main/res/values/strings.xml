@@ -7,8 +7,7 @@
     <string name="pref_key_DARK_THEME" translatable="false">org.bedu.app.preferences.IS_DARK_THEME</string>
     <string name="pref_key_ISO_Language" translatable="false">org.bedu.app.preferences.ISO_LANGUAGE</string>
     <string name="B_DEBUG" translatable="false">BEDU_DEBUG</string>
-    <string name="select">Seleccionar</string>
-    <string name="text_change_language">Cambiar idioma</string>
+    <string name="realm_database" translatable="false">org.bedu.app.realmDB.beduShop</string>
 
     <!--Buttons-->
     <string name="log_in_button">Iniciar sesión</string>
@@ -23,6 +22,7 @@
     <string name="notice_check_in">Registrarse…</string>
     <string name="notice_in_complete_fields">Por favor, complete todos los campos</string>
     <string name="notice_incomplete_field">Campo incompleto</string>
+    <string name="notice_password_characters_less_than_8">Debe ser mayor a 7 caracteres</string>
     <string name="notice_user_not_found">Usuario no encontrado</string>
 
     <!--Titles-->
@@ -77,6 +77,8 @@
     <string name="configuration_title">Configuración</string>
     <string name="settings_theme_text">Theme</string>
     <string name="settings_language_text">Lenguaje</string>
+    <string name="select">Seleccionar</string>
+    <string name="text_change_language">Cambiar idioma</string>
 
     <!---Address-->
     <string name="add_address">Añadir dirección</string>

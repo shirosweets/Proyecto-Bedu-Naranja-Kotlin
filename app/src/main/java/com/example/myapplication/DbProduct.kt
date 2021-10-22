@@ -5,7 +5,7 @@ import android.os.Parcelable
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-open class Product(): RealmObject(), Parcelable {
+open class Product() : RealmObject(), Parcelable {
     @PrimaryKey
     var id: Int? = null
     var title: String? = null
@@ -15,7 +15,7 @@ open class Product(): RealmObject(), Parcelable {
     var image: String? = null
     var ratingCount: Int? = null
     var ratingRate: Float? = null
-    var amountAddedToCart : Int? = null
+    var amountAddedToCart: Int? = null
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readInt()
@@ -29,9 +29,7 @@ open class Product(): RealmObject(), Parcelable {
         amountAddedToCart = parcel.readInt()
     }
 
-    override fun describeContents(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun describeContents(): Int = 0
 
     override fun writeToParcel(parcel: Parcel, p1: Int) {
         parcel.writeInt(id ?: -1)
@@ -53,8 +51,3 @@ open class Product(): RealmObject(), Parcelable {
         override fun newArray(size: Int): Array<Product?> = arrayOfNulls(size)
     }
 }
-
-
-
-
-

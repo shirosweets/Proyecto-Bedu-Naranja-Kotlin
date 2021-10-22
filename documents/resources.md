@@ -58,21 +58,21 @@
 
 ## [Kotlin Avanzado Bedu Naranaja X - GitHub](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021)
 
-* [ ] [Sesión 1 Animaciones y Transiciones](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-01)
+* [x] [Sesión 1 Animaciones y Transiciones](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-01)
 
-* [ ] [Sesión 2 Networking](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-02)
+* [x] [Sesión 2 Networking](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-02)
 
-* [ ] [Sesión 3 Acceso a Hardware](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-03)
+* [x] [Sesión 3 Acceso a Hardware](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-03)
 
-* [ ] [Sesión 4 Persistencia y Bases de Datos](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-04)
+* [x] [Sesión 4 Persistencia y Bases de Datos](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-04)
 
-* [ ] [Sesión 5 App Components](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-05)
+* [x] [Sesión 5 App Components](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-05)
 
-* [ ] [Sesión 6 Firebase y Notifications](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-06)
+* [x] [Sesión 6 Firebase y Notifications](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-06)
 
-* [ ] [Sesión 7 Patrones de arquitectura](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-07)
+* [x] [Sesión 7 Patrones de arquitectura](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-07)
 
-* [ ] [Sesión 8 Testing](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-08)
+* [x] [Sesión 8 Testing](https://github.com/beduExpert/Kotlin-Avanzado-NaranjaX-2021/tree/main/Sesion-08)
 
 # Referencias
 

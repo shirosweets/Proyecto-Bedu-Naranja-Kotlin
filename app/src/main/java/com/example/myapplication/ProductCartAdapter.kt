@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso
 
 class ProductCartAdapter(
     private var product_list: List<Product>
-): RecyclerView.Adapter<ProductCartAdapter.ProductHolder>() {
+) : RecyclerView.Adapter<ProductCartAdapter.ProductHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ProductHolder(
@@ -27,17 +27,21 @@ class ProductCartAdapter(
         holder.render(currentProduct, position)
     }
 
-    inner class ProductHolder(view: View): RecyclerView.ViewHolder(view) {
+    inner class ProductHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val productCartTitle: TextView = view.findViewById(R.id.cart_contact_title)
         private val productCartPrice: TextView = view.findViewById(R.id.cart_contact_price)
+        private val productCartTotalPrice: TextView = view.findViewById(R.id.cart_contact_total_price)
         private val productCartImage: ImageView = view.findViewById(R.id.cart_contact_image)
         private val productCartPlusSign: ImageView = view.findViewById(R.id.cart_contact_plus_sign)
         private val productCartAmount: TextView = view.findViewById(R.id.cart_contact_cart_amount)
-        private val productCartRemoveSign: ImageView = view.findViewById(R.id.cart_contact_remove_sign)
+        private val productCartRemoveSign: ImageView = view.findViewById(
+            R.id.cart_contact_remove_sign
+        )
 
         fun render(product: Product, position: Int) {
             productCartTitle.text = product.title
-            productCartPrice.text = "$ ${product.price}"
+            productCartPrice.text = product.price.toString()
+            productCartTotalPrice.text =  "$ %.2f".format(product.amountAddedToCart?.let { product.price?.times(it)})
             Picasso.get().load(product.image).into(productCartImage)
             productCartAmount.text = product.amountAddedToCart.toString()
             setListeners(product, position)
@@ -52,6 +56,7 @@ class ProductCartAdapter(
                         ?.amountAddedToCart
                         .toString()
                 }
+                productCartTotalPrice.text = "$ %.2f".format(product.amountAddedToCart?.let { product.price?.times(it)})
             }
 
             productCartRemoveSign.setOnClickListener {
@@ -68,6 +73,7 @@ class ProductCartAdapter(
                         notifyItemRangeChanged(position, product_list.size)
                     }
                 }
+                productCartTotalPrice.text = "$ %.2f".format(product.amountAddedToCart?.let { product.price?.times(it)})
             }
         }
     }

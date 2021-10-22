@@ -1,33 +1,18 @@
 package com.example.myapplication
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.content.Intent
-import android.util.Log
-import io.realm.Realm
-import io.realm.RealmResults
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    val realm: Realm = Realm.getDefaultInstance()
-    val products: RealmResults<Product> = realm.where(Product::class.java).findAll()
-    init {
-        Log.d("MYDEBUG","$products")
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        UserConfig.setLocale(this, UserConfig.getLanguage(this))
-        this.setTheme(UserConfig.getThemeResourceId(this))
-        val sharedPreferences = this.getSharedPreferences(
-            getString(R.string.login_shared_preference_file),
-            Context.MODE_PRIVATE
-        )
-        if(sharedPreferences.getBoolean("USER_ACCESS", false)) {
+        ConfigManager.setLocale(this, ConfigManager.getLanguage(this))
+        this.setTheme(ConfigManager.getThemeResourceId(this))
+        if (LoginManager.isLoggedIn(this)) {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
-        }
-        else {
+        } else {
             setContentView(R.layout.activity_main)
             supportActionBar?.hide()
         }

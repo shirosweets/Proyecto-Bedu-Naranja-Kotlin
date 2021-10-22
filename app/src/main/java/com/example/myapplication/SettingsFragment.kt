@@ -27,7 +27,7 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         themeSwitch = view.findViewById(R.id.theme_switch)
-        themeSwitch.isChecked = UserConfig.isDarkTheme(requireContext())
+        themeSwitch.isChecked = ConfigManager.isDarkTheme(requireContext())
         spinnerChangeLanguage = view.findViewById(R.id.change_language)
 
         var languageList = ArrayList<String>()
@@ -50,7 +50,7 @@ class SettingsFragment : Fragment() {
 
         returnToProfile = view.findViewById(R.id.return_to_profile_bt)
 
-        val current_lan = UserConfig.getLanguage(requireContext())
+        val current_lan = ConfigManager.getLanguage(requireContext())
         when(current_lan){
             "en" -> spinnerChangeLanguage.setSelection(1)
             else -> spinnerChangeLanguage.setSelection(0)
@@ -62,20 +62,20 @@ class SettingsFragment : Fragment() {
 
             override fun onItemSelected(
                 parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                var cur_select_lan = UserConfig.getLanguage(requireContext())
+                var cur_select_lan = ConfigManager.getLanguage(requireContext())
                 val iso_lan = when(languageList[position]){
                     "English" -> "en"
                     else -> "es"
                 }
                 if(iso_lan != cur_select_lan){
-                    UserConfig.setLanguage(requireContext(), iso_lan)
+                    ConfigManager.setLanguage(requireContext(), iso_lan)
                     activity?.recreate()
                 }
             }
         }
 
         themeSwitch.setOnCheckedChangeListener { _, _ ->
-            activity?.applicationContext?.let { UserConfig.switchTheme(it) }
+            activity?.applicationContext?.let { ConfigManager.switchTheme(it) }
             activity?.recreate()
         }
 
