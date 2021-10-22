@@ -20,6 +20,7 @@ class MenuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ConfigManager.setLocale(this, ConfigManager.getLanguage(this))
         this.setTheme(ConfigManager.getThemeResourceId(this))
         setContentView(R.layout.activity_menu)
         menuNavigationBottom = findViewById(R.id.bottomNavigationView)

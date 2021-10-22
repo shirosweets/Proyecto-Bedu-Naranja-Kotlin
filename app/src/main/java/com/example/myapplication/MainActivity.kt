@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ConfigManager.setLocale(this, ConfigManager.getLanguage(this))
         this.setTheme(ConfigManager.getThemeResourceId(this))
         if (LoginManager.isLoggedIn(this)) {
             val intent = Intent(this, MenuActivity::class.java)

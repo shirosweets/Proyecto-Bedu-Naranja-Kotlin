@@ -5,6 +5,7 @@
     <string name="user_preferences_file" translatable="false">org.bedu.app.USER_PREFERENCES</string>
     <string name="pref_is_database_fetched" translatable="false">org.bedu.app.IS_DATABASE_FETCHED</string>
     <string name="pref_key_DARK_THEME" translatable="false">org.bedu.app.preferences.IS_DARK_THEME</string>
+    <string name="pref_key_ISO_Language" translatable="false">org.bedu.app.preferences.ISO_LANGUAGE</string>
     <string name="B_DEBUG" translatable="false">BEDU_DEBUG</string>
     <string name="realm_database" translatable="false">org.bedu.app.realmDB.beduShop</string>
 
@@ -15,6 +16,7 @@
     <string name="register_button">Registrarse</string>
     <string name="dark_theme_switch_text">Modo oscuro</string>
     <string name="go_to_main_menu">Ir al menu principal</string>
+    <string name="go_to_profile">Ir al perfil</string>
 
     <!--Notices-->
     <string name="notice_check_in">Registrarse…</string>
@@ -22,7 +24,6 @@
     <string name="notice_incomplete_field">Campo incompleto</string>
     <string name="notice_password_characters_less_than_8">Debe ser mayor a 7 caracteres</string>
     <string name="notice_user_not_found">Usuario no encontrado</string>
-    <string name="hello_blank_fragment">Blank Fragment</string>
 
     <!--Titles-->
     <string name="reg_fragment_title">Regístrate</string>
@@ -72,10 +73,24 @@
     <string name="notifications">Notificaciones</string>
     <string name="change_password">Cambiar contraseña</string>
     <string name="search_toast_deac">La búsqueda está deshabilitada</string>
+    <!---Configuration-->
+    <string name="configuration_title">Configuración</string>
+    <string name="settings_theme_text">Theme</string>
+    <string name="settings_language_text">Lenguaje</string>
+    <string name="select">Seleccionar</string>
+    <string name="text_change_language">Cambiar idioma</string>
 
     <!---Address-->
     <string name="add_address">Añadir dirección</string>
     <string name="current_address">Ubicación Actual</string>
     <string name="update">ACTUALIZAR</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
 
+    <!-- Messages Preferences -->
+
+    <!-- Sync Preferences -->
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Siguiente</string>
+    <string name="previous">Previo</string>
 </resources>

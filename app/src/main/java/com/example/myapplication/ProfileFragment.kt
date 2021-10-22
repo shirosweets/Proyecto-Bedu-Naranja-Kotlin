@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -16,13 +17,13 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 import com.squareup.picasso.Picasso
 
 class ProfileFragment : Fragment() {
-    private lateinit var themeSwitch: SwitchMaterial
     private lateinit var recycler: RecyclerView
     private lateinit var userFirstName: TextView
     private lateinit var userImage: ShapeableImageView
     private lateinit var userEmail: TextView
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var closeSession: Button
+    private lateinit var profSettings: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,13 +38,8 @@ class ProfileFragment : Fragment() {
         userFirstName = view.findViewById(R.id.user_first_name)
         userImage = view.findViewById(R.id.user_shapeable_image)
         userEmail = view.findViewById(R.id.user_email)
-        themeSwitch = view.findViewById(R.id.theme_switch)
-        themeSwitch.isChecked = ConfigManager.isDarkTheme(requireContext())
-        themeSwitch.setOnCheckedChangeListener { _, _ ->
-            activity?.applicationContext?.let { ConfigManager.switchTheme(it) }
-            activity?.recreate()
-        }
 
+        profSettings = view.findViewById(R.id.prof_settings)
         closeSession = view.findViewById(R.id.buttonCloseSession)
         closeSession.setOnClickListener {
             LoginManager.logOut(requireActivity())
@@ -57,6 +53,13 @@ class ProfileFragment : Fragment() {
         recycler.layoutManager = LinearLayoutManager(activity)
 
         sharedPreferences = ConfigManager.prefs(requireActivity())
+
+        profSettings.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_profileFragment_to_settingsFragment,
+                null
+            )
+        }
         setUserData()
     }
 

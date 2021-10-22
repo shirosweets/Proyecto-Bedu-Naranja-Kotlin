@@ -46,8 +46,12 @@
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile_option_contact.xml" value="0.13993174061433447" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.25908372827804105" />
         <entry key="app/src/main/res/layout/fragment_shopping_cart.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_sucessful_payment.xml" value="0.10460992907801418" />
+        <entry key="app/src/main/res/layout/spinner_box_view.xml" value="0.18802083333333333" />
+        <entry key="app/src/main/res/layout/spinner_checked_text_view.xml" value="0.18802083333333333" />
+        <entry key="app/src/main/res/layout/spinner_text_view.xml" value="0.18802083333333333" />
         <entry key="app/src/main/res/menu/bedu_shop_menu.xml" value="0.4844961240310077" />
         <entry key="app/src/main/res/menu/top_nav_menu.xml" value="0.25" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22407407407407406" />

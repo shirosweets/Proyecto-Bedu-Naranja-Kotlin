@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Bedu Shop</string>
-    <string name="six_months_without_interest" translatable="false">En 6 meses sin intereses</string>
+    <string name="six_months_without_interest">En 6 meses sin intereses</string>
     <string name="product_image">Imagen del producto</string>
     <string name="log_out">Cerrar sesión</string>
     <string name="user">Usuario</string>
@@ -34,7 +34,6 @@
     <string name="notice_in_complete_fields">Por favor, complete todos los campos</string>
     <string name="notice_incomplete_field">Campo incompleto</string>
     <string name="notice_user_not_found">Usuario no encontrado</string>
-    <string name="hello_blank_fragment">Blank Fragment</string>
     <string name="reg_fragment_title">Regístrate</string>
     <string name="hint_name">Nombre Completo</string>
     <string name="hint_email">Correo Electrónico</string>
@@ -49,5 +48,14 @@
     <string name="send_shop_cart">Envío</string>
     <string name="current_payment_method">Método de pago actual</string>
     <string name="search_toast_deac">La búsqueda está deshabilitada</string>
+    <string name="go_to_profile">Ir al perfil</string>
+    <string name="messages_header">Mensajes</string>
+    <string name="select">Seleccionar</string>
+    <string name="text_change_language">Cambiar idioma</string>
+    <string name="settings_language_text">Lenguaje</string>
+    <string name="settings_theme_text">Tema</string>
+    <string name="configuration_title">Configuración</string>
+    <string name="next">Siguiente</string>
+    <string name="previous">Previo</string>
     <string name="notice_password_characters_less_than_8">Debe ser mayor a 7 caracteres</string>
 </resources>

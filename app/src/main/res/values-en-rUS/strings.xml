@@ -34,13 +34,12 @@
     <string name="thx_for_your_purchase">Thank you for your purchase!</string>
     <string name="next_to_pay_shop_cart">Proceed to payment</string>
     <string name="current_address">Current location</string>
-    <string name="hello_blank_fragment">Blank Fragment</string>
     <string name="receive_your_package_soon">You will receive your package soon</string>
     <string name="notice_in_complete_fields">Please complete all fields</string>
     <string name="hint_name">Full name</string>
-    <string name="six_months_without_interest" translatable="false">In 6 months without interest</string>
+    <string name="six_months_without_interest">In 6 months without interest</string>
     <string name="notice_incomplete_field">Incomplete field</string>
-    <string name="snack_bar_button" translatable="false">Understood</string>
+    <string name="snack_bar_button">Understood</string>
     <string name="need_to_add_prod">Add products to cart to proceed</string>
     <string name="payment_methods">Payment methods</string>
     <string name="notifications">Notifications</string>
@@ -49,5 +48,14 @@
     <string name="send_shop_cart">Shipment</string>
     <string name="current_payment_method">Current payment method</string>
     <string name="search_toast_deac">Search is unavailable</string>
+    <string name="go_to_profile">Go to profile</string>
+    <string name="messages_header">Mensajes</string>
+    <string name="select">Select</string>
+    <string name="text_change_language">Change language</string>
+    <string name="settings_language_text">Language</string>
+    <string name="settings_theme_text">Theme</string>
+    <string name="configuration_title">Configuration</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
     <string name="notice_password_characters_less_than_8">Must be greater than 7 characters</string>
 </resources>
