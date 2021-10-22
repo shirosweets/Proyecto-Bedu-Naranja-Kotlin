@@ -5,9 +5,12 @@ import android.animation.AnimatorListenerAdapter
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.FrameLayout
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -17,12 +20,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MenuActivity : AppCompatActivity() {
     private val helpUrl = "https://www.bedu.org/"
     private lateinit var menuNavigationBottom: BottomNavigationView
+    private lateinit var popSearch: FrameLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ConfigManager.setLocale(this, ConfigManager.getLanguage(this))
         this.setTheme(ConfigManager.getThemeResourceId(this))
         setContentView(R.layout.activity_menu)
+        popSearch.findViewById(R.id.popSearchFrameLayout)
+        popSearch.onFocusChangeListener()
         menuNavigationBottom = findViewById(R.id.bottomNavigationView)
         setupNavController()
     }
@@ -71,6 +77,20 @@ class MenuActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.top_nav_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
+//    search = findViewById(R.id.top_menu_search)
+//    search.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
+//        override fun onQueryTextSubmit(query: String?): Boolean {
+//            search.clearFocus()
+//            return false
+//        }
+//
+//        override fun onQueryTextChange(newText: String?): Boolean {
+//            Log.v("MYDEBUG", "Querying $newText")
+//            return true
+//        }
+//    })
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

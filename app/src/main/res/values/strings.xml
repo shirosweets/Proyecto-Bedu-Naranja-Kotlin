@@ -93,4 +93,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="next">Siguiente</string>
     <string name="previous">Previo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="query_search_content_description">Search</string>
 </resources>
