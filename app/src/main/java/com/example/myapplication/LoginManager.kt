@@ -24,15 +24,9 @@ object LoginManager {
 
     fun getPasswordErrorHint(context: Context, password: String?): String? {
         return when {
-            password.isNullOrEmpty() -> {
-                context.getString(R.string.notice_incomplete_field)
-            }
-            password.length < 8 -> {
-                context.getString(R.string.notice_password_characters_less_than_8)
-            }
-            else -> {
-                null
-            }
+            password.isNullOrEmpty() -> context.getString(R.string.notice_incomplete_field)
+            password.length < 8 -> context.getString(R.string.notice_password_characters_less_than_8)
+            else -> null
         }
     }
 }

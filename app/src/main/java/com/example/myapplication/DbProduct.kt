@@ -51,8 +51,3 @@ open class Product() : RealmObject(), Parcelable {
         override fun newArray(size: Int): Array<Product?> = arrayOfNulls(size)
     }
 }
-
-
-
-
-
