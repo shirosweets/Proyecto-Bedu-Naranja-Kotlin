@@ -1,7 +1,6 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -36,12 +35,17 @@ class SettingsFragment : Fragment() {
         languageList.add("English")
 
 
-        var adapter = ArrayAdapter(
+//        var adapter = ArrayAdapter(
+//            requireContext(),
+//            R.layout.spinner_tet_view,
+//            languageList
+//        )
+        val adapter = ArrayAdapter.createFromResource(
             requireContext(),
-            R.layout.spinner_text_view,
-            languageList
+            R.array.availableLanguagesArray,
+            R.layout.spinner_text_view
         )
-
+        adapter.setDropDownViewResource(R.layout.spinner_checked_text_view)
         spinnerChangeLanguage.adapter = adapter
 
         returnToProfile = view.findViewById(R.id.return_to_profile_bt)

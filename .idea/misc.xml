@@ -34,34 +34,28 @@
         <entry key="app/src/main/res/drawable/ic_shopping_cart.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26197916666666665" />
         <entry key="app/src/main/res/layout/activity_menu.xml" value="0.26197916666666665" />
-        <entry key="app/src/main/res/layout/content_language.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/fragment_address.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.17299898682877407" />
-        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.13780918727915195" />
         <entry key="app/src/main/res/layout/fragment_home_frament.xml" value="0.1453804347826087" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_payment_resume.xml" value="0.10460992907801418" />
-        <entry key="app/src/main/res/layout/fragment_product_cart_contact.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/fragment_product_contact.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_product_detail.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile_option_contact.xml" value="0.13993174061433447" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.37604166666666666" />
-        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.19791666666666666" />
-        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.25908372827804105" />
         <entry key="app/src/main/res/layout/fragment_shopping_cart.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_sucessful_payment.xml" value="0.10460992907801418" />
-        <entry key="app/src/main/res/layout/spinner_box_view.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/spinner_style.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/spinner_text_view.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/spinner_box_view.xml" value="0.18802083333333333" />
+        <entry key="app/src/main/res/layout/spinner_checked_text_view.xml" value="0.18802083333333333" />
+        <entry key="app/src/main/res/layout/spinner_text_view.xml" value="0.18802083333333333" />
         <entry key="app/src/main/res/menu/bedu_shop_menu.xml" value="0.4844961240310077" />
         <entry key="app/src/main/res/menu/top_nav_menu.xml" value="0.25" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22407407407407406" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22407407407407406" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_v2.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_v2_round.xml" value="0.13177083333333334" />
-        <entry key="app/src/main/res/xml/root_preferences.xml" value="0.19791666666666666" />
       </map>
     </option>
   </component>
