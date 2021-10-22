@@ -1,13 +1,11 @@
 package com.example.myapplication
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.BaseTransientBottomBar
@@ -16,30 +14,29 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class RegisterFragment : Fragment() {
-    private lateinit var registerButton : MaterialButton
-    private lateinit var regFormUser : TextInputLayout
-    private lateinit var regFormEmail : TextInputLayout
-    private lateinit var regFormPhone : TextInputLayout
-    private lateinit var regFormPassword : TextInputLayout
-    private lateinit var nameInputText : TextInputEditText
-    private lateinit var emailInputText : TextInputEditText
-    private lateinit var phoneInputText : TextInputEditText
-    private lateinit var passwordInputText : TextInputEditText
-    private var sharedPreferences : SharedPreferences? = null
-
+    private lateinit var registerButton: MaterialButton
+    private lateinit var regFormUser: TextInputLayout
+    private lateinit var regFormEmail: TextInputLayout
+    private lateinit var regFormPhone: TextInputLayout
+    private lateinit var regFormPassword: TextInputLayout
+    private lateinit var nameInputText: TextInputEditText
+    private lateinit var emailInputText: TextInputEditText
+    private lateinit var phoneInputText: TextInputEditText
+    private lateinit var passwordInputText: TextInputEditText
+    private lateinit var inputMap: Map<TextInputEditText, TextInputLayout>
 
     private val isFormValid: () -> Boolean = {
         !(regFormUser.editText?.text.isNullOrEmpty() ||
                 regFormEmail.editText?.text.isNullOrEmpty() ||
                 regFormPhone.editText?.text.isNullOrEmpty() ||
-                regFormPassword.editText?.text.isNullOrEmpty())
+                regFormPassword.editText?.text.isNullOrEmpty() ||
+                regFormPassword.editText?.text.toString().length < 8)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_register, container, false)
     }
 
@@ -56,69 +53,53 @@ class RegisterFragment : Fragment() {
         phoneInputText = view.findViewById(R.id.phoneInputText)
         passwordInputText = view.findViewById(R.id.passwordInputText)
 
-        sharedPreferences = requireContext().getSharedPreferences(
-            getString(R.string.login_shared_preference_file),
-            Context.MODE_PRIVATE
+        inputMap = mapOf(
+            nameInputText to regFormUser,
+            emailInputText to regFormEmail,
+            phoneInputText to regFormPhone,
+            passwordInputText to regFormPassword
         )
 
-        setTextChangeActions()
+        for ((inputEditText, _) in inputMap) {
+            inputEditText.doOnTextChanged { text, _, _, _ ->
+                if (!text.isNullOrEmpty()) {
+                    inputEditText.error = null
+                }
+            }
+        }
         setClickListeners(view)
-
     }
 
-
-    private fun setTextChangeActions(){
-        nameInputText.doOnTextChanged { text,_,_,_ ->
-            if(text!!.isNotEmpty()){
-                regFormUser.error = null
-            }
-        }
-        emailInputText.doOnTextChanged { text,_,_,_ ->
-            if(text!!.isNotEmpty()){
-                regFormEmail.error = null
-            }
-        }
-        phoneInputText.doOnTextChanged { text,_,_,_ ->
-            if(text!!.isNotEmpty()){
-                regFormPhone.error = null
-            }
-        }
-        passwordInputText.doOnTextChanged { text,_,_,_ ->
-            if(text!!.isNotEmpty()){
-                regFormPassword.error = null
-            }
-        }
-    }
-
-    private fun setClickListeners(view: View){
+    private fun setClickListeners(view: View) {
         registerButton.setOnClickListener {
             if(isFormValid()) {
-
-                if(passwordInputText.text.toString().length<8){
-                    regFormPassword.error=getString(R.string.notice_password_characters_less_than_8)
-                }else{
-                    sharedPreferences?.edit()
-                        ?.putString("USER_EMAIL", emailInputText.text.toString())
-                        ?.putString("USER_PASSWORD", passwordInputText.text.toString())
-                        ?.apply()
-
-
-                    val action = RegisterFragmentDirections.actionRegisterFragment2ToLoginFragment2()
-                    Navigation.findNavController(view).navigate(action)
+                ConfigManager.prefs(requireActivity()).edit()
+                    .putString("USER_EMAIL", emailInputText.text.toString())
+                    .putString("USER_PASSWORD", passwordInputText.text.toString())
+                    .apply()
+                val action = RegisterFragmentDirections
+                    .actionRegisterFragment2ToLoginFragment2()
+                Navigation.findNavController(view).navigate(action)
+            } else {
+                if (passwordInputText.text.toString().length < 8) {
+                    regFormPassword.error = getString(
+                        R.string.notice_password_characters_less_than_8
+                    )
+                }
+                for ((inputEditText, inputEditLayout) in inputMap) {
+                    if (inputEditText.text.isNullOrEmpty()) {
+                        inputEditLayout.error = getString(R.string.notice_incomplete_field)
+                    }
                 }
 
-            } else {
-                if(nameInputText.text.isNullOrEmpty()){regFormUser.error=getString(R.string.notice_incomplete_field)}
-                if(emailInputText.text.isNullOrEmpty()){regFormEmail.error=getString(R.string.notice_incomplete_field)}
-                if(phoneInputText.text.isNullOrEmpty()){regFormPhone.error=getString(R.string.notice_incomplete_field)}
-                if(passwordInputText.text.isNullOrEmpty()){regFormPassword.error=getString(R.string.notice_incomplete_field)}
-
-                Snackbar.make(view, getString(R.string.notice_in_complete_fields), Snackbar.LENGTH_SHORT)
+                Snackbar.make(
+                    view,
+                    getString(R.string.notice_in_complete_fields),
+                    Snackbar.LENGTH_SHORT
+                )
                     .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                    .setAction(getString(R.string.snack_bar_button)){}.show()
+                    .setAction(getString(R.string.snack_bar_button)) {}.show()
             }
         }
     }
-
-
 }

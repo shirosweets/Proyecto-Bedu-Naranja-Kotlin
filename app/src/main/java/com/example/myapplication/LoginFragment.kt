@@ -4,13 +4,13 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
 import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.BaseTransientBottomBar
@@ -82,65 +82,25 @@ class LoginFragment : Fragment() {
 
     private fun setClickListeners(view: View) {
         loginButton.setOnClickListener {
-            when(LoginCheck.checkEmailAndPassword(userInputText.text.toString(),passwordInputText.text.toString())){
-                "SUCCESSFUL_LOGIN"->{
-                    loginProgressBar.visibility = View.VISIBLE
-                    loginButton.isEnabled = false
-                    checkUser(view)
-                }
-                "EMPTY_FIELDS" ->{
+            if (isLoginFormValid()) {
+                loginProgressBar.visibility = View.VISIBLE
+                loginButton.isEnabled = false
+                checkUser(view)
+            } else {
+                loginFormPassword.error = LoginManager.getPasswordErrorHint(
+                    requireContext(),
+                    passwordInputText.text?.toString()
+                )
+                if (userInputText.text.isNullOrEmpty()) {
                     loginFormUser.error = getString(R.string.notice_incomplete_field)
-                    loginFormPassword.error = getString(R.string.notice_incomplete_field)
-                    Snackbar.make(
-                        view,
-                        getString(R.string.notice_in_complete_fields),
-                        Snackbar.LENGTH_SHORT
-                    )
-                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                        .setAction(getString(R.string.snack_bar_button)) {}.show()
-                }
-                "EMAIL_IS_EMPTY"->{
-                    loginFormUser.error = getString(R.string.notice_incomplete_field)
-                    Snackbar.make(
-                        view,
-                        getString(R.string.notice_in_complete_fields),
-                        Snackbar.LENGTH_SHORT
-                    )
-                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                        .setAction(getString(R.string.snack_bar_button)) {}.show()
-                }
-                "PASSWORD_IS_EMPTY"->{
-                    loginFormPassword.error = getString(R.string.notice_incomplete_field)
-                    Snackbar.make(
-                        view,
-                        getString(R.string.notice_in_complete_fields),
-                        Snackbar.LENGTH_SHORT
-                    )
-                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                        .setAction(getString(R.string.snack_bar_button)) {}.show()
-                }
-                "PASSWORD_CHARACTERS_IS_LESS_THAN_8"->{
-                    loginFormPassword.error = getString(R.string.notice_password_characters_less_than_8)
-                    Snackbar.make(
-                        view,
-                        getString(R.string.notice_in_complete_fields),
-                        Snackbar.LENGTH_SHORT
-                    )
-                        .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                        .setAction(getString(R.string.snack_bar_button)) {}.show()
-                }
-                else ->{
-
                 }
 
+                val incompleteFieldNotice = getString(R.string.notice_in_complete_fields)
+                Snackbar.make(view, incompleteFieldNotice, Snackbar.LENGTH_SHORT)
+                    .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
+                    .setAction(getString(R.string.snack_bar_button)) {}.show()
             }
-
-
         }
-
-
-
-
 
         registerRedirectBtn.setOnClickListener {
             findNavController().navigate(
@@ -150,14 +110,14 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun getRetrofit(baseUrl:String): Retrofit {
+    private fun getRetrofit(baseUrl: String): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
-    private fun checkUser(view: View){
+    private fun checkUser(view: View) {
         CoroutineScope(Dispatchers.IO).launch {
             val call = getRetrofit(baseLoginUrl)
                 .create(APIService::class.java)
@@ -166,12 +126,11 @@ class LoginFragment : Fragment() {
                     passwordInputText.text.toString()
                 )
 
-            activity?.runOnUiThread{
-                if (call.isSuccessful){
+            activity?.runOnUiThread {
+                if (call.isSuccessful) {
                     getUserData(userInputText.text.toString())
                     loginSuccessfully()
-                }
-                else {
+                } else {
                     loginProgressBar.visibility = View.INVISIBLE
                     loginButton.isEnabled = true
 
@@ -181,12 +140,13 @@ class LoginFragment : Fragment() {
                         Snackbar.LENGTH_SHORT
                     )
                         .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-                        .setAction(getString(R.string.snack_bar_button)) {}.show()}
+                        .setAction(getString(R.string.snack_bar_button)) {}.show()
                 }
             }
         }
+    }
 
-    private fun loginSuccessfully(){
+    private fun loginSuccessfully() {
         loginProgressBar.visibility = View.INVISIBLE
         loginButton.isEnabled = true
         findNavController().navigate(
@@ -195,8 +155,14 @@ class LoginFragment : Fragment() {
         )
     }
 
+    private fun isLoginFormValid(): Boolean {
+        val userValid: Boolean = !userInputText.text.isNullOrEmpty()
+        val passValid: Boolean = LoginManager.isPasswordValid(passwordInputText.text?.toString())
+        return (userValid && passValid)
+    }
+
     private fun getUserData(userEmail: String) {
-        for(userNumber in 1..12) {
+        for (userNumber in 1..12) {
             CoroutineScope(Dispatchers.IO).launch {
                 val call = getRetrofit(baseUserUrl)
                     .create(APIService::class.java)
@@ -204,25 +170,24 @@ class LoginFragment : Fragment() {
                 val userReceived = call.body()
 
                 activity?.runOnUiThread {
-                    if(call.isSuccessful) {
-                        if(userReceived?.data?.email == userEmail) {
+                    if (call.isSuccessful) {
+                        if (userReceived?.data?.email == userEmail) {
                             savedSharedPreferencesUser(userReceived)
                         }
-                    }
-                    else {
-                        Log.d("Error:","User data call failed")
+                    } else {
+                        Log.d("Error:", "User data call failed")
                     }
                 }
             }
         }
     }
 
-    private fun savedSharedPreferencesUser(user : User){
+    private fun savedSharedPreferencesUser(user: User) {
         sharedPreferences.edit()
-            ?.putBoolean("USER_ACCESS", true)
-            ?.putString("USER_EMAIL", user.data.email)
-            ?.putString("USER_AVATAR", user.data.avatar)
-            ?.putString("USER_FIRST_NAME", user.data.first_name)
-            ?.apply()
+            .putString("USER_EMAIL", user.data.email)
+            .putString("USER_AVATAR", user.data.avatar)
+            .putString("USER_FIRST_NAME", user.data.first_name)
+            .apply()
+        LoginManager.logIn(requireActivity())
     }
 }

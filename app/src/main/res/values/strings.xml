@@ -6,6 +6,7 @@
     <string name="pref_is_database_fetched" translatable="false">org.bedu.app.IS_DATABASE_FETCHED</string>
     <string name="pref_key_DARK_THEME" translatable="false">org.bedu.app.preferences.IS_DARK_THEME</string>
     <string name="B_DEBUG" translatable="false">BEDU_DEBUG</string>
+    <string name="realm_database" translatable="false">org.bedu.app.realmDB.beduShop</string>
 
     <!--Buttons-->
     <string name="log_in_button">Iniciar sesión</string>

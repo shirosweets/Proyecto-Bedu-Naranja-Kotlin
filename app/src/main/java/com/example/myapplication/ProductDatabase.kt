@@ -2,7 +2,6 @@ package com.example.myapplication
 
 import android.util.Log
 import io.realm.Realm
-import io.realm.exceptions.RealmException
 import io.realm.exceptions.RealmPrimaryKeyConstraintException
 import kotlin.math.max
 
