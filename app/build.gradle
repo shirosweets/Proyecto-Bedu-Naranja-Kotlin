@@ -14,10 +14,6 @@ android {
         viewBinding = true
     }
 
-    dataBinding{
-        enabled = true
-    }
-
     defaultConfig {
         applicationId "com.example.myapplication"
         minSdk 21
