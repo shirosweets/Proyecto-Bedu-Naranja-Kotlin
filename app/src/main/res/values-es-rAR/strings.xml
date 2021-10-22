@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Bedu Shop</string>
-    <string name="six_months_without_interest" translatable="false">En 6 meses sin intereses</string>
+    <string name="six_months_without_interest">En 6 meses sin intereses</string>
     <string name="product_image">Imagen del producto</string>
     <string name="log_out">Cerrar sesión</string>
     <string name="user">Usuario</string>
@@ -34,7 +34,6 @@
     <string name="notice_in_complete_fields">Por favor, complete todos los campos</string>
     <string name="notice_incomplete_field">Campo incompleto</string>
     <string name="notice_user_not_found">Usuario no encontrado</string>
-    <string name="hello_blank_fragment">Blank Fragment</string>
     <string name="reg_fragment_title">Regístrate</string>
     <string name="hint_name">Nombre Completo</string>
     <string name="hint_email">Correo Electrónico</string>
@@ -51,23 +50,11 @@
     <string name="search_toast_deac">La búsqueda está deshabilitada</string>
     <string name="go_to_profile">Ir al perfil</string>
     <string name="messages_header">Mensajes</string>
-    <string name="signature_title">Your signature</string>
-    <string name="sync_header">Sincronizar</string>
-    <string name="reply_title">Default reply action</string>
-    <string name="sync_title">Sincronizar email periodicamente</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="select">Seleccionar</string>
     <string name="text_change_language">Cambiar idioma</string>
     <string name="settings_language_text">Lenguaje</string>
     <string name="settings_theme_text">Tema</string>
     <string name="configuration_title">Configuración</string>
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="title_activity_language">LanguageActivity</string>
-    <string name="first_fragment_label">First Fragment</string>
     <string name="next">Siguiente</string>
     <string name="previous">Previo</string>
 </resources>

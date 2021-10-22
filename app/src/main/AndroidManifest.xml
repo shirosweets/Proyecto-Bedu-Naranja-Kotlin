@@ -15,11 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dark" >
         <activity
-            android:name=".LanguageActivity"
-            android:exported="true"
-            android:label="@string/title_activity_language"
-            android:theme="@style/Theme.Dark.NoActionBar" />
-        <activity
             android:name=".MenuActivity"
             android:exported="true" >
         </activity>
