@@ -48,15 +48,12 @@
                 style="@style/MaterialButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="258dp"
-                android:layout_marginBottom="180dp"
+                android:layout_marginTop="116dp"
                 android:text="@string/go_to_profile"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/change_language"
-                app:layout_constraintVertical_bias="0.61" />
+                app:layout_constraintTop_toBottomOf="@+id/change_language" />
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/change_language"
