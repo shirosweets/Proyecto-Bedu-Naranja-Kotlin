@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,6 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class HomeFragment : Fragment() {
     private lateinit var recycler: RecyclerView
     private lateinit var homeProgressBar: ProgressBar
+    private lateinit var productRefresh : SwipeRefreshLayout
     private val baseUrl = "https://fakestoreapi.com/"
 
     override fun onCreateView(
@@ -35,6 +37,13 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recycler = view.findViewById(R.id.productRecyclerView)
         homeProgressBar = view.findViewById(R.id.homeProgressBar)
+        productRefresh = view.findViewById(R.id.productSwipeRefreshLayout)
+        productRefresh.setOnRefreshListener {
+            productRefresh.isRefreshing = false
+            recycler.visibility = View.INVISIBLE
+            homeProgressBar.visibility = View.VISIBLE
+            loadProductsFromAPI(view)
+        }
         getProducts(view)
     }
 
